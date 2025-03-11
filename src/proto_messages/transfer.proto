@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package sim_data_flow;
+
+message Quaternion {
+  // x value
+  double x = 1;
+
+  // y value
+  double y = 2;
+
+  // z value
+  double z = 3;
+
+  // w value
+  double w = 4;
+}
+
+message Vector3 {
+  // x coordinate length
+  double x = 1;
+
+  // y coordinate length
+  double y = 2;
+
+  // z coordinate length
+  double z = 3;
+}
+
+message Pose {
+  uint64 timestamp = 1;
+  // Point denoting position in 3D space
+  Vector3 position = 2;
+
+  // Quaternion denoting orientation in 3D space
+  Quaternion orientation = 3;
+}
+
+message Transfer {
+    // 单点
+    int32 nodeId = 1;
+    Vector3  translation = 2;
+    Quaternion rotation = 3;
+    // LiftDoor
+    bool doorTag = 4;
+}
+  
+message MTransfer
+{
+    Pose robot_pose = 1;
+    repeated Transfer map = 2;
+    uint64 seq = 3;
+}
