@@ -121,8 +121,15 @@ def on_message(topic_name, msg, msg_time):
     # print("Axis:", axis)        # 输出: [0. 0. 1.]
     # print("Angle (rad):", angle) # 输出: 1.5708 (≈π/2)
 
-    # siyuanshu 2 theta    
-    row_list.extend([current_time, round(msg.position.x, 4), round(msg.position.y, 4), round(angle, 4)])
+    row_list.extend([current_time, round(msg.position.x, 4), round(msg.position.y, 4), round(msg.position.z, 4)])
+    row_list.extend(
+        [
+            axis[0],
+            axis[1],
+            axis[2],
+            angle,
+        ]
+    )
 
     # 获取当前位置
     GetCurrentPos_url = "http://127.0.0.1:24311/api/services/map/Agv/GetCurrentPos"
@@ -207,8 +214,26 @@ if __name__ == "__main__":
 
     ecal_core.initialize(sys.argv, "Python Protobuf Subscriber")
 
+    # csv表头
+    CSV_HEADER = [
+        "time",
+        "x",
+        "y",
+        "z",
+        "rotation_x",
+        "rotation_y",
+        "rotation_z",
+        "rotation_angle",
+        "slam_x",
+        "slam_y",
+        "slam_theta",
+        "lastEndControlError_x",
+        "lastEndControlError_y",
+        "lastEndControlError_theta",
+    ]
+
     # 创建消息缓冲区
-    messages_buffer = []
+    messages_buffer = [ CSV_HEADER ]
 
     # 创建并启动写入文件的线程
     write_thread = threading.Thread(target=write_to_file, daemon=True)
