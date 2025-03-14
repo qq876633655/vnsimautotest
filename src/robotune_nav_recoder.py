@@ -31,6 +31,43 @@ headers = {
 }
 
 
+def quaternion_to_axis_angle(q):
+    """
+    将四元数转换为轴角表示（仅依赖NumPy）
+    
+    参数：
+        q : numpy数组，形状为(4,)或(N,4)，四元数格式为 [x, y, z, w]
+    
+    返回：
+        axis : 单位旋转轴，形状为(3,)或(N,3)
+        angle : 旋转角度（弧度），形状为()或(N,)
+    """
+    # 确保输入为NumPy数组
+    q = np.asarray(q)
+    
+    # 提取四元数分量（假设输入为 [x, y, z, w] 格式）
+    x, y, z, w = q[..., 0], q[..., 1], q[..., 2], q[..., 3]
+    
+    # 计算旋转角度（弧度）
+    angle = 2 * np.arccos(w)
+    
+    # 计算旋转轴的分母项 sin(theta/2)
+    sin_half_theta = np.sqrt(1 - w**2)  # 等价于 sqrt(x² + y² + z²)
+    
+    # 处理除零问题（当角度接近0时，轴方向无意义，设为默认轴[1,0,0]）
+    epsilon = 1e-7  # 极小值阈值
+    safe_sin = np.where(sin_half_theta > epsilon, sin_half_theta, 1.0)
+    
+    # 计算归一化旋转轴
+    axis_x = np.where(sin_half_theta > epsilon, x / safe_sin, 1.0)
+    axis_y = np.where(sin_half_theta > epsilon, y / safe_sin, 0.0)
+    axis_z = np.where(sin_half_theta > epsilon, z / safe_sin, 0.0)
+    
+    # 合并轴分量
+    axis = np.stack([axis_x, axis_y, axis_z], axis=-1)
+    
+    return axis, angle
+
 
 # 获取当前文件路径
 def get_current_file_path():
@@ -78,8 +115,14 @@ def on_message(topic_name, msg, msg_time):
 
     current_time = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
 
+    # 单个四元数转轴角
+    q = np.array([msg.orientation.x, msg.orientation.y, msg.orientation.z, msg.orientation.w])  # [x, y, z, w] = [0, 0, 0.707, 0.707]
+    axis, angle = quaternion_to_axis_angle(q)
+    # print("Axis:", axis)        # 输出: [0. 0. 1.]
+    # print("Angle (rad):", angle) # 输出: 1.5708 (≈π/2)
+
     # siyuanshu 2 theta    
-    row_list.extend([current_time, round(msg.position.x, 4), round(msg.position.y, 4), round(msg.position.z, 4)])
+    row_list.extend([current_time, round(msg.position.x, 4), round(msg.position.y, 4), round(angle, 4)])
 
     # 获取当前位置
     GetCurrentPos_url = "http://127.0.0.1:24311/api/services/map/Agv/GetCurrentPos"
@@ -117,13 +160,13 @@ def on_message(topic_name, msg, msg_time):
         )
         row_list.extend(result)
 
-    url_GetCurrentTaskInfo = (
-        "http://127.0.0.1:24311/api/services/task/Agv/GetCurrentTaskInfo"
-    )
-    reponse_GetCurrentTaskInfo = requests.get(url_GetCurrentTaskInfo, headers=headers)
-    result_GetCurrentTaskInfo = reponse_GetCurrentTaskInfo.json()
-    print("task name = ", result_GetCurrentTaskInfo["result"]["taskId"])
-    row_list.extend(result_GetCurrentTaskInfo["result"]["taskId"])
+    # url_GetCurrentTaskInfo = (
+    #     "http://127.0.0.1:24311/api/services/task/Agv/GetCurrentTaskInfo"
+    # )
+    # reponse_GetCurrentTaskInfo = requests.get(url_GetCurrentTaskInfo, headers=headers)
+    # result_GetCurrentTaskInfo = reponse_GetCurrentTaskInfo.json()
+    # print("task name = ", result_GetCurrentTaskInfo["result"]["taskId"])
+    # row_list.extend(result_GetCurrentTaskInfo["result"]["taskId"])
 
     messages_buffer.append(row_list)
 
