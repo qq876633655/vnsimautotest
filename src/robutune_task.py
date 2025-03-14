@@ -18,6 +18,38 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # 定义路径常量
 LOG_SOURCE_DIR = Path('/home/visionnav/log')
 LOG_TARGET_BASE_DIR = Path('/home/visionnav/autotest')
+FLAG_received = False
+
+# 监听svc/pose话题，如果有消息了，则退出循环
+def wait_for_pose_topic():
+
+
+    global FLAG_received 
+
+    # 初始化eCAL
+    ecal_core.initialize(sys.argv, "Simple Topic Waiter")
+    
+    # 创建订阅者
+    sub = ProtoSubscriber("svc/pose", pose_pb2.Pose)
+    
+    # 定义回调函数
+    def callback(topic_name, msg, time):
+        print(f"收到 {msg} 的首条消息")
+        global FLAG_received 
+        FLAG_received = True  # 修改状态
+        sub.rem_callback(callback)
+        ecal_core.shutdown_core()
+
+    # 设置回调
+    sub.set_callback(callback)
+    
+    # 等待循环
+    print(f"等待话题 [svc/pose]...")
+    while not FLAG_received:
+        print("正在等待...")
+        time.sleep(1)
+    print("话题 [svc/pose] 已收到消息，退出循环")
+    return
 
 # 获取任务流程列表
 def get_DynamicFlow_GetAll():
@@ -270,8 +302,9 @@ if __name__ == "__main__":
             # 如果程序没有正常启动，则启动所有实例。
             agv.StartALLInstance()
 
-            
-            time.sleep(30)
+            # 监听svc/pose话题，如果有消息了，则退出循环。证明仿真程序启动成功。Todo:可以加上超时检测。
+            wait_for_pose_topic()
+            # time.sleep(30)
 
 
 
