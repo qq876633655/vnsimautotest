@@ -1,5 +1,6 @@
 # coding=utf-8
 import os
+import time
 import requests
 import json
 import logging
@@ -39,6 +40,9 @@ class TaskTrigger():
     def make_request(self, url, data):
         try:
             response = requests.post(url, headers=self.headers, data=json.dumps(data))
+            if response.status_code != 200:
+                # print(response.json()['error'])
+                print(response.json()['error']['message'])
             response.raise_for_status()  # 检查HTTP错误
             return response.json()
         except requests.exceptions.RequestException as e:
@@ -98,6 +102,8 @@ class TaskTrigger():
             "startIndex": 0
         }
         try:
+            # wait ten seconds to robotune is ready
+            time.sleep(10)
             response_data = self.make_request(DEBUG_FLOW_URL, data)
             print(response_data)
             # 检查是否有task_loop_id ，没有的话需要返回失败，下发任务失败就要去执行下一个任务。
@@ -248,7 +254,12 @@ class AGVsysTrigger():
         for data in self.ServiceInstanceList:
             if data['serviceType']['serviceTypeName'] == '3DSlam':
                 self.StartInstance(data['id'])      
-    
+
+# 关闭robotune前做一次任务清除的操作
+CLEAR_ROBOTUNE_TASK = f"{BASE_URL}/api/services/task/DynamicFlow/ClearExistTask"
+def clear_robotune_task():
+    requests.post(CLEAR_ROBOTUNE_TASK)
+    print("清除robotune当前缓存")
     # todo-启动前确认地图和agv初始位置。根据webots的初始位姿态来处理？好像也不错。或者根据任务里面的移动任务的起点来处理。
 
 if __name__ == "__main__":
@@ -258,7 +269,7 @@ if __name__ == "__main__":
     # exit()
 
     try:
-        taskId = 67  # 示例 taskid
+        taskId = 71  # 示例 taskid
         loopNum = 1  # 示例 loopnum        
         task_trigger = TaskTrigger()
         task_trigger.get_occupy()
