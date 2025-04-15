@@ -141,7 +141,6 @@ def listen(taskName):
     )
     reponse_GetCurrentTaskInfo = requests.get(url_GetCurrentTaskInfo, headers=headers)
     result_GetCurrentTaskInfo = reponse_GetCurrentTaskInfo.json()
-
     if not isinstance(result_GetCurrentTaskInfo["result"], dict):
         print("任务未开始")
         return result_GetCurrentTaskInfo["result"]["name"]
@@ -170,9 +169,9 @@ if __name__ == "__main__":
     # csv表头
     CSV_HEADER = [
         "time",
-        "x",
-        "y",
-        "z",
+        "仿真x",
+        "仿真y",
+        "仿真z",
         "Axis-Angle_x",
         "Axis-Angle_y",
         "Axis-Angle_z",
