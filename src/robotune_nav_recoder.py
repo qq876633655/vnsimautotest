@@ -13,7 +13,9 @@ from ecal.core.subscriber import ProtoSubscriber
 
 import proto_messages.pose_pb2 as pose_pb2
 
+
 # 配置
+CSV_FILE_DIR = ""
 CSV_FILE_PREFIX = "data"
 MAX_FILE_SIZE_MB = 100
 CURRENT_FILE = ''
@@ -31,7 +33,7 @@ headers = {
 # 获取当前文件路径
 def get_current_file_path():
     current_time = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
-    return f"{CSV_FILE_PREFIX}_{current_time}.csv"
+    return f"{CSV_FILE_DIR}/{CSV_FILE_PREFIX}_{current_time}.csv"
 
 
 # 检查文件大小并切换文件
@@ -52,7 +54,7 @@ def write_to_file():
     while True:
         if messages_buffer:
             file_path = check_and_switch_file(CURRENT_FILE)
-
+            os.makedirs(os.path.dirname(file_path), exist_ok=True)
             with open(file_path, mode="a", newline="", buffering=1) as file:
                 writer = csv.writer(file)
                 while messages_buffer:
@@ -158,8 +160,12 @@ def listen(taskName):
 
 if __name__ == "__main__":
 
-    # 登录，获取控制权，触发任务，记录数据
+    with open('save_log_path.txt', 'r') as r:
+        CSV_FILE_DIR = r.read()
+    r.close()
+    print(CSV_FILE_DIR)
 
+    # 登录，获取控制权，触发任务，记录数据
     print("监听记录信号：执行等待任务中时记录信息")
     interval_time = 2
     taskName = ""
