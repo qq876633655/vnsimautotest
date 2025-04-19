@@ -27,9 +27,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # 定义路径常量ecal_core
 LOG_SOURCE_DIR = Path('/home/visionnav/log')
 LOG_TARGET_BASE_DIR = Path('/home/visionnav/autotest')
-CPU_CSV_DIR = Path('/home/visionnav/VNSim/luoguancong/csv')
+CPU_CSV_DIR = Path('/home/visionnav/VNSim/luoguancong/vnsimautotest/csv')
 FLAG_received = False
-
+SAVE_LOG_DIR = ""
 # 监听svc/pose话题，如果有消息了，则退出循环
 def wait_for_pose_topic():
 
@@ -260,8 +260,12 @@ def clear_agv_log():
     except Exception as e:
         logging.error(f"删除日志目录失败: {LOG_SOURCE_DIR}, 错误信息: {e}")
 def log_dir(task_name,task_id):
+    with open("save_log_path.txt",'w') as w:
+        w.write(str(LOG_TARGET_BASE_DIR / f"{task_name}_{task_id}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}"))
+    w.close()
     return LOG_TARGET_BASE_DIR / f"{task_name}_{task_id}_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}"
-def save_agv_log(task_name,task_id):
+
+def save_agv_log():
     # try:
     #     # 生成保存日志的日期
     #     # 安全地拼接路径
@@ -278,13 +282,14 @@ def save_agv_log(task_name,task_id):
     #     shutil.copytree(CPU_CSV_DIR, save_log_path)
     try:
         # 安全地拼接路径
-        save_log_path = log_dir(task_name,task_id)
+        # save_log_path = log_dir(task_name,task_id)
         # 记录日志
-        logging.info(f"Saving log to {save_log_path}")
-        shutil.copytree(LOG_SOURCE_DIR, os.path.join(save_log_path, os.path.basename(LOG_SOURCE_DIR)))
-        print(f"成功复制 {LOG_SOURCE_DIR} 到 {save_log_path}")
-        shutil.copytree(CPU_CSV_DIR, os.path.join(save_log_path, os.path.basename(CPU_CSV_DIR)))
-        print(f"成功复制 {CPU_CSV_DIR} 到 {save_log_path}")
+        global SAVE_LOG_DIR
+        logging.info(f"Saving log to {SAVE_LOG_DIR}")
+        shutil.copytree(LOG_SOURCE_DIR, os.path.join(SAVE_LOG_DIR, os.path.basename(LOG_SOURCE_DIR)))
+        print(f"成功复制 {LOG_SOURCE_DIR} 到 {SAVE_LOG_DIR}")
+        shutil.copytree(CPU_CSV_DIR, os.path.join(SAVE_LOG_DIR, os.path.basename(CPU_CSV_DIR)))
+        print(f"成功复制 {CPU_CSV_DIR} 到 {SAVE_LOG_DIR}")
 
     except FileExistsError:
         print("目标目录中已有同名文件夹，请检查。")
@@ -295,7 +300,7 @@ def save_agv_log(task_name,task_id):
 
 
     except FileExistsError:
-        logging.error(f"Directory {save_log_path} already exists.")
+        logging.error(f"Directory {SAVE_LOG_DIR} already exists.")
     except PermissionError:
         logging.error("Permission denied when trying to copy logs.")
     except Exception as e:
@@ -311,8 +316,8 @@ def timestamp_to_formatted_time(timestamp):
 
 
 # 获取robotune异常情况
-def robotune_error_code_get(task_name,task_id):
-    save_log_path = log_dir(task_name,task_id)
+def robotune_error_code_get():
+    global SAVE_LOG_DIR
     error_list = []
     if not error_list:
         for i in range(3, 5):
@@ -330,11 +335,10 @@ def robotune_error_code_get(task_name,task_id):
             except (KeyError, IndexError) as e:
                 print(f"解析响应数据时发生错误: {e}")
 
-    with open(f'{save_log_path}/robotune_error.txt', 'w', encoding='utf-8') as f:
+    with open(f'{SAVE_LOG_DIR}/robotune_error.txt', 'w', encoding='utf-8') as f:
         for item in error_list:
             f.write(f"{item}\n")
     f.close()
-
 if __name__ == "__main__":
 
 
@@ -343,116 +347,120 @@ if __name__ == "__main__":
     task_list = get_DynamicFlow_GetAll()
     task_report = []
     
+    count = 0
+    while count < 1:
+        print(f"当前运行第:{count + 1}次")
+        for index,i in enumerate(task_list):
+            # 提取关键词AT的任务作为循环任务 , 后续可能要分类，哪些测感知哪些测定位。输出用例报告，通过用例的精度、异常用例的失败原因。
+            if 'C' in i['name']:
+                print(i['name'],i['id'])
+                SAVE_LOG_DIR = log_dir(i['name'],i['id'])
+                # get_FlowInfo(i['id'])test
+                webots_stop_force()
+                agv = AGVsysTrigger()
+                agv.StopALLInstance()
+
+                # 启动对应的wbt场景，并且等待准备好slam的相关数据。需要等待wbt启动后，再启动agv程序
+                FIP = FlowInfoParser(i['id'])
+                spawn_point_float_list = [float(x) for x in FIP.Spawn_point[0].split(',')]
+                handle_slam_map_and_spawn_point(spawn_point_float_list,FIP.locationName)
+
+                # 启动wbt
+                webots_start_wbt(FIP.wbt_file_name,spawn_point_float_list)
+
+                clear_agv_log()
+                time.sleep(15)
+
+
+                # 如果程序没有正常启动，则启动所有实例。
+                agv.StartALLInstance()
+                
+
+                # 监听svc/pose话题，如果有消息了，则退出循环。证明仿真程序启动成功。Todo:可以加上超时检测。
+                wait_for_pose_topic()
+                # time.sleep(30)
+
+
     
+                try:
+                    print("开始下发任务")
+                    taskId = i['id']  # 示例 taskid
+                    print(taskId)
+                    loopNum = 1  # 设置循环次数，默认20次 
+                    task_trigger = TaskTrigger()
+                    task_trigger.get_occupy()
+                    task_trigger.post_debug_flow(taskId,loopNum)    
+                    task_trigger.get_unoccupy()
+                    # 如果没有成功生成任务ID就是失败了，可能是路径规划问题、可能是地图问题、可能是车辆待机问题
+                    if task_trigger.task_loop_id == '0':
+                        logging.error(f"下发任务失败，该用例失败")
+                        webots_stop_force()
+                        agv.StopALLInstance()
+                        save_agv_log()
+                        time.sleep(15)
+                        task_report.append([index,i['name'],i['id'],'下发任务失败'])
+                        # save_agv_log(i['name'],i['id'])
+                        continue
 
-    for i in task_list:
-        # 提取关键词AT的任务作为循环任务 , 后续可能要分类，哪些测感知哪些测定位。输出用例报告，通过用例的精度、异常用例的失败原因。
-        if '单自动门DW' in i['name']:
-            clear_robotune_task()
-            print(i['name'],i['id'])
-            # get_FlowInfo(i['id'])test
-            webots_stop_force()
-            agv = AGVsysTrigger()
-            agv.StopALLInstance()
-
-            # 启动对应的wbt场景，并且等待准备好slam的相关数据。需要等待wbt启动后，再启动agv程序
-            FIP = FlowInfoParser(i['id'])
-            spawn_point_float_list = [float(x) for x in FIP.Spawn_point[0].split(',')]
-            handle_slam_map_and_spawn_point(spawn_point_float_list,FIP.locationName)
-
-            # 启动wbt
-            webots_start_wbt(FIP.wbt_file_name,spawn_point_float_list)
-
-            clear_agv_log()
-            time.sleep(15)
-
-
-            # 如果程序没有正常启动，则启动所有实例。
-            agv.StartALLInstance()
-            
-
-            # 监听svc/pose话题，如果有消息了，则退出循环。证明仿真程序启动成功。Todo:可以加上超时检测。
-            wait_for_pose_topic()
-            # time.sleep(30)
+                except Exception as e:
+                    logging.error(f"程序执行过程中发生错误: {e}")
 
 
-   
-            try:
-                print("开始下发任务")
-                taskId = i['id']  # 示例 taskid
-                print(taskId)
-                loopNum = 1  # 设置循环次数，默认20次 
-                task_trigger = TaskTrigger()
-                task_trigger.get_occupy()
-                task_trigger.post_debug_flow(taskId,loopNum)    
-                task_trigger.get_unoccupy()
-                # 如果没有成功生成任务ID就是失败了，可能是路径规划问题、可能是地图问题、可能是车辆待机问题
-                if task_trigger.task_loop_id == '0':
-                    logging.error(f"下发任务失败，该用例失败")
-                    webots_stop_force()
-                    agv.StopALLInstance()
-                    save_agv_log(i['name'],i['id'])
-                    time.sleep(15)
-                    task_report.append([i['name'],i['id'],'下发任务失败'])
-                    # save_agv_log(i['name'],i['id'])
-                    continue
+                # 过程监控，记录使用，是否有异常，如果有异常就复制一份日志.并且循环等待。        
+                # # 用子线程调用脚本来copy文件
 
-            except Exception as e:
-                logging.error(f"程序执行过程中发生错误: {e}")
+                # 获取当前路径
+                process_record = subprocess.Popen(['python3', '/home/visionnav/VNSim/luoguancong/vnsimautotest/src/robotune_nav_recoder.py'])
 
+                # 记录各线程的CPU和内存信息
+                process_csv = subprocess.Popen(['python3', '/home/visionnav/VNSim/luoguancong/vnsimautotest/src/process_csv_linux.py'])
+                
+                # loop waitting for task finish
+                while True:
+                    # 获取任务状态
+                    # task_status = task_trigger.get_task_status(taskId)
+                    task_trigger.get_DebugStatus()
 
-            # 过程监控，记录使用，是否有异常，如果有异常就复制一份日志.并且循环等待。        
-            # # 用子线程调用脚本来copy文件
-
-            # 获取当前路径
-            process_record = subprocess.Popen(['python3', '/home/visionnav/VNSim/luoguancong/vnsimautotest/src/robotune_nav_recoder.py'])
-
-            # 记录各线程的CPU和内存信息
-            process_csv = subprocess.Popen(['python3', '/home/visionnav/VNSim/luoguancong/vnsimautotest/src/process_csv_linux.py'])
-            
-            # loop waitting for task finish
-            while True:
-                # 获取任务状态
-                # task_status = task_trigger.get_task_status(taskId)
-                task_trigger.get_DebugStatus()
-
-                if task_trigger.task_loop_normal_exit:
-                    # 正常退出，清空日志
-                    # Todo：增加数据分析模块，重复精度不合格也要判断为用例失败
-                    process_record.terminate()
-                    # 杀死cpu占用运行的进程
-                    process_csv.kill()
-                    webots_stop_force()
-                    # 保存日志
-                    agv.StopALLInstance()
-                    save_agv_log(i['name'],i['id'])
-                    time.sleep(5)
-                    print('正常退出')
-                    task_report.append([i['name'],'用例执行通过'])
-                    # save_agv_log(i['name'],i['id'])                    
-                    break
-                if task_trigger.task_loop_exceptional_exit:
-                    # 异常退出，保留日志，获取一下对应的
-                    process_record.terminate()
-                    # 杀死cpu占用运行的进程
-                    process_csv.kill()
-                    # 清除當前任务流程
-                    clear_robotune_task()
-                    # 关闭仿真环境和AGV程序
-                    webots_stop_force()
-                    agv.StopALLInstance()
-                    # 保存日志和csv
-                    save_agv_log(i['name'],i['id'])
-                    # 保存异常流程的错误信息
-                    robotune_error_code_get(i['name'],i['id'])
-                    time.sleep(5)
-                    print('异常退出')
-                    task_report.append([i['name'],'用例失败,执行时异常'])
-                    # save_agv_log(i['name'],i['id'])
-                    break
-                else:
-                    # 循环等待
-                    time.sleep(1)
+                    if task_trigger.task_loop_normal_exit:
+                        # 正常退出，清空日志
+                        # Todo：增加数据分析模块，重复精度不合格也要判断为用例失败
+                        process_record.terminate()
+                        # 杀死cpu占用运行的进程
+                        process_csv.kill()
+                        webots_stop_force()
+                        # 正常退出，清空缓存
+                        clear_robotune_task()
+                        # 保存日志
+                        agv.StopALLInstance()
+                        save_agv_log()
+                        time.sleep(5)
+                        print('正常退出')
+                        task_report.append([index,i['name'],'用例执行通过'])
+                        # save_agv_log(i['name'],i['id'])                    
+                        break
+                    if task_trigger.task_loop_exceptional_exit:
+                        # 异常退出，保留日志，获取一下对应的
+                        process_record.terminate()
+                        # 杀死cpu占用运行的进程
+                        process_csv.kill()
+                        # 清除當前任务流程
+                        clear_robotune_task()
+                        # 关闭仿真环境和AGV程序
+                        webots_stop_force()
+                        agv.StopALLInstance()
+                        # 保存日志和csv
+                        save_agv_log()
+                        # 保存异常流程的错误信息
+                        robotune_error_code_get()
+                        time.sleep(5)
+                        print('异常退出')
+                        task_report.append([index,i['name'],'用例失败,执行时异常'])
+                        # save_agv_log(i['name'],i['id'])
+                        break
+                    else:
+                        # 循环等待
+                        time.sleep(1)
+        count += 1
 
     
     print(task_report)
