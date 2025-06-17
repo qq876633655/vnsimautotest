@@ -2,8 +2,8 @@ import csv
 import numpy as np
 
 # 读取原始CSV文件
-input_file = '/home/visionnav/VNSim/luoguancong/data_2025-02-20-16-45-32.csv'
-point_num = 3
+input_file = '/home/visionnav/VNSim/luoguancong/vnsimautotest/data_2025-04-17-16-42-57.csv'
+point_num = 2
 base_name, extension = input_file.rsplit('.', 1)
 output_files = []
 

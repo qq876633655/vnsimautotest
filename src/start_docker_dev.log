@@ -1,0 +1,2 @@
+docker: Error response from daemon: Conflict. The container name "/vnsim_dev" is already in use by container "98f2ab70dc5833f3d846a956dab1a19744a852ff40386e6d5cca8cbef9a69d14". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.

@@ -1,0 +1,2107 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/solids/protos/SolidBox.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/OldSteel.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/VNCar/P/P15/P15-Body.proto"
+
+WorldInfo {
+  info [
+    "Demonstration of the alternate tripod gait using linear and rotational motors."
+    "Biologically Inspired Robotics Group (BIRG)"
+  ]
+  title "Hexapod"
+  ERP 0.1
+  basicTimeStep 10
+  FPS 10
+  physicsDisableTime 0
+  contactProperties [
+    ContactProperties {
+      material2 "A"
+      coulombFriction [
+        -1
+      ]
+    }
+    ContactProperties {
+      material1 "B"
+      coulombFriction [
+        -1
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.2413370055020339 -0.28399455605600643 0.9279566487211905 4.524872826179349
+  position -1.4631927870238592 13.213659945082352 10.58654781321124
+}
+TexturedBackgroundLight {
+}
+TexturedBackground {
+}
+Pose {
+  rotation 0 0 1 1.57
+  children [
+    SolidBox {
+      hidden linearVelocity_0 5.4806508366278615e-19 -1.2476024491100685e-17 5.249587127984608e-15
+      hidden angularVelocity_0 7.154995214564524e-18 7.882250923614849e-18 1.2928041399876349e-18
+      translation -2.2900000000003513 2.9699999999999998 0.6498773749999998
+      rotation 2.128415863929991e-07 2.7893595554311067e-07 0.9999999999999385 4.462208380573704e-12
+      size 1.05 1.3 1.3
+      appearance OldSteel {
+      }
+      physics Physics {
+        density -1
+        mass 1
+      }
+    }
+    Solid {
+      translation -2.4513724383723456e-13 1.73 -1304.0091097600093
+      rotation 5.555875271041201e-13 1 3.30820980590988e-11 6.711926327307939e-06
+      name "pallate(3)"
+      physics Physics {
+        density -1
+        mass 1
+      }
+      linearVelocity 0 0 -159.9029999999982
+    }
+  ]
+}
+Group {
+  children [
+    Wall {
+      translation -8.43 19.36 0
+      name "wall_right(2)"
+      size 0.2 20 5.1
+    }
+    Wall {
+      translation -49.68 7.2 0
+      size 0.2 5 3
+    }
+    Wall {
+      translation 11.32 7.9 0
+      name "wall_right(2)"
+      size 0.2 45 5.1
+    }
+    Wall {
+      translation -8.43 -4.67 0
+      name "wall_right(2)"
+      size 0.2 20 5.1
+    }
+    Wall {
+      translation 1.49999 28.97 0
+      rotation 0 0 1 -1.5707953071795862
+      name "wall_right(2)"
+      size 0.2 20 5.1
+    }
+    Wall {
+      translation 1.49999 -13.49 0
+      rotation 0 0 1 -1.5707953071795862
+      name "wall_right(2)"
+      size 0.2 20 5.1
+    }
+    Wall {
+      translation 1.49999 -1.46 5.1
+      rotation 0 0 1 -1.5707953071795862
+      name "wall_right(2)"
+      size 0.2 20 2
+    }
+    Wall {
+      translation 1.49999 11.56 5.1
+      rotation 0 0 1 -1.5707953071795862
+      name "wall_right(2)"
+      size 0.2 20 2
+    }
+    Wall {
+      translation -8.36 5.71 5.1
+      name "wall_right(2)"
+      size 0.2 20 2
+    }
+    Wall {
+      translation -8.56 5.71 3.04
+      name "wall_right(2)"
+      size 0.2 20 2.1
+    }
+    Wall {
+      translation 11.28 5.71 5.1
+      name "wall_right(2)"
+      size 0.2 20 2
+    }
+    Floor {
+      translation -30 0 3
+      rotation 1 0 0 3.1415
+      name "cube"
+      size 42.9 100
+    }
+    Floor {
+      translation 1.5 -7.5 5.1
+      rotation 1 0 0 3.1415
+      name "large_side1"
+      size 20 12
+    }
+    Floor {
+      translation 1.5 20.7 5.1
+      rotation 1 0 0 3.1415
+      name "large_side2"
+      size 20 18
+    }
+    Floor {
+      translation 1.5 6 7.1
+      rotation 1 0 0 3.1415
+      name "top"
+      size 20 18
+    }
+    Floor {
+      size 100 100
+      tileSize 10 10
+      appearance Parquetry {
+        type "light strip"
+        colorOverride 0.533333 0.541176 0.521569
+      }
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -11.875 0.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 4.9 3
+          rotation 1 0 0 3.1415
+          name "wall_back(7)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -17.952 0.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(1)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(1)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back(1)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 4.9 3
+          rotation 1 0 0 3.1415
+          name "wall_back(8)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -23.547 0.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(2)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(2)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back(2)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 4.9 3
+          rotation 1 0 0 3.1415
+          name "wall_back(9)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -29.463 0.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(3)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(3)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back(3)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -35.038 0.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(4)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(4)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back(4)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 4.9 3
+          rotation 1 0 0 3.1415
+          name "wall_back(10)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -41.092 0.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(5)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(5)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back(5)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 4.9 3
+          rotation 1 0 0 3.1415
+          name "wall_back(12)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back(11)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -46.687 0.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(6)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(6)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 -5.1 3
+          rotation 1 0 0 3.1415
+          name "wall_back(6)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 4.9 3
+          rotation 1 0 0 3.1415
+          name "wall_back(13)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -11.875 14.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 5.1 0
+          name "wall_front"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 -4.9 0
+          name "wall_front(9)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -17.952 14.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(1)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(1)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 5.1 0
+          name "wall_front(1)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 -4.9 0
+          name "wall_front(9)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -23.547 14.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(2)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(2)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 5.1 0
+          name "wall_front(2)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 -4.9 0
+          name "wall_front(9)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -29.463 14.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(3)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(3)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 5.1 0
+          name "wall_front(3)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -35.038 14.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(4)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(4)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 5.1 0
+          name "wall_front(4)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 -4.9 0
+          name "wall_front(9)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -41.092 14.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(5)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(5)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 5.1 0
+          name "wall_front(5)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 -4.9 0
+          name "wall_front(9)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation -46.687 14.4 0
+      children [
+        Wall {
+          translation -2.6 0 0
+          name "wall_left(6)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 2.6 0 0
+          name "wall_right(6)"
+          size 0.2 10 3
+        }
+        Wall {
+          translation 0 5.1 0
+          name "wall_front(6)"
+          size 5 0.2 3
+        }
+        Wall {
+          translation 0 -4.9 0
+          name "wall_front(9)"
+          size 5 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation 0 0.5 0
+      children [
+        Wall {
+          translation -38.05 9 0
+          name "wall_front(11)"
+          size 0.8 0.2 3
+        }
+        Wall {
+          translation -32.25 9 0
+          name "wall_front(10)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -43.88 9 0
+          name "wall_front(12)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -49.5 9 0
+          name "wall_front(13)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -20.75 9 0
+          name "wall_front(14)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -26.49 9 0
+          name "wall_front(7)"
+          size 0.8 0.2 3
+        }
+        Wall {
+          translation -14.9 9 0
+          name "wall_front(8)"
+          size 0.8 0.2 3
+        }
+        Wall {
+          translation -8.86 9 0
+          name "wall_front(9)"
+          size 0.8 0.2 3
+        }
+      ]
+    }
+  ]
+}
+Group {
+  children [
+    Pose {
+      translation 0 -3.7 0
+      children [
+        Wall {
+          translation -38.05 9 0
+          name "wall_front(8)"
+          size 0.8 0.2 3
+        }
+        Wall {
+          translation -32.25 9 0
+          name "wall_front(8)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -43.88 9 0
+          name "wall_front(8)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -49.5 9 0
+          name "wall_front(8)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -20.75 9 0
+          name "wall_front(8)"
+          size 0.5 0.2 3
+        }
+        Wall {
+          translation -26.49 9 0
+          name "wall_front(9)"
+          size 0.8 0.2 3
+        }
+        Wall {
+          translation -14.9 9 0
+          name "wall_front(9)"
+          size 0.8 0.2 3
+        }
+        Wall {
+          translation -8.86 9 0
+          name "wall_front(9)"
+          size 0.8 0.2 3
+        }
+      ]
+    }
+  ]
+}
+DEF RobotNode Robot {
+  translation 2.671329421599644e-05 1.5117870155127226e-05 0.018503057054325353
+  rotation -0.04924327760525805 0.9987867669176408 0.000306334617603513 0.01616191452554877
+  children [
+    Pose {
+      translation 0.6 -0.000955589 0.91
+      rotation 0 0 1 3.14
+    }
+    Pose {
+      children [
+        DEF LidarPose Pose {
+          translation 1.15 0 2
+          rotation 0 1 0 1.57
+          children [
+            Mid360 {
+              name "lidar_2"
+            }
+            Mid360 {
+              translation 0 0.57 -0.27
+              rotation 1 0 0 -1.57
+              name "lidar_3"
+            }
+            Mid360 {
+              translation 0 -0.57 -0.27
+              rotation 1 0 0 1.57
+              name "lidar_4"
+            }
+          ]
+        }
+        DEF DrivenWheel Pose {
+          translation 0 0 0.086
+          rotation 1 0 0 -1.57
+          children [
+            Pose {
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -436.9929471351352
+                    axis 0 0 1
+                  }
+                  device [
+                    PositionSensor {
+                      name "BRPS"
+                    }
+                  ]
+                  endPoint DEF R_D_SteerSolid Solid {
+                    translation 0 0 -0.5099999999999811
+                    rotation 0 0 1 2.8300243674358714
+                    children [
+                      DEF R Shape {
+                        appearance Appearance {
+                          material Material {
+                            diffuseColor 0 0 0
+                          }
+                        }
+                        geometry Cylinder {
+                          height 0.03
+                          radius 0.06
+                        }
+                      }
+                    ]
+                    name "solid(2)"
+                    contactMaterial "B"
+                    boundingObject DEF RS Cylinder {
+                      height 0.094
+                      radius 0.105
+                    }
+                    physics Physics {
+                      density 10
+                      centerOfMass [
+                        0 0 0
+                      ]
+                    }
+                    linearVelocity 8.369849873732937e-10 1.478561527015602e-14 -4.480598646121782e-12
+                    angularVelocity 1.8599170602327862e-13 7.971218627177854e-09 -8.042815773387614e-15
+                  }
+                }
+              ]
+            }
+            Pose {
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -436.9237782241946
+                    axis 0 0 1
+                  }
+                  device [
+                    PositionSensor {
+                      name "BLPS"
+                    }
+                  ]
+                  endPoint DEF L_D_SteerSolid Solid {
+                    translation 0 0 0.5098969999999606
+                    rotation 0 0 0.9999999999999999 2.899193278376433
+                    children [
+                      DEF L Shape {
+                        appearance Appearance {
+                          material Material {
+                            diffuseColor 0 0 0
+                          }
+                        }
+                        geometry Cylinder {
+                          height 0.03
+                          radius 0.06
+                        }
+                      }
+                    ]
+                    contactMaterial "B"
+                    boundingObject DEF LS Cylinder {
+                      height 0.094
+                      radius 0.105
+                    }
+                    physics Physics {
+                      density 10
+                    }
+                    linearVelocity 8.369828302425094e-10 -2.0053881672434485e-14 -4.461502720551994e-12
+                    angularVelocity 1.6650677074034773e-13 7.971197862220679e-09 2.8088691262099016e-14
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF SteerWheel Pose {
+          translation 1 0 0.1
+          rotation 0 0 1 -5.551115123125783e-17
+          children [
+            Pose {
+              rotation -1 0 0 1.57
+              children [
+                HingeJoint {
+                  jointParameters DEF FJJ HingeJointParameters {
+                    position 239.46243830559607
+                    axis 0 0 1
+                  }
+                  device [
+                    PositionSensor {
+                      name "FLPS"
+                    }
+                    RotationalMotor {
+                      name "FL"
+                      maxVelocity 100
+                      maxTorque 1000
+                    }
+                  ]
+                  endPoint DEF SteerSolid Solid {
+                    translation -3.954983285846984e-06 -4.374734504259571e-06 4.539346088904606e-06
+                    rotation 0 0 -0.9999999999999999 2.7280234816197098
+                    children [
+                      Shape {
+                        appearance Appearance {
+                          material Material {
+                            diffuseColor 0 0 0
+                          }
+                        }
+                        geometry DEF FLWheel Cylinder {
+                          height 0.094
+                          radius 0.105
+                        }
+                      }
+                    ]
+                    name "solid(1)"
+                    contactMaterial "A"
+                    boundingObject DEF S Cylinder {
+                      height 0.094
+                      radius 0.105
+                    }
+                    physics Physics {
+                      density 30
+                    }
+                    linearVelocity 8.495106289725213e-10 3.1021102326212335e-15 6.45669177545549e-12
+                    angularVelocity -3.3008130167510806e-14 8.150240192745129e-09 6.965004732273894e-15
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF BODY Solid {
+          children [
+            Pose {
+              translation 0 0 -0.01
+              children [
+                P15-Body {
+                }
+              ]
+            }
+            Solid {
+              translation 0.68 0 0.7
+              children [
+                DEF BODYSHAPE Shape {
+                  appearance Appearance {
+                    material Material {
+                      diffuseColor 0.458824 0.313726 0.482353
+                    }
+                  }
+                  geometry Box {
+                    size 0.7 0.64 0.75
+                  }
+                }
+              ]
+            }
+          ]
+          name "body"
+        }
+        DEF Fork Pose {
+          translation 0.06 0 0.07
+          children [
+            DEF fork SliderJoint {
+              jointParameters JointParameters {
+                position -1.4281494580344362e-05
+                minStop -0.1
+                maxStop 1.66
+              }
+              device [
+                PositionSensor {
+                  name "fork height"
+                }
+                LinearMotor {
+                  name "fork height motor"
+                  minPosition -0.1
+                  maxPosition 1.66
+                  maxForce 150
+                }
+              ]
+              endPoint Solid {
+                translation 0 0 -1.4281494580344362e-05
+                children [
+                  Mid360 {
+                    translation -0.03 0 0
+                    rotation 0 1 0 -2.75
+                    name "lidar_0"
+                  }
+                  DEF VSwitchL manchanicalSwitch {
+                    translation -0.28 -0.21 -0.04
+                    rotation 0 1 0 -1.57
+                    boxSize 0.02
+                    name "VL"
+                  }
+                  DEF VSwitchR manchanicalSwitch {
+                    translation -0.28 0.21 -0.04
+                    rotation 0 1 0 -1.57
+                    boxSize 0.02
+                    name "VR"
+                  }
+                  DEF HSwitchL lightSwitch {
+                    translation -0.11 -0.2 0.02
+                    rotation 0 0 1 3.14
+                    boxSize 0.01 0.04 0.2
+                    name "HL"
+                    detectDistance 0.3
+                    signThreshold 0.1
+                    numberOfRays 100
+                    aperture 0.785
+                  }
+                  DEF HSwitchR lightSwitch {
+                    translation -0.11 0.2 0.02
+                    rotation 0 0 1 3.14
+                    boxSize 0.01 0.04 0.2
+                    name "HR"
+                    detectDistance 0.3
+                    signThreshold 0.1
+                    numberOfRays 100
+                    aperture 0.785
+                  }
+                  DEF RF Pose {
+                    translation -0.86 0.27 -0.052
+                    children [
+                      DEF B_Fork2 Shape {
+                        appearance PBRAppearance {
+                          baseColor 0 0 0
+                        }
+                        geometry DEF SingleFork2 Box {
+                          size 1.32 0.1 0.02
+                        }
+                      }
+                    ]
+                  }
+                  DEF RF2 Pose {
+                    translation -0.18 0.27 0.21
+                    children [
+                      DEF B_Fork1 Shape {
+                        appearance PBRAppearance {
+                          baseColor 0 0 0
+                        }
+                        geometry DEF SingleFork1 Box {
+                          size 0.02 0.1 0.5
+                        }
+                      }
+                    ]
+                  }
+                  DEF LF Pose {
+                    translation -0.86 -0.27 -0.052
+                    children [
+                      USE B_Fork2
+                    ]
+                  }
+                  DEF LF2 Pose {
+                    translation -0.18 -0.27 0.21
+                    children [
+                      USE B_Fork1
+                    ]
+                  }
+                  Pose {
+                    translation 0.04 0 0.275
+                  }
+                ]
+                name "solid(3)"
+                boundingObject Group {
+                  children [
+                    Pose {
+                      translation -0.18 -0.27 0.21
+                      children [
+                        USE SingleFork1
+                      ]
+                    }
+                    Pose {
+                      translation -0.18 0.27 0.21
+                      children [
+                        USE SingleFork1
+                      ]
+                    }
+                    Pose {
+                      translation -0.86 0.27 -0.052
+                      children [
+                        USE SingleFork2
+                      ]
+                    }
+                    Pose {
+                      translation -0.86 -0.27 -0.052
+                      children [
+                        USE SingleFork2
+                      ]
+                    }
+                  ]
+                }
+                physics Physics {
+                  density 100
+                }
+                linearVelocity 8.362064597006299e-10 -2.89095956465607e-15 -1.150080028174113e-11
+                angularVelocity -6.859596485113232e-14 -1.1214472328493484e-11 3.8302665401732974e-15
+              }
+            }
+          ]
+        }
+        DEF IMU Group {
+          children [
+            Gyro {
+            }
+            InertialUnit {
+            }
+            Accelerometer {
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  name "Robot"
+  boundingObject Pose {
+    translation 0.68 0 0.7
+    children [
+      USE BODYSHAPE
+    ]
+  }
+  physics Physics {
+    density 40
+    centerOfMass [
+      0.8 0 0
+    ]
+  }
+  controller "<none>"
+  customData "controller_list[P15_shadow_perception,P15_shadow_lidar,P15_master,P15_shadow_show_gui]"
+  supervisor TRUE
+  linearVelocity 8.381052635151602e-10 -5.2238437738297755e-15 4.300955343591394e-12
+  angularVelocity -6.865533814649554e-14 -1.1186511697202302e-11 3.77105643615475e-15
+}
+DEF HighReflector Group {
+  children [
+    SolidBox {
+      translation -11 9.81 2.97
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -11 4.99 2.97
+      name "box(43)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -11 1.57 2.97
+      name "box(44)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -11 -2.14 2.97
+      name "box(45)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -11 12.2 2.97
+      name "box(14)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -12.96 12.2 2.97
+      name "box(15)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -17.03 12.2 2.97
+      name "box(16)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -19.06 12.2 2.97
+      name "box(17)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -22.46 12.2 2.97
+      name "box(18)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -24.48 12.2 2.97
+      name "box(19)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -28.17 12.2 2.97
+      name "box(20)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -30.66 12.2 2.97
+      name "box(21)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -34.34 12.2 2.97
+      name "box(22)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -36.39 12.2 2.97
+      name "box(23)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -40.13 12.2 2.97
+      name "box(24)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -42.15 12.2 2.97
+      name "box(25)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -45.32 12.2 2.97
+      name "box(26)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -47.31 12.2 2.97
+      name "box(27)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -47.31 14.8 2.97
+      name "box(28)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -45.22 14.8 2.97
+      name "box(29)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -42.19 14.8 2.97
+      name "box(30)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -40.16 14.8 2.97
+      name "box(31)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -36.36 14.8 2.97
+      name "box(32)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -34.31 14.8 2.97
+      name "box(33)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -30.67 14.8 2.97
+      name "box(34)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -28.14 14.8 2.97
+      name "box(35)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -24.45 14.8 2.97
+      name "box(36)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -22.45 14.8 2.97
+      name "box(37)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -19.04 14.8 2.97
+      name "box(38)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -17.04 14.8 2.97
+      name "box(39)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -12.97 14.8 2.97
+      name "box(40)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -11.03 14.8 2.97
+      name "box(41)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -11.03 14.8 2.97
+      name "box(42)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -12.98 9.81 2.97
+      name "box(1)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -12.98 4.97 2.97
+      name "box(46)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -12.98 1.58 2.97
+      name "box(47)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -12.98 -2.16 2.97
+      name "box(48)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -17.03 9.81 2.97
+      name "box(2)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -17.03 4.94 2.97
+      name "box(49)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -17.03 1.56 2.97
+      name "box(51)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -17.03 -2.15 2.97
+      name "box(52)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -19.08 9.81 2.97
+      name "box(3)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -19.08 4.97 2.97
+      name "box(50)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -19.08 1.54 2.97
+      name "box(53)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -19.08 -2.15 2.97
+      name "box(54)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -22.45 9.81 2.97
+      name "box(4)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -22.45 4.96 2.97
+      name "box(55)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -22.45 1.57 2.97
+      name "box(56)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -22.45 -2.13 2.97
+      name "box(57)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -24.48 9.81 2.97
+      name "box(5)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -24.48 4.91 2.97
+      name "box(58)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -24.48 1.57 2.97
+      name "box(59)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -24.48 -2.13 2.97
+      name "box(60)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -30.69 9.81 2.97
+      name "box(6)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -30.69 4.89 2.97
+      name "box(64)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -30.69 1.65 2.97
+      name "box(65)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -30.69 -2.12 2.97
+      name "box(66)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -34.35 9.81 2.97
+      name "box(8)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -34.35 4.86 2.97
+      name "box(67)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -34.35 1.59 2.97
+      name "box(68)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -34.35 -2.05 2.97
+      name "box(69)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -34.35 -2.05 2.97
+      name "box(70)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -36.43 9.81 2.97
+      name "box(9)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -36.43 4.89 2.97
+      name "box(71)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -36.43 1.65 2.97
+      name "box(72)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -36.43 -2.05 2.97
+      name "box(73)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -40.18 9.81 2.97
+      name "box(10)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -40.18 4.84 2.97
+      name "box(74)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -40.18 1.62 2.97
+      name "box(75)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -40.18 -2.1 2.97
+      name "box(76)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -42.19 9.81 2.97
+      name "box(11)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -43.87 5.41982 2.79203
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(86)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -43.87 9.35982 2.78959
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(87)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -38.1 9.35982 2.78959
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(88)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -38.1 5.42982 2.79205
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(97)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -32.26 9.35982 2.78959
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(89)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -32.26 5.40982 2.79203
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(96)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -26.46 9.35982 2.78959
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(90)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -26.46 5.39981 2.79208
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(95)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -20.75 9.35982 2.78959
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(91)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -20.75 5.41982 2.79204
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(94)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -14.85 9.35982 2.78959
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(92)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -14.85 5.41982 2.79211
+      rotation 0.5773509358554485 -0.5773509358554485 0.5773489358556708 2.0944
+      name "box(93)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -42.19 4.84 2.97
+      name "box(77)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -42.19 1.65 2.97
+      name "box(78)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -42.19 -2.1 2.97
+      name "box(79)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -45.37 9.81 2.97
+      name "box(12)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -46.44 7.44 2.97
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "box(98)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -41.27 7.44 2.97
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "box(99)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -35.32 7.44 2.97
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "box(100)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -29.67 7.44 2.97
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "box(101)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -23.51 7.44 2.97
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "box(102)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -18.09 7.44 2.97
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "box(103)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -11.78 7.44 2.97
+      rotation 0 0 -0.9999999999999999 1.5707953071795862
+      name "box(104)"
+      size 0.2 0.05 0.05
+    }
+    SolidBox {
+      translation -45.37 4.81 2.97
+      name "box(80)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -45.37 1.63 2.97
+      name "box(81)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -45.37 -2.15 2.97
+      name "box(82)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -47.21 9.81 2.97
+      name "box(13)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -47.21 4.76 2.97
+      name "box(83)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -47.21 1.64 2.97
+      name "box(84)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -47.21 -2.16 2.97
+      name "box(85)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -28.17 9.81 2.97
+      name "box(7)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -28.17 4.89 2.97
+      name "box(61)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -28.17 1.62 2.97
+      name "box(62)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -28.17 -2.11 2.97
+      name "box(63)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -15.44 9.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(105)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -15.44 -1.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(152)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -9.37 9.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(146)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -9.37 -1.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(149)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -21.04 9.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(112)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -21.04 -1.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(155)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.97 9.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(113)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.97 -1.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(158)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -32.53 9.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(118)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -32.53 -1.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(161)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -38.58 9.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(121)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -38.58 -1.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(164)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -44.18 9.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(122)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -44.18 -1.84 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(167)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -49.2 9.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(127)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -49.2 -1.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(170)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -43.6 9.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(128)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -43.6 -1.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(173)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -37.54 9.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(133)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -37.54 -1.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(176)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -31.97 9.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(136)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -31.97 -1.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(179)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.05 9.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(137)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.05 -1.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(182)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -20.46 9.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(144)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -20.46 -1.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(185)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -14.38 9.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(145)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -14.38 -1.84 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(188)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -9.37 12.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(106)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -9.37 2.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(148)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -15.44 12.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(109)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -15.44 2.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(151)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -21.04 12.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(111)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -21.04 2.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(154)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.95 12.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(114)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.95 2.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(157)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -32.53 12.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(117)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -32.53 2.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(160)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -38.58 12.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(120)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -38.58 2.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(163)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -44.18 12.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(123)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -44.18 2.24 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(166)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -49.19 12.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(126)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -49.19 2.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(169)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -43.6 12.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(129)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -43.6 2.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(172)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -37.54 12.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(132)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -37.54 2.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(175)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -31.97 12.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(135)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -31.97 2.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(178)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.06 12.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(138)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.06 2.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(181)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -20.46 12.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(142)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -20.46 2.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(184)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -14.38 12.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(143)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -14.38 2.24 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(187)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -9.37 14.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(107)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -9.37 4.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(147)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -15.45 14.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(108)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -15.45 4.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(150)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -21.04 14.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(110)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -21.04 4.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(153)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.96 14.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(115)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.96 4.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(156)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -32.53 14.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(116)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -32.53 4.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(159)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -38.59 14.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(119)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -38.59 4.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(162)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -44.18 14.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(124)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -44.18 4.98 2.7
+      rotation 0 1 0 1.5707963267948968
+      name "box(165)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -49.2 14.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(125)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -49.2 4.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(168)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -43.6 14.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(130)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -43.6 4.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(171)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -37.55 14.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(131)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -37.55 4.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(174)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -31.97 14.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(134)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -31.97 4.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(177)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.06 14.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(139)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -26.06 4.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(180)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -20.47 14.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(140)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -20.47 4.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(183)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -14.39 14.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(141)"
+      size 0.4 0.2 0.05
+    }
+    SolidBox {
+      translation -14.39 4.98 2.7
+      rotation 0 -1 0 1.5707960173459916
+      name "box(186)"
+      size 0.4 0.2 0.05
+    }
+  ]
+}

@@ -1,0 +1,1495 @@
+#VRML_SIM R2024a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/VNCar/Common/vn_switches/lightSwitch.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/Carrier/Pallet/Carrier-Pallet-L1030W1220H150-US.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/VNCar/Common/vn_lidars/Livox/Mid360.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/VNCar/Common/vn_Mingmou/MingMou.proto"
+
+WorldInfo {
+  info [
+    "Willow Garage PR2 robot."
+    "The robot model includes 44 actuated joints, 6 cameras and 2 laser-scanners."
+  ]
+  title "PR2"
+  basicTimeStep 10
+  FPS 10
+  physicsDisableTime 0.1
+  physicsDisableAngularThreshold 0.02
+  contactProperties [
+    ContactProperties {
+      material2 "clampfric"
+      coulombFriction [
+        -1
+      ]
+    }
+    ContactProperties {
+      material2 "B"
+      coulombFriction [
+        100
+      ]
+    }
+    ContactProperties {
+      material2 "A"
+      coulombFriction [
+        100
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.7069528663468824 -0.020933217967286002 0.7069508081539064 3.1834568537671912
+  position 27.443940484051105 44.739846940046796 8.687278971619644
+  follow "floor"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  translation 134 24 0
+  size 268 50
+  tileSize 1 1
+  appearance Parquetry {
+  }
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 27.9702 46 0.0185071
+  rotation 0 0 -1 1.5707963267948968
+  name "Carrier-Pallet-L1030W1220H150-US(7)"
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 42.77 22.96 0
+  name "Carrier-Pallet-L1030W1220H150-US(6)"
+}
+Floor {
+  translation 134 25 12
+  rotation 0 1 0 3.1415926
+  name "floor(1)"
+  size 268 50
+  tileSize 1 1
+  appearance Parquetry {
+  }
+}
+DEF WALLS Group {
+  children [
+    Wall {
+      translation 183.32 48.5 0
+      name "wall(177)"
+      size 0.15 0.2 12
+    }
+    DEF biggest_wall Group {
+    }
+    Wall {
+      translation -0.2 25.2 0
+      name "wall(1)"
+      size 0.2 50 12
+    }
+    Wall {
+      translation 268 25.079 0
+      name "wall(3)"
+      size 0.2 50 12
+    }
+    Wall {
+      translation 134.1 48.7 0
+      name "wall(2)"
+      size 268 0.2 12
+    }
+    Wall {
+      translation 134 0.187 0
+      name "wall(4)"
+      size 268 0.2 12
+    }
+    DEF warehouse_f Group {
+    }
+    Wall {
+      translation 244.23 3.04 0
+      name "wall(78)"
+      size 0.2 5.39 12
+    }
+    Wall {
+      translation 236.84 2.6 0
+      name "wall(77)"
+      size 0.2 4.8 12
+    }
+    Wall {
+      translation 8.55 41 0
+      name "wall(5)"
+      size 16.1 0.2 12
+    }
+    Wall {
+      translation 16.6 44.8 0
+      name "wall(6)"
+      size 0.2 7.6 12
+    }
+    Wall {
+      translation 24.8 24.5 0
+      name "wall(7)"
+      size 0.2 39.6 12
+      appearance NULL
+    }
+    Wall {
+      translation 73.61 40.14 0
+      name "wall(44)"
+      size 0.2 9 12
+    }
+    Wall {
+      translation 122.3 27 0
+      name "wall(54)"
+      size 0.2 32.6 12
+    }
+    Wall {
+      translation 122.3 45.18 3
+      name "wall(139)"
+      size 0.2 3.8 9
+    }
+    Wall {
+      translation 73.6 46.46 3
+      name "wall(141)"
+      size 0.2 3.8 9
+    }
+    Wall {
+      translation 24.8 46.21 3
+      name "wall(143)"
+      size 0.2 3.8 9
+    }
+    Wall {
+      translation 207.7 1.51 0
+      name "wall(129)"
+      size 0.2 2.47 12
+    }
+    Wall {
+      translation 207.7 47.01 0
+      name "wall(117)"
+      size 0.2 4.6 12
+    }
+    Wall {
+      translation 122.3 48.29 0
+      name "wall(140)"
+      size 0.2 2.5 12
+    }
+    Wall {
+      translation 24.8 48.71 0
+      name "wall(144)"
+      size 0.2 1.2 12
+    }
+    Wall {
+      translation 207.7 42.81 3
+      name "wall(138)"
+      size 0.2 3.8 9
+    }
+    Wall {
+      translation 207.71 23.35 0
+      name "wall(128)"
+      size 0.2 35.1 12
+    }
+    Wall {
+      translation 256.83 47.15 0
+      name "wall(118)"
+      size 0.2 2.9 12
+    }
+    Wall {
+      translation 262.57 47.07 0
+      name "wall(120)"
+      size 0.2 2.9 12
+    }
+    Wall {
+      translation 262.57 37.04 0
+      name "wall(121)"
+      size 0.2 10.01 12
+    }
+    Wall {
+      translation 262.57 27.1 0
+      name "wall(73)"
+      size 0.2 7.7 12
+    }
+    Wall {
+      translation 262.57 19.89 0
+      name "wall(122)"
+      size 0.2 7.7 12
+    }
+    Wall {
+      translation 262.57 8.32 0
+      name "wall(123)"
+      size 0.2 17 12
+    }
+    Wall {
+      translation 73.61 28.03 0
+      name "wall(45)"
+      size 0.2 9 12
+    }
+    Wall {
+      translation 73.61 10.22 0
+      name "wall(46)"
+      size 0.2 19.94 12
+    }
+    Wall {
+      translation 88.69 8.48 0
+      name "wall(50)"
+      size 0.2 10.68 2.4
+    }
+    Wall {
+      translation 90.03 12.75 0
+      name "wall(49)"
+      size 0.2 4.3 2.4
+    }
+    Wall {
+      translation 90.13 6.3 0
+      name "wall(16)"
+      size 0.2 6.2 2.4
+    }
+    Wall {
+      translation 122.36 6.8 0
+      name "wall(55)"
+      size 0.2 1.6 12
+    }
+    Wall {
+      translation 87.45 2.3 0
+      name "wall(52)"
+      size 0.2 1.4 2.4
+    }
+    Wall {
+      translation 81.31 6.92 0
+      name "wall(142)"
+      size 15.2 14 2.4
+    }
+    Wall {
+      translation 90.15 1.06 0
+      name "wall(15)"
+      size 0.2 1.4 2.4
+    }
+    Wall {
+      translation 12.73 36.6 0
+      name "wall(9)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 24.8 48.5 0
+      name "wall(36)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 30.9 48.5 0
+      name "wall(37)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 37 48.5 0
+      name "wall(38)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 43.13 48.5 0
+      name "wall(39)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 49.23 48.5 0
+      name "wall(40)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 55.32 48.5 0
+      name "wall(41)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 61.42 48.5 0
+      name "wall(42)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 73.61 48.5 0
+      name "wall(43)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 79.78 48.5 0
+      name "wall(56)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 79.78 0.382 0
+      name "wall(161)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 85.8 0.382 0
+      name "wall(162)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 91.9 0.382 0
+      name "wall(163)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 97.99 0.382 0
+      name "wall(164)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 104.9 0.382 0
+      name "wall(165)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 110.19 0.382 0
+      name "wall(166)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 116.28 0.382 0
+      name "wall(167)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 122.35 0.382 0
+      name "wall(168)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 128.47 0.382 0
+      name "wall(169)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 134.57 0.382 0
+      name "wall(170)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 140.67 0.382 0
+      name "wall(171)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 146.75 0.382 0
+      name "wall(172)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 152.84 0.382 0
+      name "wall(173)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 158.94 0.382 0
+      name "wall(174)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 165.03 0.382 0
+      name "wall(175)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 171.13 0.382 0
+      name "wall(176)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 177.23 0.382 0
+      name "wall(178)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 183.32 0.382 0
+      name "wall(179)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 189.42 0.382 0
+      name "wall(180)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 195.51 0.382 0
+      name "wall(181)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 201.61 0.382 0
+      name "wall(182)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 213.8 0.382 0
+      name "wall(183)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 219.9 0.382 0
+      name "wall(184)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 225.99 0.382 0
+      name "wall(185)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 232.09 0.382 0
+      name "wall(186)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 85.88 48.5 0
+      name "wall(57)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 91.97 48.5 0
+      name "wall(58)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 98.07 48.5 0
+      name "wall(59)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 104.17 48.5 0
+      name "wall(60)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 110.23 48.5 0
+      name "wall(61)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 116.36 48.5 0
+      name "wall(62)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 12125 48.5 0
+      name "wall(63)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 128.55 48.5 0
+      name "wall(64)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 134.65 48.5 0
+      name "wall(65)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 140.74 48.5 0
+      name "wall(66)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 146.82 48.5 0
+      name "wall(67)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 134.57 36.65 0
+      name "wall(84)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 146.82 24.47 0
+      name "wall(97)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 134.57 24.47 0
+      name "wall(96)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 146.79 36.65 0
+      name "wall(94)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 159.01 24.47 0
+      name "wall(98)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 171.05 36.66 0
+      name "wall(99)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 183.4 36.66 0
+      name "wall(100)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 183.4 24.45 0
+      name "wall(101)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 171.05 24.45 0
+      name "wall(102)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 158.94 36.65 0
+      name "wall(95)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 85.88 36.66 0
+      name "wall(85)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 97.92 36.66 0
+      name "wall(87)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 110.26 36.66 0
+      name "wall(90)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 110.26 24.47 0
+      name "wall(91)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 134.49 12.27 0
+      name "wall(103)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 146.82 12.27 0
+      name "wall(104)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 159.01 12.27 0
+      name "wall(105)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 171.05 12.27 0
+      name "wall(106)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 195.51 12.27 0
+      name "wall(109)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 195.51 24.47 0
+      name "wall(107)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 195.51 36.66 0
+      name "wall(110)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 219.97 36.66 0
+      name "wall(111)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 219.97 24.47 0
+      name "wall(113)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 219.97 12.27 0
+      name "wall(115)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 232.17 24.47 0
+      name "wall(114)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 232.17 12.27 0
+      name "wall(116)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 256.55 12.27 0
+      name "wall(74)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 256.55 24.47 0
+      name "wall(75)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 256.55 36.66 0
+      name "wall(76)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 232.17 36.66 0
+      name "wall(112)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 183.4 12.27 0
+      name "wall(108)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 12125 36.66 0
+      name "wall(93)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 110.26 12.27 0
+      name "wall(92)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 97.92 24.47 0
+      name "wall(88)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 97.92 12.27 0
+      name "wall(89)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 85.88 24.47 0
+      name "wall(86)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 152.92 48.5 0
+      name "wall(68)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 159.01 48.5 0
+      name "wall(69)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 165.03 48.5 0
+      name "wall(70)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 171.13 48.5 0
+      name "wall(71)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 177.23 48.5 0
+      name "wall(147)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 183.32 48.5 0
+      name "wall(148)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 189.42 48.5 0
+      name "wall(149)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 195.51 48.5 0
+      name "wall(150)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 201.61 48.54 0
+      name "wall(151)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 213.8 48.54 0
+      name "wall(152)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 219.9 48.54 0
+      name "wall(153)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 225.99 48.54 0
+      name "wall(154)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 232.09 48.54 0
+      name "wall(155)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 238.19 48.54 0
+      name "wall(156)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 238.19 0.382 0
+      name "wall(187)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 244.2 48.54 0
+      name "wall(157)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 244.2 0.382 0
+      name "wall(188)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 250.38 48.54 0
+      name "wall(158)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 250.38 0.382 0
+      name "wall(189)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 256.47 48.54 0
+      name "wall(159)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 256.47 0.382 0
+      name "wall(190)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 268.36 48.54 0
+      name "wall(160)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 12.73 24.4 0
+      name "wall(10)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 36.9 36.6 0
+      name "wall(19)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 36.9 24.4 0
+      name "wall(20)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 36.9 12.2 0
+      name "wall(21)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 31 0.39 0
+      name "wall(28)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 37.1 0.39 0
+      name "wall(29)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 43.18 0.39 0
+      name "wall(30)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 49.27 0.39 0
+      name "wall(31)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 61.49 0.39 0
+      name "wall(32)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 55.4 0.39 0
+      name "wall(33)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 67.59 0.39 0
+      name "wall(34)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 18.82 48.54 0
+      name "wall(35)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 49.3 36.6 0
+      name "wall(22)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 61.3 36.6 0
+      name "wall(25)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 61.3 24.2 0
+      name "wall(26)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 61.3 12.2 0
+      name "wall(27)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 85.88 12.27 0
+      name "wall(17)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 49.3 24.4 0
+      name "wall(23)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 49.3 12.2 0
+      name "wall(24)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 12.73 12.2 0
+      name "wall(11)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 6.6 0.3 0
+      name "wall(12)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 0.2 0.3 0
+      name "wall(13)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 12.7 0.3 0
+      name "wall(14)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 18.8 0.3 0
+      name "wall(18)"
+      size 0.15 0.2 12
+    }
+    Wall {
+      translation 24.6 0.6 0
+      name "wall(8)"
+      size 0.2 0.8 12
+    }
+    Wall {
+      translation 84.1 14.67 0
+      name "wall(47)"
+      size 12.21 0.2 2.4
+    }
+    Wall {
+      translation 97.86 12.3 11.5
+      name "wall(79)"
+      size 48.72 0.2 0.5
+    }
+    Wall {
+      translation 165.04 12.3 11.5
+      name "wall(132)"
+      size 85.32 0.2 0.5
+    }
+    Wall {
+      translation 238.01 12.3 11.5
+      name "wall(135)"
+      size 60.65 0.2 0.5
+    }
+    Wall {
+      translation 238.01 24.5 11.5
+      name "wall(136)"
+      size 60.65 0.2 0.5
+    }
+    Wall {
+      translation 238.01 36.66 11.5
+      name "wall(137)"
+      size 60.65 0.2 0.5
+    }
+    Wall {
+      translation 165.04 24.5 11.5
+      name "wall(133)"
+      size 85.32 0.2 0.5
+    }
+    Wall {
+      translation 194.873 39.041 0
+      name "wall(191)"
+      size 21.451 1.631 0.5
+    }
+    Wall {
+      translation 199.881 35.7245 0
+      name "wall(192)"
+      size 1.9 4.985 0.5
+    }
+    Wall {
+      translation 203.38 35.7245 0
+      name "wall(193)"
+      size 1.9 4.985 0.5
+    }
+    Wall {
+      translation 165.04 36.66 11.5
+      name "wall(134)"
+      size 85.32 0.2 0.5
+    }
+    Wall {
+      translation 97.86 24.5 11.5
+      name "wall(80)"
+      size 48.72 0.2 0.5
+    }
+    Wall {
+      translation 12.32 24.4 11.5
+      name "wall(82)"
+      size 24.62 0.2 0.5
+    }
+    Wall {
+      translation 49.24 24.4 11.5
+      name "wall(126)"
+      size 48.76 0.2 0.5
+    }
+    Wall {
+      translation 49.24 36.6 11.5
+      name "wall(131)"
+      size 48.76 0.2 0.5
+    }
+    Wall {
+      translation 49.24 12.2 11.5
+      name "wall(130)"
+      size 48.76 0.2 0.5
+    }
+    Wall {
+      translation 12.32 36.6 11.5
+      name "wall(125)"
+      size 24.62 0.2 0.5
+    }
+    Wall {
+      translation 12.32 12.2 11.5
+      name "wall(83)"
+      size 24.62 0.2 0.5
+    }
+    Wall {
+      translation 97.86 36.66 11.5
+      name "wall(81)"
+      size 48.72 0.2 0.5
+    }
+    Wall {
+      translation 253.23 5.74 0
+      name "wall(124)"
+      size 18.2 0.2 12
+    }
+    Wall {
+      translation 240.49 5.13 0
+      name "wall(127)"
+      size 7.49 0.2 12
+    }
+    Wall {
+      translation 258.38 45.67 0
+      name "wall(119)"
+      size 3.3 0.2 12
+    }
+    Wall {
+      translation 266.17 30.66 0
+      name "wall(72)"
+      size 4.58 0.2 12
+    }
+    Wall {
+      translation 88.09 3.14 0
+      name "wall(51)"
+      size 1.2 0.2 2.4
+    }
+    Wall {
+      translation 88.8 1.7 0
+      name "wall(53)"
+      size 2.7 0.2 2.4
+    }
+    Wall {
+      translation 81.1 13.82 0
+      name "wall(48)"
+      size 14.97 0.2 2.4
+    }
+  ]
+}
+DEF RobotNode Robot {
+  translation 27.9702 43.58 0.0185071
+  rotation 0 0 1 1.570796636243801
+  children [
+    Pose {
+      translation 0.6 -0.000955589 0.91
+      rotation 0 0 1 3.14
+    }
+    Pose {
+      children [
+        DEF LidarPose Pose {
+          translation 1.15 0 2
+          rotation 0 1 0 1.57
+          children [
+            Mid360 {
+              name "lidar_2"
+              noise 0
+            }
+            Mid360 {
+              translation 0 0.57 -0.27
+              rotation 1 0 0 -1.57
+              name "lidar_3"
+              noise 0
+            }
+            Mid360 {
+              translation 0 -0.57 -0.27
+              rotation 1 0 0 1.57
+              name "lidar_4"
+              noise 0
+            }
+          ]
+        }
+        DEF DrivenWheel Pose {
+          translation 0 0 0.086
+          rotation 1 0 0 -1.57
+          children [
+            Pose {
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -436.9650132383261
+                    axis 0 0 1
+                  }
+                  device [
+                    PositionSensor {
+                      name "BRPS"
+                    }
+                  ]
+                  endPoint DEF R_D_SteerSolid Solid {
+                    translation 0 0 -0.4749999999999996
+                    rotation 0 0 0.9999999999999999 2.8579582642449597
+                    children [
+                      DEF R Shape {
+                        appearance Appearance {
+                          material Material {
+                            diffuseColor 0 0 0
+                          }
+                        }
+                        geometry Cylinder {
+                          height 0.09
+                          radius 0.105
+                        }
+                      }
+                    ]
+                    name "solid(2)"
+                    contactMaterial "B"
+                    boundingObject DEF RS Cylinder {
+                      height 0.09
+                      radius 0.105
+                    }
+                    physics Physics {
+                      density 10
+                      centerOfMass [
+                        0 0 0
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+            Pose {
+              children [
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    position -436.8958241301211
+                    axis 0 0 1
+                  }
+                  device [
+                    PositionSensor {
+                      name "BLPS"
+                    }
+                  ]
+                  endPoint DEF L_D_SteerSolid Solid {
+                    translation 0 0 0.4730000000000001
+                    rotation 0 0 1 2.927147372449926
+                    children [
+                      DEF L Shape {
+                        appearance Appearance {
+                          material Material {
+                            diffuseColor 0 0 0
+                          }
+                        }
+                        geometry Cylinder {
+                          height 0.09
+                          radius 0.105
+                        }
+                      }
+                    ]
+                    contactMaterial "B"
+                    boundingObject DEF LS Cylinder {
+                      height 0.09
+                      radius 0.105
+                    }
+                    physics Physics {
+                      density 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF SteerWheel Pose {
+          translation 1 0 0.1
+          rotation 0 0 1 -5.551115123125783e-17
+          children [
+            Pose {
+              rotation -1 0 0 1.57
+              children [
+                HingeJoint {
+                  jointParameters DEF FJJ HingeJointParameters {
+                    position 239.46243830660384
+                    axis 0 0 1
+                  }
+                  device [
+                    PositionSensor {
+                      name "FLPS"
+                    }
+                    RotationalMotor {
+                      name "FL"
+                      maxVelocity 100
+                      maxTorque 1000
+                    }
+                  ]
+                  endPoint DEF SteerSolid Solid {
+                    translation -1.647889743137797e-05 1.740268998707403e-05 4.539314874624425e-06
+                    rotation 0 0 1 0.944424015266838
+                    children [
+                      Shape {
+                        appearance Appearance {
+                          material Material {
+                            diffuseColor 0 0 0
+                          }
+                        }
+                        geometry DEF FLWheel Cylinder {
+                          height 0.094
+                          radius 0.12
+                        }
+                      }
+                    ]
+                    name "solid(1)"
+                    contactMaterial "A"
+                    boundingObject DEF S Cylinder {
+                      height 0.094
+                      radius 0.12
+                    }
+                    physics Physics {
+                      density 30
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        DEF BODY Solid {
+          children [
+            Pose {
+              translation 0 0 -0.01
+              children [
+                P15-Body {
+                }
+              ]
+            }
+            Solid {
+              translation 0.68 0 0.7
+              children [
+                DEF BODYSHAPE Shape {
+                  appearance Appearance {
+                    material Material {
+                      diffuseColor 0.458824 0.313726 0.482353
+                    }
+                  }
+                  geometry Box {
+                    size 0.7 0.64 0.75
+                  }
+                }
+              ]
+            }
+          ]
+          name "body"
+        }
+        DEF Fork Pose {
+          translation 0.06 0 0.07
+          children [
+            DEF fork SliderJoint {
+              jointParameters JointParameters {
+                position -2.8563914799149064e-05
+                minStop -0.1
+                maxStop 1.66
+              }
+              device [
+                PositionSensor {
+                  name "fork height"
+                }
+                LinearMotor {
+                  name "fork height motor"
+                  minPosition -0.1
+                  maxPosition 1.66
+                  maxForce 150
+                }
+              ]
+              endPoint Solid {
+                translation 0 0 -2.8563914799149064e-05
+                children [
+                  Mid360 {
+                    translation -0.03 0 0
+                    rotation 0 1 0 -2.75
+                    name "lidar_0"
+                    noise 0
+                  }
+                  DEF VSwitchL manchanicalSwitch {
+                    translation -0.28 -0.21 -0.04
+                    rotation 0 1 0 -1.57
+                    boxSize 0.02
+                    name "VL"
+                  }
+                  DEF VSwitchR manchanicalSwitch {
+                    translation -0.28 0.21 -0.04
+                    rotation 0 1 0 -1.57
+                    boxSize 0.02
+                    name "VR"
+                  }
+                  DEF HSwitchL lightSwitch {
+                    translation -0.11 -0.2 0.02
+                    rotation 0 0 1 3.14
+                    boxSize 0.01 0.04 0.2
+                    name "HL"
+                    detectDistance 0.3
+                    signThreshold 0.1
+                    numberOfRays 100
+                    aperture 0.785
+                  }
+                  DEF HSwitchR lightSwitch {
+                    translation -0.11 0.2 0.02
+                    rotation 0 0 1 3.14
+                    boxSize 0.01 0.04 0.2
+                    name "HR"
+                    detectDistance 0.3
+                    signThreshold 0.1
+                    numberOfRays 100
+                    aperture 0.785
+                  }
+                  DEF RF Pose {
+                    translation -0.86 0.27 -0.052
+                    children [
+                      DEF B_Fork2 Shape {
+                        appearance PBRAppearance {
+                          baseColor 0 0 0
+                        }
+                        geometry DEF SingleFork2 Box {
+                          size 1.32 0.1 0.02
+                        }
+                      }
+                    ]
+                  }
+                  DEF RF2 Pose {
+                    translation -0.18 0.27 0.21
+                    children [
+                      DEF B_Fork1 Shape {
+                        appearance PBRAppearance {
+                          baseColor 0 0 0
+                        }
+                        geometry DEF SingleFork1 Box {
+                          size 0.02 0.1 0.5
+                        }
+                      }
+                    ]
+                  }
+                  DEF LF Pose {
+                    translation -0.86 -0.27 -0.052
+                    children [
+                      USE B_Fork2
+                    ]
+                  }
+                  DEF LF2 Pose {
+                    translation -0.18 -0.27 0.21
+                    children [
+                      USE B_Fork1
+                    ]
+                  }
+                  Pose {
+                    translation 0.04 0 0.275
+                  }
+                ]
+                name "solid(3)"
+                boundingObject Group {
+                  children [
+                    Pose {
+                      translation -0.18 -0.27 0.21
+                      children [
+                        USE SingleFork1
+                      ]
+                    }
+                    Pose {
+                      translation -0.18 0.27 0.21
+                      children [
+                        USE SingleFork1
+                      ]
+                    }
+                    Pose {
+                      translation -0.86 0.27 -0.052
+                      children [
+                        USE SingleFork2
+                      ]
+                    }
+                    Pose {
+                      translation -0.86 -0.27 -0.052
+                      children [
+                        USE SingleFork2
+                      ]
+                    }
+                  ]
+                }
+                physics Physics {
+                  density 100
+                }
+              }
+            }
+          ]
+        }
+        DEF IMU Group {
+          children [
+            Gyro {
+            }
+            InertialUnit {
+            }
+            Accelerometer {
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  name "Robot"
+  boundingObject Pose {
+    translation 0.68 0 0.7
+    children [
+      USE BODYSHAPE
+    ]
+  }
+  physics Physics {
+    density 40
+    centerOfMass [
+      0.8 0 0
+    ]
+  }
+  controller "P15_master"
+  customData "controller_list[P15_master,shadow_lidar0_and_lidar2,shadow_lidar3_and_lidar4,shadow_show_gui]"
+  supervisor TRUE
+}
+Pose {
+  translation -25 0 0
+  children [
+    Wall {
+      translation 12.6 35.2 0
+      name "wall(145)"
+      size 15.1 1.18 9.54
+    }
+    Wall {
+      translation 12.6 31.3 0
+      name "wall(146)"
+      size 15.1 1.2 9.54
+    }
+  ]
+}
+Pose {
+  translation -25 0 0
+  children [
+    Wall {
+      translation 12.74 10.778 0
+      name "wall(197)"
+      size 15.1 1.2 9.54
+    }
+    Wall {
+      translation 12.74 6.7 0
+      name "wall(196)"
+      size 15.1 1.2 9.54
+    }
+  ]
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 33.31 41.61 0
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 32.1 41.62 0
+  name "Carrier-Pallet-L1030W1220H150-US(1)"
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 30.92 41.6348 0
+  name "Carrier-Pallet-L1030W1220H150-US(4)"
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+Wall {
+  translation 35.73 40.76 0
+  size 10 0.36 0.6
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 34.49 41.63 0
+  name "Carrier-Pallet-L1030W1220H150-US(2)"
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 35.64 41.62 0
+  name "Carrier-Pallet-L1030W1220H150-US(3)"
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+DEF USACardBoard Carrier-Pallet-L1030W1220H150-US {
+  translation 36.79 41.62 0
+  name "Carrier-Pallet-L1030W1220H150-US(5)"
+  physics Physics {
+    density -1
+    mass 1
+  }
+}
+DEF Mingmou MingMou {
+}
