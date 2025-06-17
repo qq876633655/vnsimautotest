@@ -1,31 +1,57 @@
-# coding=utf-8
+# -*- coding: utf-8 -*-
+
 import os
 import time
 import requests
 import json
-import logging
 
-# 配置日志记录
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+from duplicity.globals import backup_name
+
+from src.log import my_log
+
 
 # 从环境变量中读取敏感信息
-# client_id xsrf_token本地没有，作用是啥，必须项吗
 CLIENT_ID = os.getenv("CLIENT_ID", "afbecef7cd2d37e99b28a46ab1d01f4f")
 XSRF_TOKEN = os.getenv("XSRF_TOKEN",
-                       "CfDJ8CLpIqq3xxxLjgPMz28yvcIkcamlefVJLtByKCRcVYrCtUzZm_AqTXSiTnvmwWWaMZKLTgWSeeNFkSEpaVQyoo0ROkc0IRcHPPYC0h8svmAL5QxqxoEBgeNbmjBlyhydWV_NcabN1GdL0i_-Zjkm7mg")
+                       "CfDJ8CLpIqq3xxxLjgPMz28yvcIkcamlefVJLtByKCRcVYrCtUzZm_AqTXSiTnvmwWWaMZKLTgWSeeNFkSEpaVQyoo0ROkc"
+                       "0IRcHPPYC0h8svmAL5QxqxoEBgeNbmjBlyhydWV_NcabN1GdL0i_-Zjkm7mg")
 ROBOTUNE_USERNAME = os.getenv("ROBOTUNE_USERNAME", "admin")
 ROBOTUNE_PASSWORD = os.getenv("ROBOTUNE_PASSWORD", "123qwe")
 
 # 定义API URL
-BASE_URL = "http://127.0.0.1:24311/api"  # 打不开这个地址
-TOKEN_AUTH_URL = f"{BASE_URL}/TokenAuth/Authenticate"
-OCCUPY_URL = f"{BASE_URL}/services/sys/TempPermission/Occupy"
-DEBUG_FLOW_URL = f"{BASE_URL}/services/task/DynamicFlow/DebugFlow"
-UNOCCUPY_URL = f"{BASE_URL}/services/sys/TempPermission/UnOccupy"
-DEBUGSTATUS_URL = f"{BASE_URL}/services/task/DynamicFlow/GetDebugStatus?taskId="
+BASE_URL = "http://127.0.0.1:24311/"
+# 登录、获取控制权、释放控制权
+Authenticate_URL = f"{BASE_URL}/api/TokenAuth/Authenticate"
+Occupy_URL = f"{BASE_URL}/api/services/sys/TempPermission/Occupy"
+UnOccupy_URL = f"{BASE_URL}/api/services/sys/TempPermission/UnOccupy"
+# 备份获取、备份恢复
+Backup_GetAll_URL = f"{BASE_URL}/api/services/sys/Backup/GetAll"
+Backup_Recovery_URL = f"{BASE_URL}/api/services/sys/Backup/Recovery"
+# 所有服务获取、停止服务、启动服务
+GetAllServiceInstance_URL = f"{BASE_URL}/api/services/pm/ServiceInstance/GetAllServiceInstance"
+StopInstance_URL = f"{BASE_URL}/api/services/pm/ServiceInstance/StopInstance"
+StartInstance_URL = f"{BASE_URL}/api/services/pm/ServiceInstance/StartInstance"
+# 分区信息、地图信息
+GetDistrict_URL = f"{BASE_URL}/api/services/task/DynamicFlow/GetDistrict"
+District_Get_URL = f"{BASE_URL}/api/services/map/District/Get"
+# 清除任务缓存、任务执行、任务状态、任务详情、正在执行中的任务
+ClearExistTask_URL = f"{BASE_URL}/api/services/task/DynamicFlow/ClearExistTask"
+DebugFlow_URL = f"{BASE_URL}/api/services/task/DynamicFlow/DebugFlow"
+GetDebugStatus_URL = f"{BASE_URL}/api/services/task/DynamicFlow/GetDebugStatus?taskId=" # 参数放函数内
+GetFlowInfo_URL = f"{BASE_URL}/api/services/task/DynamicFlow/GetFlowInfo"
+GetCurrentTaskInfo_URL = f"{BASE_URL}/api/services/task/Agv/GetCurrentTaskInfo"
+# 通参一级节点获取、通参二级及以下参数获取
+GetAllNodes_URL = f"{BASE_URL}/api/services/pm/CommonParamter/GetAllNodes"
+GetRootNodes_URL = f"{BASE_URL}/api/services/pm/CommonParamter/GetRootNodes"
+# 错误码获取、终止、复位启动
+WarningRecord_GetAll_URL = f"{BASE_URL}/api/services/pm/WarningRecord/GetAll"
+CtrlTaskStatus_URL = f"{BASE_URL}/api/services/task/Agv/CtrlTaskStatus"
+SetCtrlButton_URL = f"{BASE_URL}/api/services/task/SetCtrlButton"
+# 自动回归
+AutoBackTask_CreateTask_URL = f"{BASE_URL}/api/services/task/AutoBackTask/CreateTask"
 
 
-class TaskTrigger():
+class Auth:
     def __init__(self):
         self.headers = {
             "accept": "*/*",
@@ -38,7 +64,7 @@ class TaskTrigger():
         self.task_loop_normal_exit = False
         self.task_loop_exceptional_exit = False
 
-    def make_request(self, url, data):
+    def request_post(self, url, data):
         try:
             response = requests.post(url, headers=self.headers, data=json.dumps(data))
             if response.status_code != 200:
@@ -47,19 +73,27 @@ class TaskTrigger():
             response.raise_for_status()  # 检查HTTP错误
             return response.json()
         except requests.exceptions.RequestException as e:
-            logging.error(f"请求过程中发生错误: {e}")
+            my_log.error(f"请求过程中发生错误: {e}")
             raise
 
-    def make_request_get(self, url):
+    def request_get(self, url):
         try:
             response = requests.get(url, headers=self.headers)
             response.raise_for_status()  # 检查HTTP错误
             return response.json()
         except requests.exceptions.RequestException as e:
-            logging.error(f"请求过程中发生错误: {e}")
+            my_log.error(f"请求过程中发生错误: {e}")
             raise
 
-            # 登录，获取令牌
+    def request_delete(self, url):
+        try:
+            response = requests.delete(url, headers=self.headers)
+            response.raise_for_status()  # 检查HTTP错误
+            return response.json()
+
+        except requests.exceptions.RequestException as e:
+            my_log.error(f"请求过程中发生错误: {e}")
+            raise
 
     def get_authorization(self):
         data = {
@@ -69,31 +103,36 @@ class TaskTrigger():
             "clientId": CLIENT_ID,
             "rememberClient": True
         }
-
         try:
-            response_data = self.make_request(TOKEN_AUTH_URL, data)
+            response_data = self.request_post(Authenticate_URL, data)
             access_token = response_data['result']['accessToken']
-            print(access_token)
             self.headers["Authorization"] = f'Bearer {access_token}'
-            logging.info("登录权限，请求成功")
+            my_log.info("登录权限，请求成功")
         except KeyError as e:
-            logging.error(f"响应体格式错误: {e}")
+            my_log.error(f"响应体格式错误: {e}")
             raise
 
-    # 获取控制权
     def get_occupy(self):
         data = {
             "clientId": CLIENT_ID,
             "remark": 'auto_test_lgc'
         }
         try:
-            response_data = self.make_request(OCCUPY_URL, data)
+            response_data = self.request_post(Occupy_URL, data)
             if response_data['success']:
-                logging.info("成功获取控制权")
+                my_log.info("成功获取控制权")
             else:
-                logging.info("获取控制权失败")
+                my_log.info("获取控制权失败")
         except Exception as e:
-            logging.error(f"获取控制权失败: {e}")
+            my_log.error(f"获取控制权失败: {e}")
+
+    def get_unoccupy(self):
+        data = {}
+        try:
+            self.request_post(UnOccupy_URL, data)
+            my_log.info("释放控制权")
+        except Exception as e:
+            my_log.error(f"释放控制权失败: {e}")
 
     # 任务流程，下发运行任务。
     # Todo：下发前检查小车是否处于待命状态，如果不是就报警，用例失败 （MQTT） 
@@ -112,7 +151,7 @@ class TaskTrigger():
             # 检查是否有task_loop_id ，没有的话需要返回失败，下发任务失败就要去执行下一个任务。
             if response_data['success']:
                 self.task_loop_id = response_data['result']
-                logging.info("成功下发运行任务")
+                my_log.info("成功下发运行任务")
                 return response_data
             else:
                 print("检查是否有task_loop_id", response_data['error'])
@@ -120,7 +159,7 @@ class TaskTrigger():
             self.task_loop_normal_exit = False
             self.task_loop_exceptional_exit = False
         except Exception as e:
-            logging.error(f"下发运行任务失败: {e}")
+            my_log.error(f"下发运行任务失败: {e}")
             self.task_loop_id = '0'
 
     def get_DebugStatus(self):
@@ -139,10 +178,130 @@ class TaskTrigger():
             # 遇到了异常的话，就会处于被暂停的状态。
             # 任务流程状态 {'taskStatus': 'paused', 'taskPercent': 10, 'finish': False}
 
-            # logging.info("成功查询动态任务流程状态",response_data['result']['status'])
+            # my_log.info("成功查询动态任务流程状态",response_data['result']['status'])
 
         except Exception as e:
-            logging.error(f"查询动态任务流程状态失败: {e}")
+            my_log.error(f"查询动态任务流程状态失败: {e}")
+
+class ServiceTrigger(Auth):
+    def __init__(self):
+        super().__init__()
+        self.service_instance_lst = []
+        self.get_all_service_instance()
+
+    def get_all_service_instance(self):
+        try:
+            response_data = self.request_get(GetAllServiceInstance_URL)
+            if response_data['success']:
+                self.service_instance_lst = response_data['result']['data']
+            else:
+                my_log.error(response_data['error'])
+            self.task_loop_normal_exit = False
+            self.task_loop_exceptional_exit = False
+        except Exception as e:
+            my_log.error(f"下发运行任务失败: {e}")
+            self.task_loop_id = '0' # 当前运行任务id？？
+
+    def start_instance(self, service_id):
+        try:
+            data = {"Id": service_id}
+            response_data = self.request_post(StartInstance_URL, data)
+            if response_data['success']:
+                my_log.info(f"成功启动AGV程序：{service_id}")
+        except Exception as e:
+            my_log.error(f"开始AGV服务模块异常: {e}")
+
+    def stop_instance(self, service_id):
+        try:
+            data = {
+                "Id": service_id
+            }
+            response_data = self.request_post(StopInstance_URL, data)
+            if response_data['success']:
+                my_log.info(f"成功停止AGV程序：{service_id}")
+        except Exception as e:
+            my_log.error(f"停止AGV服务模块异常: {e}")
+
+    def start_all_instance(self):
+        # 先找到ServiceInstanceList中 感知服务的 ID
+        for data in self.service_instance_lst:
+            if data['serviceType']['serviceTypeName'] == '3DSlamPrinter':
+                self.start_instance(data['id'])
+        for data in self.service_instance_lst:
+            if data['serviceType']['serviceTypeName'] == 'perception':
+                self.start_instance(data['id'])
+        for data in self.service_instance_lst:
+            if data['serviceType']['serviceTypeName'] == 'general':
+                self.start_instance(data['id'])
+        for data in self.service_instance_lst:
+            if data['serviceType']['serviceTypeName'] == '3DSlam':
+                self.start_instance(data['id'])
+
+    def stop_all_instance(self):
+        for data in self.service_instance_lst:
+            self.stop_instance(data['id'])
+
+    def service_status(self, service_id):
+        """
+        获取服务状态K
+        :param service_id:
+        :return:
+        """
+        pass
+
+
+
+
+class RobotuneInstance(Auth):
+    def __init__(self):
+        super().__init__()
+        self.backup_lst = []
+
+    def backup_get_all(self, max_result_count=100, page_index=1):
+        try:
+            get_all_url = Backup_GetAll_URL + f"?MaxResults={max_result_count}&PageIndex={page_index}"
+            response_data = self.request_get(get_all_url)
+            self.backup_lst = response_data['result']['items']
+            my_log.info("获取备份列表")
+        except Exception as e:
+            my_log.error(f"获取备份失败: {e}")
+
+    def backup_recovery(self, backup_name, *recovery_item):
+        """
+        触发备份恢复
+        :param backup_name: 备份 id
+        :param recovery_item: 待恢复项 1 产品定义 2 测试实施 4 通用参数 8 AGV 配置文件
+        :return:
+        """
+        self.get_occupy()
+        try:
+            # 触发恢复,61是取，72是放。这个需要提前写定用于做校验 "recoveryItems": [2],
+            data = {"id": self.backup_lst[backup_name]['id'], "recoveryItems": recovery_item,"universalParameterRecoveryItems": [1]}
+            response_data = self.request_post(Backup_Recovery_URL, data)
+            print(response_data)
+        except Exception as e:
+            my_log.error(f"触发备份{backup_name}失败: {e}")
+        finally:
+            self.get_unoccupy()
+
+    def backup_status(self):
+        """
+        查询备份恢复进度是否完成
+        :return:
+        """
+        pass
+
+def clear_robotune_task():
+    requests.post(ClearExistTask_URL)
+    print("等待robotune清除缓存")
+    time.sleep(1)
+    print("robotune缓存已清除")
+
+    # todo-启动前确认地图和agv初始位置。根据webots的初始位姿态来处理？好像也不错。或者根据任务里面的移动任务的起点来处理。
+
+
+if __name__ == "__main__":
+
 
     # {'result': {'taskId': '1e5d3570-1048-46ec-9862-836f2614fc47', 'repeatCount': 20, 'repeatIndex': 1,
     #             'taskCount': 2, 'taskIndex': 0, 'keyTaskIndex': 1, 'flowName': '密闭空间穿梭AT',
@@ -157,123 +316,7 @@ class TaskTrigger():
     #     'fullPathIds': [13415, 13397, 13327, 13451, 13368, 13367, 13374, 13354, 13083, 13052, 13071, 13075, 13040, 13031, 13018, 13025, 13095, 13090, 13093, 13230, 13191, 13196, 13231, 13226, 13085, 13114, 13129, 13099, 13062, 13066, 13077, 13059, 13063, 13068, 13240, 13109, 13108, 13134, 13265, 13212, 13211, 13206, 13233, 13096, 13423, 13437, 13412, 13443, 13441, 13418, 13431, 13390, 13404, 13439, 13442, 13422, 13116, 13246, 13245, 13208, 13232, 13210, 13107, 13465, 13533, 13473, 13469, 13506, 13507, 13453, 13479, 13537, 13644, 13645, 13646, 13648, 13649, 13651, 13485, 13483, 13514, 13515, 13457, 13491, 13543, 13544, 13673, 13674, 13675, 13676, 13677, 13545, 13497, 13495, 13529, 13530, 13531, 13463, 13555, 13556, 13693, 13694, 13615, 13714], 'endCoordinates': '75.692,-68.102', 'startCoordinates': '-3.674,2.387', 'sourceSys': 'robotune'},
     #   'targetUrl': None, 'success': True, 'error': None, 'unAuthorizedRequest': False, '__abp': True}
 
-    # 释放控制权
-    def get_unoccupy(self):
-        data = {}
-        try:
-            self.make_request(UNOCCUPY_URL, data)
-            logging.info("释放控制权")
-        except Exception as e:
-            logging.error(f"释放控制权失败: {e}")
 
-
-GetAllServiceInstance_URL = f"{BASE_URL}/services/pm/ServiceInstance/GetAllServiceInstance"
-StopInstance_URL = f"{BASE_URL}/services/pm/ServiceInstance/StopInstance"
-StartInstance_URL = f"{BASE_URL}/services/pm/ServiceInstance/StartInstance"
-
-
-class AGVsysTrigger():
-    def __init__(self):
-        self.headers = {
-            "accept": "*/*",
-            "Authorization": "null",
-            'Content-Type': 'application/json-patch+json',
-            "X-XSRF-TOKEN": XSRF_TOKEN,
-        }
-        self.ServiceInstanceList = []
-        self.GetAllServiceInstance()
-
-    def make_request(self, url, data):
-        try:
-            response = requests.post(url, headers=self.headers, data=json.dumps(data))
-            response.raise_for_status()  # 检查HTTP错误
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            logging.error(f"请求过程中发生错误: {e}")
-            raise
-
-    def make_request_get(self, url):
-        try:
-            response = requests.get(url, headers=self.headers)
-            response.raise_for_status()  # 检查HTTP错误
-            return response.json()
-        except requests.exceptions.RequestException as e:
-            logging.error(f"请求过程中发生错误: {e}")
-            raise
-
-    def GetAllServiceInstance(self):
-        try:
-            response_data = self.make_request_get(GetAllServiceInstance_URL)
-            if response_data['success']:
-                self.ServiceInstanceList = response_data['result']['data']
-            else:
-                print(response_data['error'])
-            self.task_loop_normal_exit = False
-            self.task_loop_exceptional_exit = False
-        except Exception as e:
-            logging.error(f"下发运行任务失败: {e}")
-            self.task_loop_id = '0'
-
-        pass  # 这个 pass 怎么看都没用
-
-    def StartInstance(self, ServiceInstanceId):
-        try:
-            data = {
-                "Id": ServiceInstanceId
-            }
-            response_data = self.make_request(StartInstance_URL, data)
-            print(response_data)
-            if response_data['success']:
-                logging.info("成功启动AGV程序")
-        except Exception as e:
-            logging.error(f"开始AGV服务模块异常: {e}")
-
-    def StopInstance(self, ServiceInstanceId):
-        try:
-            if ServiceInstanceId:
-                data = {
-                    "Id": ServiceInstanceId
-                }
-                response_data = self.make_request(StopInstance_URL, data)
-                print(response_data)
-        except Exception as e:
-            logging.error(f"停止AGV服务模块异常: {e}")
-
-    def StopALLInstance(self):
-        for data in self.ServiceInstanceList:
-            self.StopInstance(data['id'])
-
-    def StartALLInstance(self):
-        # 先找到ServiceInstanceList中 感知服务的 ID
-        for data in self.ServiceInstanceList:
-            if data['serviceType']['serviceTypeName'] == '3DSlamPrinter':
-                self.StartInstance(data['id'])
-        for data in self.ServiceInstanceList:
-            if data['serviceType']['serviceTypeName'] == 'perception':
-                self.StartInstance(data['id'])
-        for data in self.ServiceInstanceList:
-            if data['serviceType']['serviceTypeName'] == 'general':
-                self.StartInstance(data['id'])
-        for data in self.ServiceInstanceList:
-            if data['serviceType']['serviceTypeName'] == '3DSlam':
-                self.StartInstance(data['id'])
-
-            # 关闭robotune前做一次任务清除的操作
-
-
-CLEAR_ROBOTUNE_TASK = f"{BASE_URL}/services/task/DynamicFlow/ClearExistTask"
-
-
-def clear_robotune_task():
-    requests.post(CLEAR_ROBOTUNE_TASK)
-    print("等待robotune清除缓存")
-    time.sleep(1)
-    print("robotune缓存已清除")
-
-    # todo-启动前确认地图和agv初始位置。根据webots的初始位姿态来处理？好像也不错。或者根据任务里面的移动任务的起点来处理。
-
-
-if __name__ == "__main__":
     # 开启常用服务
     a = AGVsysTrigger()
     a.StartALLInstance()
@@ -293,7 +336,7 @@ if __name__ == "__main__":
     #     task_trigger.post_debug_flow(taskId,loopNum)
     #     task_trigger.get_unoccupy()
     # except Exception as e:
-    #     logging.error(f"程序执行过程中发生错误: {e}")
+    #     my_log.error(f"程序执行过程中发生错误: {e}")
 
     # 触发自主回归路径，但是需要计算的路径点，还需要点击确定和继续任务。是否需要触发使用错误码获取，是否需要继续也使用错误码获取
     # auto_back_url = 'http://127.0.0.1:24311/api/services/task/AutoBackTask/CreateTask'
@@ -311,26 +354,7 @@ if __name__ == "__main__":
     # rp = tk.make_request(url=refresh_cache, data={})
     # print(rp)
 
-    # 获取全部备份列表，返回中有单个id用于恢复用。
-    # tk = TaskTrigger()
-    # rp = tk.make_request_get(url='http://127.0.0.1:24311/api/services/sys/Backup/GetAll?MaxResultCount=100&PageIndex=1')
-    # print(rp['result']['items'])
-    # for i in rp['result']['items']:
-    #     # if i['name'] == 'detect_get-V5.2.1.0_test-20250604110917':
-    #     if i['name'] == 'detect_put-V5.2.1.0_test-20250611143618':
-    #         print(i)
 
-    # 触发恢复,61是取，72是放。这个需要提前写定用于做校验
-    # tk = TaskTrigger()
-    # tk.get_occupy()
-    # body_3 = {
-    #     "id": 61,
-    #     "recoveryItems": [2],
-    #     "universalParameterRecoveryItems": [1]
-    # }
-    # rp = tk.make_request(url='http://127.0.0.1:24311/api/services/sys/Backup/Recovery', data=body_3)
-    # print(rp)
-    # tk.get_unoccupy()
 
     # 自主路径返回，获取错误码是脱轨，触发请求规划（暂无），创建任务执行此时任务是执行中，再次获取到任务是暂停+没有脱轨错误码，启动
     # auto_back = f'http://127.0.0.1:24311/api/services/task/AutoBackTask/CreateTask'
