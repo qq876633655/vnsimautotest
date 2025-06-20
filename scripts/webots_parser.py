@@ -153,7 +153,7 @@ class WebotsParser:
             elif type_field == 'MFNode':
                 self._write_node(value, self.indentation if index > 0 else 0)
             elif type(value) is not list:
-                print("Skip {} with values {}".format(type_field, values))
+                # print("Skip {} with values {}".format(type_field, values))
                 self.file.write(str(values).replace('[', '').replace("'", '').replace(']', ''))
                 break
             elif type_field == 'MFVec2f':

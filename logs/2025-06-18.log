@@ -1,0 +1,336 @@
+2025-06-18 10:18:00,116 - INFO - 登录权限，请求成功
+2025-06-18 10:58:46,503 - INFO - 登录权限，请求成功
+2025-06-18 10:59:22,924 - INFO - 登录权限，请求成功
+2025-06-18 10:59:22,945 - INFO - 登录权限，请求成功
+2025-06-18 10:59:22,945 - INFO - 重新登录成功
+2025-06-18 11:00:21,732 - INFO - 登录权限，请求成功
+2025-06-18 11:00:21,743 - INFO - 成功获取控制权
+2025-06-18 11:00:40,883 - INFO - 登录权限，请求成功
+2025-06-18 11:00:54,624 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/TokenAuth/Authenticate
+2025-06-18 11:00:54,624 - ERROR - 登录失败，检查robotune进程
+2025-06-18 11:02:20,765 - INFO - 登录权限，请求成功
+2025-06-18 11:02:25,934 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/TokenAuth/Authenticate
+2025-06-18 11:02:25,934 - ERROR - 登录失败，检查robotune进程
+2025-06-18 11:02:25,951 - ERROR - 请求过程中发生错误: 401 Client Error: Unauthorized for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 11:02:25,951 - ERROR - 获取控制权失败: 401 Client Error: Unauthorized for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 11:04:37,489 - INFO - 登录权限，请求成功
+2025-06-18 11:05:54,419 - INFO - 登录权限，请求成功
+2025-06-18 11:05:54,428 - INFO - 成功获取控制权
+2025-06-18 11:06:04,518 - INFO - 登录权限，请求成功
+2025-06-18 11:06:04,526 - ERROR - 获取控制权失败: No active exception to reraise
+2025-06-18 11:06:30,840 - INFO - 登录权限，请求成功
+2025-06-18 11:06:30,847 - INFO - 成功获取控制权
+2025-06-18 11:06:30,855 - INFO - 释放控制权
+2025-06-18 11:08:47,816 - INFO - 登录权限，请求成功
+2025-06-18 11:09:24,391 - INFO - 登录权限，请求成功
+2025-06-18 11:09:24,405 - INFO - 获取所有服务实例
+2025-06-18 11:09:50,012 - INFO - 登录权限，请求成功
+2025-06-18 11:09:50,024 - INFO - 获取所有服务实例：[{'serviceInstanceId': '0x21', 'serviceTypeId': '0x21', 'isAutoStart': False, 'serviceState': 2, 'serviceRunState': 0, 'serviceDefineId': '0x21', 'createTime': '2024-08-27 21:41:25:822', 'lastUpdateTime': '2025-06-18 11:09:47:719', 'serviceType': {'serviceTypeId': '0x21', 'serviceTypeName': '3DSlamPrinter', 'serviceTypeName_zh': '定位可视化服务', 'serviceTypeDestription': '', 'createTime': '0001-01-01 00:00:00:000', 'serviceCompany': 0, 'id': 5288}, 'id': 760}, {'serviceInstanceId': '0x18', 'serviceTypeId': '0x18', 'isAutoStart': False, 'serviceState': 1, 'serviceRunState': 0, 'serviceDefineId': '0x18', 'createTime': '2022-11-23 11:30:24:620', 'lastUpdateTime': '2025-06-18 11:09:47:719', 'serviceType': {'serviceTypeId': '0x18', 'serviceTypeName': 'general', 'serviceTypeName_zh': '综合服务', 'serviceTypeDestription': '', 'createTime': '0001-01-01 00:00:00:000', 'serviceCompany': 0, 'id': 5271}, 'id': 761}, {'serviceInstanceId': '0x22', 'serviceTypeId': '0x22', 'isAutoStart': False, 'serviceState': 2, 'serviceRunState': 0, 'serviceDefineId': '0x22', 'createTime': '2024-08-27 16:57:02:566', 'lastUpdateTime': '2025-06-18 11:09:47:719', 'serviceType': {'serviceTypeId': '0x22', 'serviceTypeName': 'AGVTest', 'serviceTypeName_zh': 'AGVTest', 'serviceTypeDestription': '', 'createTime': '0001-01-01 00:00:00:000', 'serviceCompany': 0, 'id': 5273}, 'id': 762}, {'serviceInstanceId': '0x24', 'serviceTypeId': '0x24', 'isAutoStart': False, 'serviceState': 2, 'serviceRunState': 0, 'serviceDefineId': '0x24', 'createTime': '2024-08-27 16:57:02:600', 'lastUpdateTime': '2025-06-18 11:09:47:719', 'serviceType': {'serviceTypeId': '0x24', 'serviceTypeName': 'CalibrationSys', 'serviceTypeName_zh': '标定工具', 'serviceTypeDestription': '', 'createTime': '0001-01-01 00:00:00:000', 'serviceCompany': 0, 'id': 5263}, 'id': 763}, {'serviceInstanceId': '0x23', 'serviceTypeId': '0x23', 'isAutoStart': False, 'serviceState': 2, 'serviceRunState': 0, 'serviceDefineId': '0x23', 'createTime': '2024-08-27 21:40:55:898', 'lastUpdateTime': '2025-06-18 11:09:47:719', 'serviceType': {'serviceTypeId': '0x23', 'serviceTypeName': 'SerialService', 'serviceTypeName_zh': '串口服务', 'serviceTypeDestription': '', 'createTime': '0001-01-01 00:00:00:000', 'serviceCompany': 0, 'id': 5265}, 'id': 764}, {'serviceInstanceId': '0x1A', 'serviceTypeId': '0x1A', 'isAutoStart': False, 'serviceState': 2, 'serviceRunState': 0, 'serviceDefineId': '0x1A', 'createTime': '2024-08-27 21:41:25:804', 'lastUpdateTime': '2025-06-18 11:09:47:719', 'serviceType': {'serviceTypeId': '0x1A', 'serviceTypeName': '3DSlam', 'serviceTypeName_zh': '定位服务', 'serviceTypeDestription': '', 'createTime': '0001-01-01 00:00:00:000', 'serviceCompany': 0, 'id': 5266}, 'id': 765}, {'serviceInstanceId': '0x1C', 'serviceTypeId': '0x1C', 'isAutoStart': False, 'serviceState': 2, 'serviceRunState': 0, 'serviceDefineId': '0x1C', 'createTime': '2024-08-27 21:41:25:813', 'lastUpdateTime': '2025-06-18 11:09:47:719', 'serviceType': {'serviceTypeId': '0x1C', 'serviceTypeName': 'perception', 'serviceTypeName_zh': '感知服务', 'serviceTypeDestription': '', 'createTime': '0001-01-01 00:00:00:000', 'serviceCompany': 0, 'id': 5280}, 'id': 766}]
+2025-06-18 11:11:40,676 - INFO - 登录权限，请求成功
+2025-06-18 11:11:40,686 - INFO - 获取所有服务id成功
+2025-06-18 11:14:01,298 - INFO - 登录权限，请求成功
+2025-06-18 11:14:01,307 - INFO - 获取所有服务id成功
+2025-06-18 11:15:28,518 - INFO - 登录权限，请求成功
+2025-06-18 11:15:28,528 - INFO - 获取所有服务id成功
+2025-06-18 11:15:28,573 - INFO - 成功启动AGV程序：760
+2025-06-18 11:15:28,589 - INFO - 成功启动AGV程序：766
+2025-06-18 11:15:28,604 - INFO - 成功启动AGV程序：761
+2025-06-18 11:15:28,616 - INFO - 成功启动AGV程序：765
+2025-06-18 11:17:45,801 - INFO - 登录权限，请求成功
+2025-06-18 11:17:45,816 - INFO - 获取所有服务id成功
+2025-06-18 11:17:45,835 - INFO - 成功停止AGV程序：760
+2025-06-18 11:17:45,849 - INFO - 成功停止AGV程序：761
+2025-06-18 11:17:45,867 - INFO - 成功停止AGV程序：762
+2025-06-18 11:17:45,893 - INFO - 成功停止AGV程序：763
+2025-06-18 11:17:45,924 - INFO - 成功停止AGV程序：764
+2025-06-18 11:17:45,942 - INFO - 成功停止AGV程序：765
+2025-06-18 11:17:45,955 - INFO - 成功停止AGV程序：766
+2025-06-18 11:23:10,306 - INFO - 登录权限，请求成功
+2025-06-18 11:23:10,322 - INFO - 获取所有服务id成功
+2025-06-18 11:23:10,344 - INFO - 成功启动AGV程序：760
+2025-06-18 11:23:10,361 - INFO - 成功启动AGV程序：766
+2025-06-18 11:23:10,380 - INFO - 成功启动AGV程序：761
+2025-06-18 11:23:10,399 - INFO - 成功启动AGV程序：765
+2025-06-18 11:23:43,821 - INFO - 登录权限，请求成功
+2025-06-18 11:23:43,837 - INFO - 获取所有服务id成功
+2025-06-18 11:23:43,858 - INFO - 成功停止AGV程序：760
+2025-06-18 11:23:43,885 - INFO - 成功停止AGV程序：761
+2025-06-18 11:23:43,908 - INFO - 成功停止AGV程序：762
+2025-06-18 11:23:43,929 - INFO - 成功停止AGV程序：763
+2025-06-18 11:23:43,953 - INFO - 成功停止AGV程序：764
+2025-06-18 11:23:43,975 - INFO - 成功停止AGV程序：765
+2025-06-18 11:23:44,001 - INFO - 成功停止AGV程序：766
+2025-06-18 11:28:40,560 - INFO - 登录权限，请求成功
+2025-06-18 11:28:40,580 - INFO - 获取备份列表成功
+2025-06-18 11:28:56,440 - INFO - 登录权限，请求成功
+2025-06-18 11:28:56,453 - INFO - 获取备份列表成功
+2025-06-18 11:41:56,217 - INFO - 登录权限，请求成功
+2025-06-18 11:41:56,228 - INFO - 获取备份列表成功
+2025-06-18 11:47:03,818 - INFO - 登录权限，请求成功
+2025-06-18 11:47:03,829 - INFO - 获取备份列表成功
+2025-06-18 11:50:03,416 - INFO - 登录权限，请求成功
+2025-06-18 11:50:03,426 - INFO - 获取备份列表成功
+2025-06-18 11:50:03,434 - INFO - 成功获取控制权
+2025-06-18 11:50:03,447 - INFO - 触发备份detect_put-V5.2.1.0_test-20250611143618成功
+2025-06-18 11:50:03,457 - INFO - 释放控制权
+2025-06-18 13:05:47,491 - INFO - 登录权限，请求成功
+2025-06-18 13:05:54,733 - INFO - 登录权限，请求成功
+2025-06-18 13:06:41,844 - INFO - 登录权限，请求成功
+2025-06-18 13:07:05,459 - INFO - 登录权限，请求成功
+2025-06-18 13:20:59,722 - INFO - 登录权限，请求成功
+2025-06-18 13:20:59,733 - ERROR - 获取当前方案一个任务列表信息错误: 'dict' object has no attribute 'json'
+2025-06-18 13:21:08,472 - INFO - 登录权限，请求成功
+2025-06-18 13:21:35,101 - INFO - 登录权限，请求成功
+2025-06-18 13:21:35,111 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetFlowInfo?id=162
+2025-06-18 13:21:35,111 - ERROR - 获取当前方案一个任务列表信息错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetFlowInfo?id=162
+2025-06-18 13:21:55,638 - INFO - 登录权限，请求成功
+2025-06-18 13:21:55,648 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetFlowInfo?id=162
+2025-06-18 13:21:55,648 - ERROR - 获取当前方案一个任务列表信息错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetFlowInfo?id=162
+2025-06-18 13:21:59,314 - INFO - 登录权限，请求成功
+2025-06-18 13:21:59,323 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetFlowInfo?id=161
+2025-06-18 13:21:59,323 - ERROR - 获取当前方案一个任务列表信息错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetFlowInfo?id=161
+2025-06-18 13:22:03,057 - INFO - 登录权限，请求成功
+2025-06-18 13:22:49,177 - INFO - 登录权限，请求成功
+2025-06-18 13:35:46,872 - INFO - 登录权限，请求成功
+2025-06-18 13:35:46,881 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 13:35:46,881 - ERROR - 获取控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 13:35:46,889 - INFO - 触发备份detect_put-V5.2.1.0_test-20250611143618成功
+2025-06-18 13:35:46,901 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 13:35:46,901 - ERROR - 释放控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 13:36:23,331 - INFO - 登录权限，请求成功
+2025-06-18 13:36:23,338 - INFO - 成功获取控制权
+2025-06-18 13:36:23,346 - INFO - 触发备份detect_put-V5.2.1.0_test-20250611143618成功
+2025-06-18 13:36:23,359 - INFO - 释放控制权
+2025-06-18 13:40:13,736 - INFO - 登录权限，请求成功
+2025-06-18 13:40:13,751 - INFO - 成功获取控制权
+2025-06-18 13:40:13,763 - INFO - 触发备份detect_get-V5.2.1.0_test-20250604110917成功
+2025-06-18 13:40:13,769 - INFO - 释放控制权
+2025-06-18 13:46:42,305 - INFO - 登录权限，请求成功
+2025-06-18 13:46:42,313 - INFO - 成功获取控制权
+2025-06-18 13:46:42,321 - INFO - 触发备份detect_put-V5.2.1.0_test-20250611143618成功
+2025-06-18 13:46:42,330 - INFO - 释放控制权
+2025-06-18 13:54:41,604 - INFO - 登录权限，请求成功
+2025-06-18 13:54:41,612 - INFO - 成功获取控制权
+2025-06-18 13:54:41,621 - INFO - 触发备份detect_get-V5.2.1.0_test-20250604110917成功
+2025-06-18 13:54:41,629 - INFO - 释放控制权
+2025-06-18 13:58:44,110 - INFO - 登录权限，请求成功
+2025-06-18 13:58:44,295 - ERROR - 请求过程中发生错误: 404 Client Error: Not Found for url: http://127.0.0.1:24311/api/services/pm/CommonParamter/GetRootNodes
+2025-06-18 14:01:49,142 - INFO - 登录权限，请求成功
+2025-06-18 14:02:45,252 - INFO - 登录权限，请求成功
+2025-06-18 14:03:10,977 - INFO - 登录权限，请求成功
+2025-06-18 14:03:18,746 - INFO - 登录权限，请求成功
+2025-06-18 14:03:28,741 - INFO - 登录权限，请求成功
+2025-06-18 14:07:13,686 - INFO - 登录权限，请求成功
+2025-06-18 14:16:24,619 - INFO - 登录权限，请求成功
+2025-06-18 14:30:32,670 - INFO - 登录权限，请求成功
+2025-06-18 14:30:39,756 - INFO - 登录权限，请求成功
+2025-06-18 14:46:29,569 - INFO - 登录权限，请求成功
+2025-06-18 14:49:59,383 - INFO - 登录权限，请求成功
+2025-06-18 14:50:28,521 - INFO - 登录权限，请求成功
+2025-06-18 14:51:30,716 - INFO - 登录权限，请求成功
+2025-06-18 14:55:21,350 - INFO - 登录权限，请求成功
+2025-06-18 14:56:43,991 - INFO - 登录权限，请求成功
+2025-06-18 14:56:57,185 - INFO - 登录权限，请求成功
+2025-06-18 14:57:11,857 - INFO - 登录权限，请求成功
+2025-06-18 14:57:17,141 - INFO - 登录权限，请求成功
+2025-06-18 14:57:33,706 - INFO - 登录权限，请求成功
+2025-06-18 14:58:39,138 - INFO - 登录权限，请求成功
+2025-06-18 14:59:33,262 - INFO - 登录权限，请求成功
+2025-06-18 14:59:50,336 - INFO - 登录权限，请求成功
+2025-06-18 14:59:57,985 - INFO - 登录权限，请求成功
+2025-06-18 15:23:03,660 - INFO - 登录权限，请求成功
+2025-06-18 15:23:03,677 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 15:23:19,912 - INFO - 登录权限，请求成功
+2025-06-18 15:23:19,933 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 15:24:18,768 - INFO - 登录权限，请求成功
+2025-06-18 15:24:18,784 - INFO - 成功获取控制权
+2025-06-18 15:24:39,799 - INFO - 成功下发运行任务
+2025-06-18 15:24:39,808 - INFO - 释放控制权
+2025-06-18 15:53:42,189 - INFO - 登录权限，请求成功
+2025-06-18 15:53:42,392 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 15:53:48,526 - INFO - 登录权限，请求成功
+2025-06-18 15:53:48,570 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 15:58:36,302 - INFO - 登录权限，请求成功
+2025-06-18 15:58:36,435 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 15:58:36,435 - ERROR - 获取控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 15:58:36,699 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 15:58:36,699 - ERROR - 下发运行任务失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 15:58:36,718 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 15:58:36,719 - ERROR - 释放控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 16:00:35,382 - INFO - 登录权限，请求成功
+2025-06-18 16:00:35,405 - INFO - 成功获取控制权
+2025-06-18 16:00:35,463 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:00:35,464 - ERROR - 下发 伺服固定放货 运行任务错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:00:35,484 - INFO - 释放控制权
+2025-06-18 16:36:43,792 - INFO - 登录权限，请求成功
+2025-06-18 16:36:43,887 - INFO - 成功获取控制权
+2025-06-18 16:36:44,027 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:36:44,027 - ERROR - 下发 伺服固定放货 运行任务错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:36:44,042 - INFO - 释放控制权
+2025-06-18 16:37:08,672 - INFO - 登录权限，请求成功
+2025-06-18 16:37:08,692 - INFO - 成功获取控制权
+2025-06-18 16:37:08,723 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:37:08,723 - ERROR - 下发 伺服固定放货 运行任务错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:37:08,745 - INFO - 释放控制权
+2025-06-18 16:37:25,878 - INFO - 登录权限，请求成功
+2025-06-18 16:37:25,926 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 16:37:25,947 - INFO - 成功获取控制权
+2025-06-18 16:37:25,982 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:37:25,983 - ERROR - 下发 伺服固定放货 运行任务错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:37:26,011 - INFO - 释放控制权
+2025-06-18 16:37:39,204 - INFO - 登录权限，请求成功
+2025-06-18 16:37:39,233 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 16:37:39,233 - ERROR - 下发 伺服固定放货 运行任务错误: name 'all_task_lst' is not defined
+2025-06-18 16:37:39,260 - INFO - 释放控制权
+2025-06-18 16:37:47,532 - INFO - 登录权限，请求成功
+2025-06-18 16:37:47,554 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 16:37:47,572 - INFO - 成功获取控制权
+2025-06-18 16:37:47,599 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:37:47,599 - ERROR - 下发 伺服固定放货 运行任务错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/DebugFlow
+2025-06-18 16:37:47,617 - INFO - 释放控制权
+2025-06-18 16:38:23,996 - INFO - 登录权限，请求成功
+2025-06-18 16:38:24,030 - INFO - 获取当前方案所有任务列表信息成功
+2025-06-18 16:38:24,053 - INFO - 成功获取控制权
+2025-06-18 16:38:24,284 - INFO - 下发 伺服固定放货法 运行任务
+2025-06-18 16:38:24,298 - INFO - 释放控制权
+2025-06-18 16:42:47,170 - INFO - 登录权限，请求成功
+2025-06-18 16:43:00,286 - INFO - 登录权限，请求成功
+2025-06-18 16:47:40,035 - INFO - 登录权限，请求成功
+2025-06-18 16:47:40,616 - ERROR - 获取运行中任务异常：'success'
+2025-06-18 16:48:07,684 - INFO - 登录权限，请求成功
+2025-06-18 16:48:26,647 - INFO - 登录权限，请求成功
+2025-06-18 16:48:38,762 - INFO - 登录权限，请求成功
+2025-06-18 16:48:38,792 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 16:49:46,087 - INFO - 登录权限，请求成功
+2025-06-18 16:49:47,371 - ERROR - 请求过程中发生错误: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetDebugStatus?taskId=
+2025-06-18 16:49:47,372 - ERROR - 查询动态任务流程状态失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/GetDebugStatus?taskId=
+2025-06-18 16:50:30,835 - INFO - 登录权限，请求成功
+2025-06-18 16:50:30,858 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 16:50:30,932 - ERROR - 查询动态任务流程状态失败: 'dict' object has no attribute 'json'
+2025-06-18 16:50:51,708 - INFO - 登录权限，请求成功
+2025-06-18 16:50:51,750 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 16:51:35,148 - INFO - 登录权限，请求成功
+2025-06-18 16:51:35,210 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 16:51:35,249 - ERROR - 查询动态任务流程状态失败: 'dict' object has no attribute 'json'
+2025-06-18 16:51:47,468 - INFO - 登录权限，请求成功
+2025-06-18 16:51:47,498 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:14:04,369 - INFO - 登录权限，请求成功
+2025-06-18 17:14:04,466 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:17:19,708 - INFO - 登录权限，请求成功
+2025-06-18 17:17:19,725 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:19:35,249 - INFO - 登录权限，请求成功
+2025-06-18 17:19:35,277 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:20:30,442 - INFO - 登录权限，请求成功
+2025-06-18 17:20:30,456 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:39:33,423 - INFO - 登录权限，请求成功
+2025-06-18 17:41:11,460 - INFO - 登录权限，请求成功
+2025-06-18 17:41:11,481 - INFO - 获取运行中任务成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:41:11,497 - INFO - 获取执行任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:42:15,057 - INFO - 登录权限，请求成功
+2025-06-18 17:42:15,079 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:42:15,093 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 17:42:26,071 - INFO - 登录权限，请求成功
+2025-06-18 17:49:00,827 - INFO - 登录权限，请求成功
+2025-06-18 18:02:51,003 - INFO - 登录权限，请求成功
+2025-06-18 18:04:51,702 - INFO - 登录权限，请求成功
+2025-06-18 18:12:23,914 - INFO - 登录权限，请求成功
+2025-06-18 18:12:38,530 - INFO - 登录权限，请求成功
+2025-06-18 18:12:38,550 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:12:38,569 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:12:38,585 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:12:53,656 - INFO - 登录权限，请求成功
+2025-06-18 18:12:53,672 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:12:53,691 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:13:03,575 - INFO - 登录权限，请求成功
+2025-06-18 18:13:03,592 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:13:03,615 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:13:03,632 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:14:24,113 - INFO - 登录权限，请求成功
+2025-06-18 18:14:24,132 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:14:24,161 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:15:02,160 - INFO - 登录权限，请求成功
+2025-06-18 18:15:02,174 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:15:02,196 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:15:02,442 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:15:07,243 - INFO - 登录权限，请求成功
+2025-06-18 18:15:07,262 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:15:07,277 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:15:07,292 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:16:52,640 - INFO - 登录权限，请求成功
+2025-06-18 18:16:52,657 - INFO - 获取运行中任务id成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:16:52,673 - INFO - 获取运行中任务状态成功：643b752d-91d5-479a-a964-ab0402f1a764
+2025-06-18 18:16:52,715 - INFO - 成功获取控制权
+2025-06-18 18:16:52,900 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:16:52,900 - ERROR - 控制任务异常：400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:16:52,913 - INFO - 释放控制权
+2025-06-18 18:19:55,268 - INFO - 登录权限，请求成功
+2025-06-18 18:19:55,290 - INFO - 获取运行中任务id成功：b346e528-dfc9-42d0-b989-3c38e7b5fbac
+2025-06-18 18:19:55,309 - INFO - 获取运行中任务状态成功：b346e528-dfc9-42d0-b989-3c38e7b5fbac
+2025-06-18 18:19:55,327 - INFO - 成功获取控制权
+2025-06-18 18:19:55,415 - INFO - 释放控制权
+2025-06-18 18:24:24,306 - INFO - 登录权限，请求成功
+2025-06-18 18:24:34,599 - INFO - 登录权限，请求成功
+2025-06-18 18:28:08,221 - INFO - 登录权限，请求成功
+2025-06-18 18:31:31,626 - INFO - 登录权限，请求成功
+2025-06-18 18:32:11,808 - INFO - 登录权限，请求成功
+2025-06-18 18:34:46,226 - INFO - 登录权限，请求成功
+2025-06-18 18:34:46,567 - INFO - 设置车辆状态成功，button_type：2
+2025-06-18 18:35:44,652 - INFO - 登录权限，请求成功
+2025-06-18 18:35:45,010 - INFO - 设置车辆状态成功，button_type：2
+2025-06-18 18:35:46,082 - INFO - 设置车辆状态成功，button_type：3
+2025-06-18 18:37:31,971 - INFO - 登录权限，请求成功
+2025-06-18 18:37:32,015 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 18:37:32,015 - ERROR - 获取控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 18:37:32,092 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:37:32,093 - ERROR - 控制任务异常，oper_type：0，oper_type_expand：0，400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:37:32,126 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 18:37:32,127 - ERROR - 释放控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 18:37:33,494 - INFO - 设置车辆状态成功，button_type：2
+2025-06-18 18:37:34,564 - INFO - 设置车辆状态成功，button_type：3
+2025-06-18 18:37:39,983 - INFO - 登录权限，请求成功
+2025-06-18 18:37:40,015 - INFO - 成功获取控制权
+2025-06-18 18:37:40,045 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:37:40,045 - ERROR - 控制任务异常，oper_type：0，oper_type_expand：0，400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:37:40,086 - INFO - 释放控制权
+2025-06-18 18:37:41,438 - INFO - 设置车辆状态成功，button_type：2
+2025-06-18 18:37:42,474 - INFO - 设置车辆状态成功，button_type：3
+2025-06-18 18:38:48,482 - INFO - 登录权限，请求成功
+2025-06-18 18:38:48,568 - INFO - 成功获取控制权
+2025-06-18 18:38:48,622 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:38:48,623 - ERROR - 控制任务异常，oper_type：0，oper_type_expand：0，400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:38:48,656 - INFO - 释放控制权
+2025-06-18 18:39:32,413 - INFO - 登录权限，请求成功
+2025-06-18 18:39:32,451 - INFO - 成功获取控制权
+2025-06-18 18:39:32,491 - INFO - 获取运行中任务id成功：ce53423a-d741-47df-9b59-1df145ad117a
+2025-06-18 18:39:32,530 - INFO - 获取运行中任务状态成功：ce53423a-d741-47df-9b59-1df145ad117a
+2025-06-18 18:39:32,586 - INFO - 控制任务成功，oper_type：0，oper_type_expand：0
+2025-06-18 18:39:32,613 - INFO - 释放控制权
+2025-06-18 18:40:53,343 - INFO - 登录权限，请求成功
+2025-06-18 18:40:53,367 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 18:40:53,367 - ERROR - 获取控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/Occupy
+2025-06-18 18:40:53,388 - INFO - 获取运行中任务id成功：ba890bf7-6e9f-4457-8ad7-f0eb28c58279
+2025-06-18 18:40:53,408 - INFO - 获取运行中任务状态成功：ba890bf7-6e9f-4457-8ad7-f0eb28c58279
+2025-06-18 18:40:53,427 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:40:53,427 - ERROR - 控制任务异常，oper_type：0，oper_type_expand：0，400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/task/Agv/CtrlTaskStatus
+2025-06-18 18:40:53,446 - ERROR - 请求过程中发生异常: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 18:40:53,447 - ERROR - 释放控制权失败: 400 Client Error: Bad Request for url: http://127.0.0.1:24311/api/services/sys/TempPermission/UnOccupy
+2025-06-18 18:40:54,799 - INFO - 设置车辆状态成功，button_type：2
+2025-06-18 18:40:55,869 - INFO - 设置车辆状态成功，button_type：3
+2025-06-18 18:40:59,597 - INFO - 登录权限，请求成功
+2025-06-18 18:40:59,624 - INFO - 成功获取控制权
+2025-06-18 18:40:59,658 - INFO - 获取运行中任务id成功：ba890bf7-6e9f-4457-8ad7-f0eb28c58279
+2025-06-18 18:40:59,703 - INFO - 获取运行中任务状态成功：ba890bf7-6e9f-4457-8ad7-f0eb28c58279
+2025-06-18 18:40:59,774 - INFO - 控制任务成功，oper_type：0，oper_type_expand：0
+2025-06-18 18:40:59,803 - INFO - 释放控制权
+2025-06-18 18:41:01,205 - INFO - 设置车辆状态成功，button_type：2
+2025-06-18 18:41:02,232 - INFO - 设置车辆状态成功，button_type：3
+2025-06-18 18:46:47,946 - INFO - 登录权限，请求成功
+2025-06-18 18:46:47,950 - ERROR - 请求过程中发生异常: 405 Client Error: Method Not Allowed for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/ClearExistTask
+2025-06-18 18:46:47,950 - ERROR - robotune缓存清除异常：405 Client Error: Method Not Allowed for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/ClearExistTask
+2025-06-18 18:47:55,922 - INFO - 登录权限，请求成功
+2025-06-18 18:47:55,928 - ERROR - 请求过程中发生异常: 405 Client Error: Method Not Allowed for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/ClearExistTask
+2025-06-18 18:47:55,929 - ERROR - robotune缓存清除异常：405 Client Error: Method Not Allowed for url: http://127.0.0.1:24311/api/services/task/DynamicFlow/ClearExistTask
+2025-06-18 18:48:38,361 - INFO - 登录权限，请求成功
+2025-06-18 18:48:38,362 - ERROR - robotune缓存清除异常：request_post() missing 1 required positional argument: 'data'
+2025-06-18 18:49:08,152 - INFO - 登录权限，请求成功
+2025-06-18 18:49:09,179 - INFO - robotune缓存已清除
