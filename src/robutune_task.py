@@ -7,7 +7,7 @@ import logging
 
 # from scipy.stats import nchypergeom_wallenius_gen
 
-from robotune_apis import *
+from robotune_obj import *
 import subprocess
 import time
 import csv
@@ -79,7 +79,7 @@ def get_DynamicFlow_GetAll():
         # 检查响应状态码
         if response.status_code == 200:
             print("成功获取任务流程列表")
-            task_list = response.json()['result']['items']
+            task_list = response.json()['report']['items']
             return task_list
             # print(task_list)
             # for i in task_list:
@@ -181,7 +181,7 @@ class FlowInfoParser:
                 FlowInfo = response.json()
 
                 # 获取第一个通用移动的顶点为slam以及wbt的“出生点”坐标
-                for i in FlowInfo['result']['taskGroups']:
+                for i in FlowInfo['report']['taskGroups']:
                     # 组内子任务循环
                     for j in i['taskTpls']:
                         if j['agvTaskDisplayName'] == '通用移动':
@@ -193,7 +193,7 @@ class FlowInfoParser:
 
                 # 获取通用等待的个数和ID
                 # 分组循环
-                for i in FlowInfo['result']['taskGroups']:
+                for i in FlowInfo['report']['taskGroups']:
                     # 组内子任务循环
                     for j in i['taskTpls']:
                         print(j['agvTaskDisplayName'])
@@ -217,8 +217,8 @@ class FlowInfoParser:
             if response.status_code == 200:
                 result = response.json()
                 # 获取分区名称，对应就是wbt的名称
-                self.wbt_file_name = result['result']['name']
-                self.map_id = result['result']['mapId']
+                self.wbt_file_name = result['report']['name']
+                self.map_id = result['report']['mapId']
 
             else:
                 print(f"请求失败，状态码：{response.status_code}")
@@ -238,7 +238,7 @@ class FlowInfoParser:
                 result = response.json()
 
                 # 获取slam地图的名称，便于定位
-                self.locationName = result['result']['locationName']
+                self.locationName = result['report']['locationName']
 
             else:
                 print(f"请求失败，状态码：{response.status_code}")
@@ -328,7 +328,7 @@ def robotune_error_code_get():
             try:
                 response = requests.get(f"http://127.0.0.1:24311/api/services/pm/WarningRecord/GetAll?Level={i}")
                 response.raise_for_status()  # 检查请求是否成功
-                items = response.json()["result"]["items"]
+                items = response.json()["report"]["items"]
                 for j in items:
                     if 0 < (int(time.time() * 1000) - j["startTimestamp"]) / 1000 < 10:
                         error_time = timestamp_to_formatted_time(j['startTimestamp'])
@@ -347,30 +347,30 @@ def robotune_error_code_get():
 
 if __name__ == "__main__":
     last_time = time.time()
-    def callback(topic_name, msg, time):
-        global last_time
-        now = time.time()
-        if now - last_time > 2:
-            print(topic_name)
-            print(msg.position)
-
-
-    ecal_core.initialize(sys.argv, "Simple Topic Waiter")
-    sub = ProtoSubscriber("svc/pose", pose_pb2.Pose)
-    sub.set_callback(callback)
-    try:
-        while ecal_core.ok():
-            time.sleep(5)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        ecal_core.finalize()
+    # def callback(topic_name, msg, time):
+    #     global last_time
+    #     now = time.time()
+    #     if now - last_time > 2:
+    #         print(topic_name)
+    #         print(msg.position)
+    #
+    #
+    # ecal_core.initialize(sys.argv, "Simple Topic Waiter")
+    # sub = ProtoSubscriber("svc/pose", pose_pb2.Pose)
+    # sub.set_callback(callback)
+    # try:
+    #     while ecal_core.ok():
+    #         time.sleep(5)
+    # except KeyboardInterrupt:
+    #     pass
+    # finally:
+    #     ecal_core.finalize()
     # wait_for_pose_topic()
     #     url_GetCurrentTaskInfo = (
     #    "http://127.0.0.1:24311/api/services/task/Agv/GetCurrentTaskInfo"
-    #)
+    # )
     # reponse_GetCurrentTaskInfo = requests.get(url_GetCurrentTaskInfo, headers=headers)
-
+    #
     # # 获取用例任务列表
     # task_list = get_DynamicFlow_GetAll()
     # #输入任务执行的关键字，执行存在关键字的任务
@@ -429,8 +429,8 @@ if __name__ == "__main__":
     #             task_id_rob = task_trigger.post_debug_flow(taskId,loopNum)
     #
     #             task_trigger.get_unoccupy()
-    #             url_GetCurrentTaskInfo = f"http://127.0.0.1:24311/api/services/task/DynamicFlow/GetDebugStatus?taskId={task_id_rob['result']}"
-    #             print(f"获取到任务ID{task_id_rob['result']}")
+    #             url_GetCurrentTaskInfo = f"http://127.0.0.1:24311/api/services/task/DynamicFlow/GetDebugStatus?taskId={task_id_rob['report']}"
+    #             print(f"获取到任务ID{task_id_rob['report']}")
     #             # 查询任务是否成功
     #             get_curr_task_info_resp = requests.get(url_GetCurrentTaskInfo).json()
     #             if get_curr_task_info_resp["success"] == False:

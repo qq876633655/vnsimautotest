@@ -234,14 +234,14 @@ if __name__ == "__main__":
     response_getrobotnodes = requests.get(robotune_get_robot_nodes).json()
 
     # 读取静态参数
-    robot_nodes_list = [i["uuid"] for i in response_getrobotnodes["result"]["childNodes"] if i["nodeName"] == "静态参数"]
+    robot_nodes_list = [i["uuid"] for i in response_getrobotnodes["report"]["childNodes"] if i["nodeName"] == "静态参数"]
     # 读取关键字为LoadPositionX的节点
     robotune_get_all_show_nodes = robotune_url+'/api/services/pm/CommonParameter/GetAllShowNodes?'+'UUID='+robot_nodes_list[0]+'&Key=LoadPositionX'
     robotune_get_all_show_nodes_car_model = robotune_url+'/api/services/pm/CommonParameter/GetAllShowNodes?'+'UUID='+robot_nodes_list[0]+'&Key=产品型号'
     # 启动程序时获取车型拿到LoadPositionX的值
-    car_for_load_position_x = float(requests.get(robotune_get_all_show_nodes).json()["result"][0]["childNodes"][0]["parameterValue"])
+    car_for_load_position_x = float(requests.get(robotune_get_all_show_nodes).json()["report"][0]["childNodes"][0]["parameterValue"])
     # 读取车体车型
-    CAR_MODEL = requests.get(robotune_get_all_show_nodes_car_model).json()["result"][0]["childNodes"][0]["parameterValue"]
+    CAR_MODEL = requests.get(robotune_get_all_show_nodes_car_model).json()["report"][0]["childNodes"][0]["parameterValue"]
     print(f"成功读取到LoadPositionX：{car_for_load_position_x}")
     print(f"当前车型为：{CAR_MODEL}")
     # 根据模板复制一份excel文件，并返回文件路径
@@ -260,20 +260,20 @@ if __name__ == "__main__":
     # TODO: 如果是P车、E车或者其他P车体中心在货叉挡板后面则应该-loadpositionx的值，最终得到挡板的姿态
     # TODO: 当前仿真世界坐标系的值是以卡板中心为准，所以需要优化下卡板中心到前端的偏移量
     # TODO: 已经知道当前的卡板长度、宽度、当前卡板的中心坐标，要求最终到车体中心距离是否一致
-    # TODO: 获取车体运行的状态，尝试在取货阶段获取到感知检测的结果，分析感知的最大值，最小值和检测波动{'result': {'currentPower': '100%', 'runstatus': {'state': 2, 'maxVelocity': 3.0, 'maxVelocityLimitReason': 'ControlCenter', 'controlError': '100000.000,0.000,0.0000', 'lastEndControlError': '0.011,0.001,-0.0015', 'locationType': 3, 'locationMode': 0, 'chargeMode': 2, 'positionInitialized': 'true', 'taskData': {'source': 0, 'taskType': 0, 'taskId': 0, 'taskStatus': 0, 'timeStamp': '2025-04-03 02:09:51:2470'}, 'goodsData': {'hasGoods': 'false', 'poseDetected': '-0.074,0.003,0.0020,0.000,0.000,0.000', 'poseOnVehicle': '-2.082,-0.017,0.0060'}, 'lastUpdate': '2025-04-03 10:09:51:248'}}, 'targetUrl': None, 'success': True, 'error': None, 'unAuthorizedRequest': False, '__abp': True}
+    # TODO: 获取车体运行的状态，尝试在取货阶段获取到感知检测的结果，分析感知的最大值，最小值和检测波动{'report': {'currentPower': '100%', 'runstatus': {'state': 2, 'maxVelocity': 3.0, 'maxVelocityLimitReason': 'ControlCenter', 'controlError': '100000.000,0.000,0.0000', 'lastEndControlError': '0.011,0.001,-0.0015', 'locationType': 3, 'locationMode': 0, 'chargeMode': 2, 'positionInitialized': 'true', 'taskData': {'source': 0, 'taskType': 0, 'taskId': 0, 'taskStatus': 0, 'timeStamp': '2025-04-03 02:09:51:2470'}, 'goodsData': {'hasGoods': 'false', 'poseDetected': '-0.074,0.003,0.0020,0.000,0.000,0.000', 'poseOnVehicle': '-2.082,-0.017,0.0060'}, 'lastUpdate': '2025-04-03 10:09:51:248'}}, 'targetUrl': None, 'success': True, 'error': None, 'unAuthorizedRequest': False, '__abp': True}
     while True:
         try:
             # response_GetFlowInfo = requests.get(robotune_task_GetFlowInfo).json()
             response_GetCurrentTaskInfo = requests.get(robotune_tail_get_task_info).json()
-            if response_GetCurrentTaskInfo["result"] is not None:
-                task_id = response_GetCurrentTaskInfo["result"]["taskId"]
+            if response_GetCurrentTaskInfo["report"] is not None:
+                task_id = response_GetCurrentTaskInfo["report"]["taskId"]
                 response_agv_debug = requests.get(f"{robotune_get_debug_status}{task_id}")
-                robotune_mode = response_agv_debug.json()["result"]["flowName"]
-                robotune_group_title = response_agv_debug.json()["result"]["taskGroup"]["groupName"]
+                robotune_mode = response_agv_debug.json()["report"]["flowName"]
+                robotune_group_title = response_agv_debug.json()["report"]["taskGroup"]["groupName"]
                 case_title = robotune_mode+robotune_group_title
-                print("当前任务为："+response_GetCurrentTaskInfo["result"]["taskTypeName"])
+                print("当前任务为："+response_GetCurrentTaskInfo["report"]["taskTypeName"])
                 time.sleep(1)
-                if response_GetCurrentTaskInfo["result"]["taskTypeName"] != "Stop":
+                if response_GetCurrentTaskInfo["report"]["taskTypeName"] != "Stop":
                     case_title = None
                 else:
                     IS_OPEN_ECAL_CALLBAK = True

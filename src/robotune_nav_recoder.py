@@ -94,14 +94,14 @@ def on_message(topic_name, msg, msg_time):
     GetCurrentPos_result = GetCurrentPos_response.json()
     # 打印响应状态码
     # print(GetCurrentPos_response.status_code)
-    # print(GetCurrentPos_result['result'])
+    # print(GetCurrentPos_result['report'])
 
 
     row_list.extend(
         [
-            GetCurrentPos_result["result"]["x"],
-            GetCurrentPos_result["result"]["y"],
-            GetCurrentPos_result["result"]["theta"],
+            GetCurrentPos_result["report"]["x"],
+            GetCurrentPos_result["report"]["y"],
+            GetCurrentPos_result["report"]["theta"],
         ]
     )
 
@@ -113,11 +113,11 @@ def on_message(topic_name, msg, msg_time):
         CurrentAgvRunStatusInfo_url, headers=headers
     )
     CurrentAgvRunStatusInfo_result = CurrentAgvRunStatusInfo_response.json()
-    # print(CurrentAgvRunStatusInfo_result['result']['lastEndControlError'])
-    # print(type(CurrentAgvRunStatusInfo_result['result']['lastEndControlError']))
+    # print(CurrentAgvRunStatusInfo_result['report']['lastEndControlError'])
+    # print(type(CurrentAgvRunStatusInfo_result['report']['lastEndControlError']))
 
-    if isinstance(CurrentAgvRunStatusInfo_result["result"]["lastEndControlError"], str):
-        result = CurrentAgvRunStatusInfo_result["result"]["lastEndControlError"].split(
+    if isinstance(CurrentAgvRunStatusInfo_result["report"]["lastEndControlError"], str):
+        result = CurrentAgvRunStatusInfo_result["report"]["lastEndControlError"].split(
             ","
         )
         row_list.extend(result)
@@ -127,8 +127,8 @@ def on_message(topic_name, msg, msg_time):
     # )
     # reponse_GetCurrentTaskInfo = requests.get(url_GetCurrentTaskInfo, headers=headers)
     # result_GetCurrentTaskInfo = reponse_GetCurrentTaskInfo.json()
-    # print("task name = ", result_GetCurrentTaskInfo["result"]["taskId"])
-    # row_list.extend(result_GetCurrentTaskInfo["result"]["taskId"])
+    # print("task name = ", result_GetCurrentTaskInfo["report"]["taskId"])
+    # row_list.extend(result_GetCurrentTaskInfo["report"]["taskId"])
 
     messages_buffer.append(row_list)
 
@@ -143,19 +143,19 @@ def listen(taskName):
     )
     reponse_GetCurrentTaskInfo = requests.get(url_GetCurrentTaskInfo, headers=headers)
     result_GetCurrentTaskInfo = reponse_GetCurrentTaskInfo.json()
-    if not isinstance(result_GetCurrentTaskInfo["result"], dict):
+    if not isinstance(result_GetCurrentTaskInfo["report"], dict):
         print("任务未开始")
-        return result_GetCurrentTaskInfo["result"]["name"]
-    elif result_GetCurrentTaskInfo["result"]["name"] != "CommonWaitting":
+        return result_GetCurrentTaskInfo["report"]["name"]
+    elif result_GetCurrentTaskInfo["report"]["name"] != "CommonWaitting":
         print("不是通用等待任务")
-        return result_GetCurrentTaskInfo["result"]["name"]    
-    elif result_GetCurrentTaskInfo["result"]["name"] == taskName:
+        return result_GetCurrentTaskInfo["report"]["name"]
+    elif result_GetCurrentTaskInfo["report"]["name"] == taskName:
         print("和上个任务相同，不记录")
-        return result_GetCurrentTaskInfo["result"]["name"]    
-    elif result_GetCurrentTaskInfo["result"]["taskStatus"] == "transacting":
+        return result_GetCurrentTaskInfo["report"]["name"]
+    elif result_GetCurrentTaskInfo["report"]["taskStatus"] == "transacting":
         print("记录相关信息")
         FLAG_RECODE = True
-        return result_GetCurrentTaskInfo["result"]["name"]
+        return result_GetCurrentTaskInfo["report"]["name"]
 
 
 if __name__ == "__main__":

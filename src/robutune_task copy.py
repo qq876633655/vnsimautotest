@@ -4,7 +4,7 @@ import signal
 import psutil
 import requests
 import logging
-from robotune_apis import *
+from robotune_obj import *
 import subprocess
 import time
 import csv
@@ -75,7 +75,7 @@ def get_DynamicFlow_GetAll():
         # 检查响应状态码
         if response.status_code == 200:
             print("成功获取任务流程列表")
-            task_list = response.json()['result']['items']
+            task_list = response.json()['report']['items']
             return task_list
             # print(task_list)
             # for i in task_list:
@@ -177,7 +177,7 @@ class FlowInfoParser:
                 FlowInfo = response.json()
 
                 # 获取第一个通用移动的顶点为slam以及wbt的“出生点”坐标
-                for i in FlowInfo['result']['taskGroups']:
+                for i in FlowInfo['report']['taskGroups']:
                     # 组内子任务循环
                     for j in i['taskTpls']:
                         if j['agvTaskDisplayName'] == '通用移动':
@@ -189,7 +189,7 @@ class FlowInfoParser:
 
                 # 获取通用等待的个数和ID
                 # 分组循环
-                for i in FlowInfo['result']['taskGroups']:
+                for i in FlowInfo['report']['taskGroups']:
                     # 组内子任务循环
                     for j in i['taskTpls']:
                         print(j['agvTaskDisplayName'])
@@ -213,8 +213,8 @@ class FlowInfoParser:
             if response.status_code == 200:
                 result = response.json()
                 # 获取分区名称，对应就是wbt的名称
-                self.wbt_file_name = result['result']['name']
-                self.map_id = result['result']['mapId']
+                self.wbt_file_name = result['report']['name']
+                self.map_id = result['report']['mapId']
 
             else:
                 print(f"请求失败，状态码：{response.status_code}")
@@ -234,7 +234,7 @@ class FlowInfoParser:
                 result = response.json()
 
                 # 获取slam地图的名称，便于定位
-                self.locationName = result['result']['locationName']
+                self.locationName = result['report']['locationName']
 
             else:
                 print(f"请求失败，状态码：{response.status_code}")
