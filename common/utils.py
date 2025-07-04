@@ -163,19 +163,6 @@ def get_c_b_pose(a_b: Pose, a_c: Pose):
     return c_b
 
 
-def create_dir(path):
-    """
-    创建目录
-
-    :param path:
-    :return:
-    """
-    if not os.path.exists(path):
-        my_log.info("创建目录：%s" % path)
-        os.makedirs(path)
-    return path
-
-
 def safe_deceleration(v_current, a_min, a_max, driving_a_virtual, warning_a_virtual, warning_area=None):
     """
     安全减速公式
@@ -351,19 +338,15 @@ def cal_put_vehicle_pose(storage_pose, card_length, card_width, loadpositionx, p
 
 
 if __name__ == '__main__':
-    translation_ = [92.85, 157.2, 0]
+    translation_ = [90, 157, 0]
     # rotation_ = [0, 0, 1, -1.4]
-    rotation_ = [0.0, 0.0, -1.0, 1.3962634015954636]
-    # print(axis_angle_to_rpy(translation_, rotation_).__dict__)
-    # {'x': 92.85, 'y': 157.2, 'z': 0.0, 'roll': 0.0, 'pitch': 0.0, 'yaw': -80.21409131831524}
-    # {'x': 92.85, 'y': 157.2, 'z': 0.0, 'roll': 0.0, 'pitch': 0.0, 'yaw': -80.0}
-    print(rpy_to_axis_angle(roll=0, pitch=0, yaw=-80))
-
-
-    # card_length = 1
+    rotation_ = [0.0, 0.0, 1.0, -1.6573]
+    card_length = 1.02
+    loadpositionx = -0.13
+    cut_off_x = 0
     # card_width = 1
-    # loadpositionx = -0.2
-    # cal_get_vehicle_pose(translation, rotation, card_length, loadpositionx, same_direction=True)
+
+    cal_get_vehicle_pose(translation_, rotation_, card_length, loadpositionx, same_direction=True)
     # storage_pose = Pose(x=100,y=100, yaw=-90)
     # cal_put_vehicle_pose(storage_pose=storage_pose,card_length=card_length,card_width=card_width,
     #                      loadpositionx=loadpositionx, perception_type=3, storage_cross_x_dis=1.1,

@@ -157,10 +157,6 @@ if __name__ == '__main__':
     # print(read_excel.max_col)
     # print(read_excel.dict_data())
     # 调用函数进行测试
-    # file_path = r"D:\WorkSpace\AGVHelper\小胖熊_中间_E35_直线15m_直线转弯5m_15°放托盘\托盘堆垛解垛.tkl"
-    # number = 50  # 替换为你要复制的次数
-    # copy_file_content(file_path, number)
-    #
     csv_file = "/home/visionnav/VNSim/vnsimautotest/test_case/get_put_sim_case_temp.csv"
     # copy_csv_path = create_file_copy(csv_file, copy=True)
     csv_cm = CSVCaseManager(csv_file)

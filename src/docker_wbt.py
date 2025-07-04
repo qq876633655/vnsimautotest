@@ -9,6 +9,8 @@ import subprocess
 import os
 import re
 import shutil
+import time
+
 from src.webots_parser import WebotsParser
 from common.log import my_log
 
@@ -86,14 +88,19 @@ class DockerWbt(WebotsParser):
                         cpu_num += 1
                 # process = subprocess.Popen(command)
                 wbt_commands.append(command)
-                my_log.info(f"wbt启动成功，控制器类型：{wbt['controller_type']}，{command}")
                 # self.process.append(process)
-            self.modify_docker_file(docker_path, wbt_commands)
+            # self.modify_docker_file(docker_path, wbt_commands)
             process = subprocess.Popen(["bash", docker_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             stdout, stderr = process.communicate()
             if process.returncode != 0:
                 raise BaseException("启动容器异常")
+            time.sleep(2)
             my_log.info("启动容器成功")
+            for i, cmd in enumerate(wbt_commands):
+                docker_cmd = ["docker", "exec", "-d", "vnsim_dev", "bash", "-c", cmd]
+                subprocess.run(docker_cmd)
+                my_log.info(f"wbt启动成功：{cmd}")
+                time.sleep(1)  # 控制启动间隔
         except BaseException as e:
             raise my_log.error(f"{e}")
 
@@ -183,6 +190,7 @@ class DockerWbt(WebotsParser):
     @staticmethod
     def stop_docker():
         subprocess.run(['docker', 'stop', 'vnsim_dev'])
+        subprocess.run(["docker", "rm", "vnsim_dev"])
         my_log.info("停止容器vnsim_dev")
 
     def delete_copy_wbt(self):
@@ -201,13 +209,11 @@ def stop_all_docker():
 
 
 if __name__ == "__main__":
-    # docker_file = r"/home/visionnav/VNSim/vnsimautotest/startDockerDev3.sh"
-    # wbt_file = r"/home/visionnav/VNSim/vn_wbt_project/auto_test/detect_put_p.wbt"
-    # dw = DockerWbt(wbt_file,docker_file, False)
-    # dw.check_wbt()
-    # dw.get_controller_wbt_lst()
-    # dw.prepare_wbt_file()
-    # # dw.start_docker()
-    # dw.stop_docker()
-    # dw.delete_copy_wbt()
-    stop_all_docker()
+    docker_file = r"/home/visionnav/VNSim/vnsimautotest/startDockerAutoTest.sh"
+    wbt_file = r"/home/visionnav/VNSim/vn_wbt_project/auto_test/detect_put_p.wbt"
+    dw_obj = DockerWbt(wbt_file, flag_start_with_bright_eye=False)
+    dw_obj.load(dw_obj.wbt_file)
+    dw_obj.get_controller_wbt_lst()
+    dw_obj.prepare_wbt_file()
+    dw_obj.start_docker(docker_file)
+    # stop_all_docker()

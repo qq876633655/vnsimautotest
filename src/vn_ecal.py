@@ -84,7 +84,7 @@ def is_ecal_services_alive(timeout):
                 if i['uname'] == '3dslam':
                     slam_status = True
         if general_status and slam_status and perception_status and slam_print_status:
-            my_log.info('AGV常用所有服务开启')
+            my_log.info('agv常用服务topic订阅成功')
             return True
         time.sleep(1)
         timeout -= 1
@@ -121,6 +121,6 @@ if __name__ == '__main__':
     time.sleep(2)
     print(get_pose_once())
     print("========================================")
-    time.sleep(2)
-    print(get_pose_stream())
+    # time.sleep(2)
+    # print(get_pose_stream())
 

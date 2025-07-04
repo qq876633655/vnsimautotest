@@ -289,7 +289,6 @@ class RobotuneOBJ:
         """
         获取备份列表
         :param max_result_count:
-        :param page_index:
         :return:
         """
         # [{'name': 'demo_detect_put-V5.2.1.0_test-20250625191248', 'agvModel': 'demo_detect_put',
@@ -297,7 +296,7 @@ class RobotuneOBJ:
         #   'backupItems': [{'name': '测试实施', 'value': 2}], 'processLabel': 8, 'processLabelName': '作业',
         #   'categoryLabel': 1, 'categoryLabelName': '生产', 'description': '系统备份',
         #   'creationTime': '2025-06-25 19:12:48:928', 'id': 318}]
-        get_all_url = Backup_GetAll_URL + f"?MaxResulCount={max_result_count}"
+        get_all_url = Backup_GetAll_URL + f"?MaxResultCount={max_result_count}"
         response = self._get(get_all_url, f"获取备份列表")
         self.backup_lst = response['result']['items']
         if self.backup_lst:
@@ -543,20 +542,6 @@ class RobotuneOBJ:
         # response_map = self._get(district_get_url)
         # print(response_map)
 
-    def reset_localization(self):
-        """
-        触发重定位
-        :return:
-        """
-        pass
-
-    def switch_map(self):
-        """
-        切换地图
-        :return:
-        """
-        pass
-
     def debug_flow(self, task_name, loop_num=0, start_task_group_index=0, start_index=0):
         """
         执行一次任务，任务执行前必须通过 get_all_flow_info 获取最新的任务列表
@@ -651,24 +636,25 @@ class RobotuneOBJ:
 
         # 单个 innerTaskId 在不断变动，需要咨询下 innerTaskId 是不是持续变化且唯一的
         response = self._get(GetDebugStatus_URL + f"?taskId={self.running_task_id}", '获取执行中任务状态')
+        # print(response)
         self.running_inner_task_id = response['result']['innerTaskId']
         self.running_group_sorting = response['result']['groupSorting']
         self.running_task_status = response['result']['status']['taskStatus']
         self.running_is_finish = response['result']['status']['finish']
         self.running_flow_name = response['result']['flowName']
         self.running_group_name = response['result']['taskGroup']['groupName']
-        # print(response)
         if response['result']['status']['finish']:
             self.task_loop_normal_exit = True
         if response['result']['status']['taskStatus'] == 'paused':
             self.task_loop_exceptional_exit = True
         my_log.info(f'获取运行中任务状态成功：{self.running_task_id}')
 
-    def get_warning(self, level:[]=None, max_result_count=1):
+    def get_recent_warning(self, level:[]=None, max_result_count=1, diff_time=10):
         """
-        默认获取最近的 3 4 等级下各 1 个错误码，且时间小于 3s 内
+        默认获取最近的 3 4 等级下各 1 个错误码，且时间小于 10s 内
         :param level:
         :param max_result_count:
+        :param diff_time:
         :return:
         """
         # {'level': '4', 'moduleId': 2, 'errorCode': '0x02400004', 'startTimestamp': 1750237651783, 'endTimestamp': 0,
@@ -684,11 +670,20 @@ class RobotuneOBJ:
         for i in level:
             error_code_url = WarningRecord_GetAll_URL + f"?Level={i}&MaxResultCount={max_result_count}"
             response = self._get(error_code_url, '获取错误码')
-            if time.time() - float(response['result']['items']['startTimestamp']) / 1000 < 3:
-                error_code_lst.extend(response['result']['items'])
-        # print(error_code)
+            for j in response['result']['items']:
+                if time.time() - float(j['startTimestamp']) / 1000 < diff_time:
+                    error_code_lst.append(j)
         my_log.info(f"获取错误码成功：leval={level}，max_result_count={max_result_count}")
         return error_code_lst
+
+    def location_status(self):
+        status = True
+        error_code_lst = self.get_recent_warning()
+        for i in error_code_lst:
+            if i['errorCode'] == '0x18300052':
+                status = False
+        my_log.info(f'定位状态：{status}')
+        return status
 
     def ctrl_task_status(self, oper_type=0, oper_type_expand=0):
         """
@@ -792,14 +787,14 @@ if __name__ == "__main__":
     # stop_robotune()
 
     rb_obj = RobotuneOBJ()
+    print(rb_obj.get_district_info('取放仿真测试分区'))
     # rb_obj.backup_import_sim_res()
-    rb_obj.backup_get_all()
-    # print(rb_obj.backup_lst)
+    # rb_obj.backup_get_all()
+    # print(len(rb_obj.backup_lst))
     # rb_obj.backup_delete_type('系统备份')
     # robotune_get_agv_runtime_status = f"{BASE_URL}/api/services/task/VoiceFlow/GetAGVRuntimeStatus"
     # print(rb_obj._get(robotune_get_agv_runtime_status, '1'))
     # print(rb_obj.get_forklength())
-
     # rb_obj.reset_authorization()
     # rb_obj.get_occupy()
     # rb_obj.get_unoccupy()
@@ -819,10 +814,11 @@ if __name__ == "__main__":
     # rb_obj.get_nodes_args("静态参数", '货叉长度')
     # rb_obj.get_district_info('取放')
     # rb_obj.get_all_flow_info()
-    # rb_obj.debug_flow('伺服固定放货法')
+    # rb_obj.debug_flow(task_name='伺服卷积托盘冒烟', loop_num=1)
     # rb_obj.get_running_task_info()
     # rb_obj.get_debug_status()
-    # rb_obj.get_warning()
+    # print(rb_obj.running_is_finish)
+    # print(rb_obj.get_recent_warning())
     # print([error['errorCode'] for error in rb_obj.get_warning()])
     # print(rb_obj.inner_task_id)
     # rb_obj.ctrl_task_status(0, 0)
