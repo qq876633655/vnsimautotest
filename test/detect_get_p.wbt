@@ -1,0 +1,7261 @@
+#VRML_SIM R2024a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/VNCar/Common/vn_switches/lightSwitch.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/VNCar/Common/vn_lidars/Livox/Mid360.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/0a1f1eb4ce7862330620c3a80fed253adaf05adf/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/VNCar/Common/vn_reflector/Reflector.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/StorageArea/StaticRacking/StorageArea-StaticRacking-L2500W1180H7000-US24074_R14-US.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/Stowage/WithCarrier/Good-WithCarrier-Common.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/StorageArea/Truck/Truck-L9600W2600H2600.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/Carrier/Cage/Carrier-Cage-L820W1000H1040-24147-CN_BeiJing.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/Carrier/Cage/Carrier-Cage-L1220W1140H864-US24160-003.proto"
+EXTERNPROTO "/home/visionnav/.vn_simulation/vn_wbt_assets/protos/Carrier/Cage/Carrier-Cage-L1475W2454H1340-US24156-001-blue.proto"
+
+WorldInfo {
+  info [
+    "Willow Garage PR2 robot."
+    "The robot model includes 44 actuated joints, 6 cameras and 2 laser-scanners."
+  ]
+  title "PR2"
+  basicTimeStep 10
+  FPS 10
+  physicsDisableTime 0.1
+  physicsDisableAngularThreshold 0.02
+  contactProperties [
+    ContactProperties {
+      material2 "clampfric"
+      coulombFriction [
+        -1
+      ]
+    }
+    ContactProperties {
+      material2 "B"
+      coulombFriction [
+        100
+      ]
+    }
+    ContactProperties {
+      material2 "A"
+      coulombFriction [
+        100
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.31265729703412787 0.04515025950295987 0.9487923211525949 2.8513079668336143
+  position 109.49261332314525 138.07256050911346 7.953257430457707
+  follow "Robot"
+  followType "Pan and Tilt Shot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+  texture "noon_park_empty"
+  castShadows FALSE
+}
+Floor {
+  translation 100 100 0
+  name "floor(2)"
+  size 100 120
+  tileSize 1 1
+  appearance Parquetry {
+  }
+}
+DEF zhangaiwu Pose {
+  translation -3 0 0
+}
+DEF HighReflector Group {
+  children [
+    Reflector {
+      translation 103.454 103.492 0.05
+      name "reflector(1)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 118.455 103.492 0.05
+      name "reflector(11)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 119.545 103.492 0.05
+      name "reflector(12)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 121.455 103.492 0.05
+      name "reflector(13)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 122.545 103.492 0.05
+      name "reflector(14)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 123.095 103.492 0.05
+      name "reflector(15)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 124.185 103.492 0.05
+      name "reflector(16)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 124.735 103.492 0.05
+      name "reflector(17)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 125.825 103.492 0.05
+      name "reflector(18)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 131.73 103.492 0.05
+      name "reflector(21)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 132.27 103.492 0.05
+      name "reflector(22)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 133.424 103.492 0.68
+      name "reflector(23)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 136.575 103.492 0.68
+      name "reflector(24)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 138.545 103.492 0.07
+      name "reflector(25)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 138.795 103.492 0.07
+      name "reflector(27)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 139.885 103.492 0.07
+      name "reflector(28)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 140.135 103.492 0.07
+      name "reflector(29)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 141.225 103.492 0.07
+      name "reflector(30)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 137.455 103.492 0.07
+      name "reflector(26)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 137.455 103.492 1.426
+      name "reflector(31)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 138.545 103.492 1.426
+      name "reflector(32)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 138.795 103.492 1.426
+      name "reflector(33)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 139.885 103.492 1.426
+      name "reflector(34)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 140.135 103.492 1.426
+      name "reflector(35)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 141.225 103.492 1.426
+      name "reflector(36)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 128.617 103.599 0.63
+      name "reflector(19)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 129.384 103.599 0.63
+      name "reflector(20)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 109.244 103.766 0.05
+      rotation 0 0 1 -0.13
+      name "reflector(6)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 106.7 103.606 0.05
+      rotation 0 0 1 0.17
+      name "reflector(4)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 104.545 103.492 0.05
+      name "reflector(2)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 112.399 103.257 0.05
+      rotation 0 0 1 0.17
+      name "reflector(7)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 115.545 103.416 0.05
+      rotation 0 0 1 -0.13
+      name "reflector(9)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 116.625 103.276 0.05
+      rotation 0 0 -1 0.12999999999999926
+      name "reflector(10)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 113.473 103.441 0.05
+      rotation 0 0 1 0.17
+      name "reflector(8)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 110.325 103.626 0.05
+      rotation 0 0 1 -0.13
+      name "reflector(5)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 107.774 103.791 0.05
+      rotation 0 0 1 0.17
+      name "reflector(3)"
+      size 0.15 0.002 0.15
+    }
+    Reflector {
+      translation 50.3 159 13.49
+      name "Reflector1"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 151 13.49
+      name "Reflector2"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 143 13.49
+      name "Reflector3"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 135 13.49
+      name "Reflector4"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 127 13.49
+      name "Reflector5"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 119 13.49
+      name "Reflector6"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 111 13.49
+      name "Reflector7"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 103 13.49
+      name "Reflector8"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 95 13.49
+      name "Reflector9"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 87 13.49
+      name "Reflector10"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 79 13.49
+      name "Reflector11"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 71 13.49
+      name "Reflector12"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 63 13.49
+      name "Reflector13"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 55 13.49
+      name "Reflector14"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 47 13.49
+      name "Reflector15"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 40.7 13.49
+      name "Reflector16"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 159 13.49
+      name "Reflector17"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 151 13.49
+      name "Reflector18"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 143 13.49
+      name "Reflector19"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 135 13.49
+      name "Reflector20"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 127 13.49
+      name "Reflector21"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 119 13.49
+      name "Reflector22"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 111 13.49
+      name "Reflector23"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 103 13.49
+      name "Reflector24"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 95 13.49
+      name "Reflector25"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 87 13.49
+      name "Reflector26"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 79 13.49
+      name "Reflector27"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 71 13.49
+      name "Reflector28"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 63 13.49
+      name "Reflector29"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 55 13.49
+      name "Reflector30"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 47 13.49
+      name "Reflector31"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 40.7 13.49
+      name "Reflector32"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 159 13.49
+      name "Reflector33"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 151 13.49
+      name "Reflector34"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 143 13.49
+      name "Reflector35"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 135 13.49
+      name "Reflector36"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 127 13.49
+      name "Reflector37"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 119 13.49
+      name "Reflector38"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 111 13.49
+      name "Reflector39"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 103 13.49
+      name "Reflector40"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 95 13.49
+      name "Reflector41"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 87 13.49
+      name "Reflector42"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 79 13.49
+      name "Reflector43"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 71 13.49
+      name "Reflector44"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 63 13.49
+      name "Reflector45"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 55 13.49
+      name "Reflector46"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 47 13.49
+      name "Reflector47"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 40.7 13.49
+      name "Reflector48"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 159 13.49
+      name "Reflector49"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 151 13.49
+      name "Reflector50"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 143 13.49
+      name "Reflector51"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 135 13.49
+      name "Reflector52"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 127 13.49
+      name "Reflector53"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 119 13.49
+      name "Reflector54"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 111 13.49
+      name "Reflector55"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 103 13.49
+      name "Reflector56"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 95 13.49
+      name "Reflector57"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 87 13.49
+      name "Reflector58"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 79 13.49
+      name "Reflector59"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 71 13.49
+      name "Reflector60"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 63 13.49
+      name "Reflector61"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 55 13.49
+      name "Reflector62"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 47 13.49
+      name "Reflector63"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 40.7 13.49
+      name "Reflector64"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 159 13.49
+      name "Reflector65"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 151 13.49
+      name "Reflector66"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 143 13.49
+      name "Reflector67"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 135 13.49
+      name "Reflector68"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 127 13.49
+      name "Reflector69"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 119 13.49
+      name "Reflector70"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 111 13.49
+      name "Reflector71"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 103 13.49
+      name "Reflector72"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 95 13.49
+      name "Reflector73"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 87 13.49
+      name "Reflector74"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 79 13.49
+      name "Reflector75"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 71 13.49
+      name "Reflector76"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 63 13.49
+      name "Reflector77"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 55 13.49
+      name "Reflector78"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 47 13.49
+      name "Reflector79"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 40.7 13.49
+      name "Reflector80"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 159 13.49
+      name "Reflector81"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 151 13.49
+      name "Reflector82"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 143 13.49
+      name "Reflector83"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 135 13.49
+      name "Reflector84"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 127 13.49
+      name "Reflector85"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 119 13.49
+      name "Reflector86"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 111 13.49
+      name "Reflector87"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 103 13.49
+      name "Reflector88"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 95 13.49
+      name "Reflector89"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 87 13.49
+      name "Reflector90"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 79 13.49
+      name "Reflector91"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 71 13.49
+      name "Reflector92"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 63 13.49
+      name "Reflector93"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 55 13.49
+      name "Reflector94"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 47 13.49
+      name "Reflector95"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 40.7 13.49
+      name "Reflector96"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 159 13.49
+      name "Reflector97"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 151 13.49
+      name "Reflector98"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 143 13.49
+      name "Reflector99"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 135 13.49
+      name "Reflector100"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 127 13.49
+      name "Reflector101"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 119 13.49
+      name "Reflector102"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 111 13.49
+      name "Reflector103"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 103 13.49
+      name "Reflector104"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 95 13.49
+      name "Reflector105"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 87 13.49
+      name "Reflector106"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 79 13.49
+      name "Reflector107"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 71 13.49
+      name "Reflector108"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 63 13.49
+      name "Reflector109"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 55 13.49
+      name "Reflector110"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 47 13.49
+      name "Reflector111"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 40.7 13.49
+      name "Reflector112"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 159 13.49
+      name "Reflector113"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 151 13.49
+      name "Reflector114"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 143 13.49
+      name "Reflector115"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 135 13.49
+      name "Reflector116"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 127 13.49
+      name "Reflector117"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 119 13.49
+      name "Reflector118"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 111 13.49
+      name "Reflector119"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 103 13.49
+      name "Reflector120"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 95 13.49
+      name "Reflector121"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 87 13.49
+      name "Reflector122"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 79 13.49
+      name "Reflector123"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 71 13.49
+      name "Reflector124"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 63 13.49
+      name "Reflector125"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 55 13.49
+      name "Reflector126"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 47 13.49
+      name "Reflector127"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 40.7 13.49
+      name "Reflector128"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 159 13.49
+      name "Reflector129"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 151 13.49
+      name "Reflector130"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 143 13.49
+      name "Reflector131"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 135 13.49
+      name "Reflector132"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 127 13.49
+      name "Reflector133"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 119 13.49
+      name "Reflector134"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 111 13.49
+      name "Reflector135"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 103 13.49
+      name "Reflector136"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 95 13.49
+      name "Reflector137"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 159 13.49
+      name "Reflector1"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 151 13.49
+      name "Reflector2"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 143 13.49
+      name "Reflector3"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 135 13.49
+      name "Reflector4"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 127 13.49
+      name "Reflector5"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 119 13.49
+      name "Reflector6"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 111 13.49
+      name "Reflector7"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 103 13.49
+      name "Reflector8"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 95 13.49
+      name "Reflector9"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 87 13.49
+      name "Reflector10"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 79 13.49
+      name "Reflector11"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 71 13.49
+      name "Reflector12"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 63 13.49
+      name "Reflector13"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 55 13.49
+      name "Reflector14"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 47 13.49
+      name "Reflector15"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 40.7 13.49
+      name "Reflector16"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 159 13.49
+      name "Reflector17"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 151 13.49
+      name "Reflector18"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 143 13.49
+      name "Reflector19"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 135 13.49
+      name "Reflector20"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 127 13.49
+      name "Reflector21"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 119 13.49
+      name "Reflector22"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 111 13.49
+      name "Reflector23"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 103 13.49
+      name "Reflector24"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 95 13.49
+      name "Reflector25"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 87 13.49
+      name "Reflector26"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 79 13.49
+      name "Reflector27"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 71 13.49
+      name "Reflector28"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 63 13.49
+      name "Reflector29"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 55 13.49
+      name "Reflector30"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 47 13.49
+      name "Reflector31"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 40.7 13.49
+      name "Reflector32"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 159 13.49
+      name "Reflector33"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 151 13.49
+      name "Reflector34"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 143 13.49
+      name "Reflector35"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 135 13.49
+      name "Reflector36"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 127 13.49
+      name "Reflector37"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 119 13.49
+      name "Reflector38"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 111 13.49
+      name "Reflector39"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 103 13.49
+      name "Reflector40"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 95 13.49
+      name "Reflector41"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 87 13.49
+      name "Reflector42"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 79 13.49
+      name "Reflector43"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 71 13.49
+      name "Reflector44"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 63 13.49
+      name "Reflector45"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 55 13.49
+      name "Reflector46"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 47 13.49
+      name "Reflector47"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 40.7 13.49
+      name "Reflector48"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 159 13.49
+      name "Reflector49"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 151 13.49
+      name "Reflector50"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 143 13.49
+      name "Reflector51"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 135 13.49
+      name "Reflector52"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 127 13.49
+      name "Reflector53"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 119 13.49
+      name "Reflector54"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 111 13.49
+      name "Reflector55"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 103 13.49
+      name "Reflector56"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 95 13.49
+      name "Reflector57"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 87 13.49
+      name "Reflector58"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 79 13.49
+      name "Reflector59"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 71 13.49
+      name "Reflector60"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 63 13.49
+      name "Reflector61"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 55 13.49
+      name "Reflector62"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 47 13.49
+      name "Reflector63"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 40.7 13.49
+      name "Reflector64"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 159 13.49
+      name "Reflector65"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 151 13.49
+      name "Reflector66"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 143 13.49
+      name "Reflector67"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 135 13.49
+      name "Reflector68"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 127 13.49
+      name "Reflector69"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 119 13.49
+      name "Reflector70"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 111 13.49
+      name "Reflector71"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 103 13.49
+      name "Reflector72"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 95 13.49
+      name "Reflector73"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 87 13.49
+      name "Reflector74"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 79 13.49
+      name "Reflector75"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 71 13.49
+      name "Reflector76"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 63 13.49
+      name "Reflector77"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 55 13.49
+      name "Reflector78"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 47 13.49
+      name "Reflector79"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 40.7 13.49
+      name "Reflector80"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 159 13.49
+      name "Reflector81"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 151 13.49
+      name "Reflector82"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 143 13.49
+      name "Reflector83"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 135 13.49
+      name "Reflector84"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 127 13.49
+      name "Reflector85"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 119 13.49
+      name "Reflector86"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 111 13.49
+      name "Reflector87"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 103 13.49
+      name "Reflector88"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 95 13.49
+      name "Reflector89"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 87 13.49
+      name "Reflector90"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 79 13.49
+      name "Reflector91"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 71 13.49
+      name "Reflector92"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 63 13.49
+      name "Reflector93"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 55 13.49
+      name "Reflector94"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 47 13.49
+      name "Reflector95"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 40.7 13.49
+      name "Reflector96"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 159 13.49
+      name "Reflector97"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 151 13.49
+      name "Reflector98"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 143 13.49
+      name "Reflector99"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 135 13.49
+      name "Reflector100"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 127 13.49
+      name "Reflector101"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 119 13.49
+      name "Reflector102"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 111 13.49
+      name "Reflector103"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 103 13.49
+      name "Reflector104"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 95 13.49
+      name "Reflector105"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 87 13.49
+      name "Reflector106"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 79 13.49
+      name "Reflector107"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 71 13.49
+      name "Reflector108"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 63 13.49
+      name "Reflector109"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 55 13.49
+      name "Reflector110"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 47 13.49
+      name "Reflector111"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 40.7 13.49
+      name "Reflector112"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 159 13.49
+      name "Reflector113"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 151 13.49
+      name "Reflector114"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 143 13.49
+      name "Reflector115"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 135 13.49
+      name "Reflector116"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 127 13.49
+      name "Reflector117"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 119 13.49
+      name "Reflector118"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 111 13.49
+      name "Reflector119"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 103 13.49
+      name "Reflector120"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 95 13.49
+      name "Reflector121"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 87 13.49
+      name "Reflector122"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 79 13.49
+      name "Reflector123"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 71 13.49
+      name "Reflector124"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 63 13.49
+      name "Reflector125"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 55 13.49
+      name "Reflector126"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 47 13.49
+      name "Reflector127"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 40.7 13.49
+      name "Reflector128"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 159 13.49
+      name "Reflector129"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 151 13.49
+      name "Reflector130"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 143 13.49
+      name "Reflector131"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 135 13.49
+      name "Reflector132"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 127 13.49
+      name "Reflector133"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 119 13.49
+      name "Reflector134"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 111 13.49
+      name "Reflector135"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 103 13.49
+      name "Reflector136"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 95 13.49
+      name "Reflector137"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 87 13.49
+      name "Reflector138"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 79 13.49
+      name "Reflector139"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 71 13.49
+      name "Reflector140"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 63 13.49
+      name "Reflector141"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 55 13.49
+      name "Reflector142"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 47 13.49
+      name "Reflector143"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 40.7 13.49
+      name "Reflector144"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 159 13.49
+      name "Reflector145"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 151 13.49
+      name "Reflector146"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 143 13.49
+      name "Reflector147"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 135 13.49
+      name "Reflector148"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 127 13.49
+      name "Reflector149"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 119 13.49
+      name "Reflector150"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 111 13.49
+      name "Reflector151"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 103 13.49
+      name "Reflector152"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 95 13.49
+      name "Reflector153"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 87 13.49
+      name "Reflector154"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 79 13.49
+      name "Reflector155"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 71 13.49
+      name "Reflector156"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 63 13.49
+      name "Reflector157"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 55 13.49
+      name "Reflector158"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 47 13.49
+      name "Reflector159"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 40.7 13.49
+      name "Reflector160"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 159 13.49
+      name "Reflector161"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 151 13.49
+      name "Reflector162"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 143 13.49
+      name "Reflector163"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 135 13.49
+      name "Reflector164"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 127 13.49
+      name "Reflector165"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 119 13.49
+      name "Reflector166"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 111 13.49
+      name "Reflector167"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 103 13.49
+      name "Reflector168"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 95 13.49
+      name "Reflector169"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 87 13.49
+      name "Reflector170"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 79 13.49
+      name "Reflector171"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 71 13.49
+      name "Reflector172"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 63 13.49
+      name "Reflector173"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 55 13.49
+      name "Reflector174"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 47 13.49
+      name "Reflector175"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 40.7 13.49
+      name "Reflector176"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 159 13.49
+      name "Reflector177"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 151 13.49
+      name "Reflector178"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 143 13.49
+      name "Reflector179"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 135 13.49
+      name "Reflector180"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 127 13.49
+      name "Reflector181"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 119 13.49
+      name "Reflector182"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 111 13.49
+      name "Reflector183"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 103 13.49
+      name "Reflector184"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 95 13.49
+      name "Reflector185"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 87 13.49
+      name "Reflector186"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 79 13.49
+      name "Reflector187"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 71 13.49
+      name "Reflector188"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 63 13.49
+      name "Reflector189"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 55 13.49
+      name "Reflector190"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 47 13.49
+      name "Reflector191"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 40.7 13.49
+      name "Reflector192"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 159 13.49
+      name "Reflector193"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 151 13.49
+      name "Reflector194"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 143 13.49
+      name "Reflector195"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 135 13.49
+      name "Reflector196"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 127 13.49
+      name "Reflector197"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 119 13.49
+      name "Reflector198"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 111 13.49
+      name "Reflector199"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 103 13.49
+      name "Reflector200"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 95 13.49
+      name "Reflector201"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 87 13.49
+      name "Reflector202"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 79 13.49
+      name "Reflector203"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 71 13.49
+      name "Reflector204"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 63 13.49
+      name "Reflector205"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 55 13.49
+      name "Reflector206"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 47 13.49
+      name "Reflector207"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 40.7 13.49
+      name "Reflector208"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 159 0.01
+      name "Reflector1"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 151 0.01
+      name "Reflector2"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 143 0.01
+      name "Reflector3"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 135 0.01
+      name "Reflector4"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 127 0.01
+      name "Reflector5"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 119 0.01
+      name "Reflector6"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 111 0.01
+      name "Reflector7"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 103 0.01
+      name "Reflector8"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 95 0.01
+      name "Reflector9"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 87 0.01
+      name "Reflector10"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 79 0.01
+      name "Reflector11"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 71 0.01
+      name "Reflector12"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 63 0.01
+      name "Reflector13"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 55 0.01
+      name "Reflector14"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 47 0.01
+      name "Reflector15"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 40.7 0.01
+      name "Reflector16"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 159 0.01
+      name "Reflector17"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 151 0.01
+      name "Reflector18"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 143 0.01
+      name "Reflector19"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 135 0.01
+      name "Reflector20"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 127 0.01
+      name "Reflector21"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 119 0.01
+      name "Reflector22"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 111 0.01
+      name "Reflector23"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 103 0.01
+      name "Reflector24"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 95 0.01
+      name "Reflector25"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 87 0.01
+      name "Reflector26"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 79 0.01
+      name "Reflector27"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 71 0.01
+      name "Reflector28"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 63 0.01
+      name "Reflector29"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 55 0.01
+      name "Reflector30"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 47 0.01
+      name "Reflector31"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 40.7 0.01
+      name "Reflector32"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 159 0.01
+      name "Reflector33"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 151 0.01
+      name "Reflector34"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 143 0.01
+      name "Reflector35"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 135 0.01
+      name "Reflector36"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 127 0.01
+      name "Reflector37"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 119 0.01
+      name "Reflector38"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 111 0.01
+      name "Reflector39"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 103 0.01
+      name "Reflector40"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 95 0.01
+      name "Reflector41"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 87 0.01
+      name "Reflector42"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 79 0.01
+      name "Reflector43"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 71 0.01
+      name "Reflector44"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 63 0.01
+      name "Reflector45"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 55 0.01
+      name "Reflector46"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 47 0.01
+      name "Reflector47"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 40.7 0.01
+      name "Reflector48"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 159 0.01
+      name "Reflector49"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 151 0.01
+      name "Reflector50"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 143 0.01
+      name "Reflector51"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 135 0.01
+      name "Reflector52"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 127 0.01
+      name "Reflector53"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 119 0.01
+      name "Reflector54"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 111 0.01
+      name "Reflector55"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 103 0.01
+      name "Reflector56"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 95 0.01
+      name "Reflector57"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 87 0.01
+      name "Reflector58"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 79 0.01
+      name "Reflector59"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 71 0.01
+      name "Reflector60"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 63 0.01
+      name "Reflector61"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 55 0.01
+      name "Reflector62"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 47 0.01
+      name "Reflector63"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 40.7 0.01
+      name "Reflector64"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 159 0.01
+      name "Reflector65"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 151 0.01
+      name "Reflector66"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 143 0.01
+      name "Reflector67"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 135 0.01
+      name "Reflector68"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 127 0.01
+      name "Reflector69"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 119 0.01
+      name "Reflector70"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 111 0.01
+      name "Reflector71"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 103 0.01
+      name "Reflector72"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 95 0.01
+      name "Reflector73"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 87 0.01
+      name "Reflector74"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 79 0.01
+      name "Reflector75"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 71 0.01
+      name "Reflector76"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 63 0.01
+      name "Reflector77"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 55 0.01
+      name "Reflector78"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 47 0.01
+      name "Reflector79"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 40.7 0.01
+      name "Reflector80"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 159 0.01
+      name "Reflector81"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 151 0.01
+      name "Reflector82"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 143 0.01
+      name "Reflector83"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 135 0.01
+      name "Reflector84"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 127 0.01
+      name "Reflector85"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 119 0.01
+      name "Reflector86"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 111 0.01
+      name "Reflector87"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 103 0.01
+      name "Reflector88"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 95 0.01
+      name "Reflector89"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 87 0.01
+      name "Reflector90"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 79 0.01
+      name "Reflector91"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 71 0.01
+      name "Reflector92"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 63 0.01
+      name "Reflector93"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 55 0.01
+      name "Reflector94"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 47 0.01
+      name "Reflector95"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 40.7 0.01
+      name "Reflector96"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 159 0.01
+      name "Reflector97"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 151 0.01
+      name "Reflector98"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 143 0.01
+      name "Reflector99"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 135 0.01
+      name "Reflector100"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 127 0.01
+      name "Reflector101"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 119 0.01
+      name "Reflector102"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 111 0.01
+      name "Reflector103"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 103 0.01
+      name "Reflector104"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 95 0.01
+      name "Reflector105"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 87 0.01
+      name "Reflector106"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 79 0.01
+      name "Reflector107"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 71 0.01
+      name "Reflector108"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 63 0.01
+      name "Reflector109"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 55 0.01
+      name "Reflector110"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 47 0.01
+      name "Reflector111"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 40.7 0.01
+      name "Reflector112"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 159 0.01
+      name "Reflector113"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 151 0.01
+      name "Reflector114"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 143 0.01
+      name "Reflector115"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 135 0.01
+      name "Reflector116"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 127 0.01
+      name "Reflector117"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 119 0.01
+      name "Reflector118"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 111 0.01
+      name "Reflector119"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 103 0.01
+      name "Reflector120"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 95 0.01
+      name "Reflector121"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 87 0.01
+      name "Reflector122"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 79 0.01
+      name "Reflector123"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 71 0.01
+      name "Reflector124"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 63 0.01
+      name "Reflector125"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 55 0.01
+      name "Reflector126"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 47 0.01
+      name "Reflector127"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 40.7 0.01
+      name "Reflector128"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 159 0.01
+      name "Reflector129"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 151 0.01
+      name "Reflector130"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 143 0.01
+      name "Reflector131"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 135 0.01
+      name "Reflector132"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 127 0.01
+      name "Reflector133"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 119 0.01
+      name "Reflector134"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 111 0.01
+      name "Reflector135"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 103 0.01
+      name "Reflector136"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 95 0.01
+      name "Reflector137"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 87 0.01
+      name "Reflector138"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 79 0.01
+      name "Reflector139"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 71 0.01
+      name "Reflector140"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 63 0.01
+      name "Reflector141"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 55 0.01
+      name "Reflector142"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 47 0.01
+      name "Reflector143"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 40.7 0.01
+      name "Reflector144"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 159 0.01
+      name "Reflector145"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 151 0.01
+      name "Reflector146"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 143 0.01
+      name "Reflector147"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 135 0.01
+      name "Reflector148"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 127 0.01
+      name "Reflector149"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 119 0.01
+      name "Reflector150"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 111 0.01
+      name "Reflector151"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 103 0.01
+      name "Reflector152"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 95 0.01
+      name "Reflector153"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 87 0.01
+      name "Reflector154"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 79 0.01
+      name "Reflector155"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 71 0.01
+      name "Reflector156"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 63 0.01
+      name "Reflector157"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 55 0.01
+      name "Reflector158"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 47 0.01
+      name "Reflector159"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 40.7 0.01
+      name "Reflector160"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 159 0.01
+      name "Reflector161"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 151 0.01
+      name "Reflector162"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 143 0.01
+      name "Reflector163"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 135 0.01
+      name "Reflector164"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 127 0.01
+      name "Reflector165"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 119 0.01
+      name "Reflector166"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 111 0.01
+      name "Reflector167"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 103 0.01
+      name "Reflector168"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 95 0.01
+      name "Reflector169"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 87 0.01
+      name "Reflector170"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 79 0.01
+      name "Reflector171"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 71 0.01
+      name "Reflector172"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 63 0.01
+      name "Reflector173"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 55 0.01
+      name "Reflector174"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 47 0.01
+      name "Reflector175"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 40.7 0.01
+      name "Reflector176"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 159 0.01
+      name "Reflector177"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 151 0.01
+      name "Reflector178"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 143 0.01
+      name "Reflector179"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 135 0.01
+      name "Reflector180"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 127 0.01
+      name "Reflector181"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 119 0.01
+      name "Reflector182"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 111 0.01
+      name "Reflector183"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 103 0.01
+      name "Reflector184"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 95 0.01
+      name "Reflector185"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 87 0.01
+      name "Reflector186"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 79 0.01
+      name "Reflector187"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 71 0.01
+      name "Reflector188"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 63 0.01
+      name "Reflector189"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 55 0.01
+      name "Reflector190"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 47 0.01
+      name "Reflector191"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 40.7 0.01
+      name "Reflector192"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 159 0.01
+      name "Reflector193"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 151 0.01
+      name "Reflector194"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 143 0.01
+      name "Reflector195"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 135 0.01
+      name "Reflector196"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 127 0.01
+      name "Reflector197"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 119 0.01
+      name "Reflector198"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 111 0.01
+      name "Reflector199"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 103 0.01
+      name "Reflector200"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 95 0.01
+      name "Reflector201"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 87 0.01
+      name "Reflector202"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 79 0.01
+      name "Reflector203"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 71 0.01
+      name "Reflector204"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 63 0.01
+      name "Reflector205"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 55 0.01
+      name "Reflector206"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 47 0.01
+      name "Reflector207"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 40.7 0.01
+      name "Reflector208"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 87 13.49
+      name "Reflector138"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 79 13.49
+      name "Reflector139"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 71 13.49
+      name "Reflector140"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 63 13.49
+      name "Reflector141"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 55 13.49
+      name "Reflector142"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 47 13.49
+      name "Reflector143"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 40.7 13.49
+      name "Reflector144"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 159 13.49
+      name "Reflector145"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 151 13.49
+      name "Reflector146"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 143 13.49
+      name "Reflector147"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 135 13.49
+      name "Reflector148"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 127 13.49
+      name "Reflector149"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 119 13.49
+      name "Reflector150"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 111 13.49
+      name "Reflector151"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 103 13.49
+      name "Reflector152"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 95 13.49
+      name "Reflector153"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 87 13.49
+      name "Reflector154"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 79 13.49
+      name "Reflector155"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 71 13.49
+      name "Reflector156"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 63 13.49
+      name "Reflector157"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 55 13.49
+      name "Reflector158"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 47 13.49
+      name "Reflector159"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 40.7 13.49
+      name "Reflector160"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 159 13.49
+      name "Reflector161"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 151 13.49
+      name "Reflector162"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 143 13.49
+      name "Reflector163"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 135 13.49
+      name "Reflector164"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 127 13.49
+      name "Reflector165"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 119 13.49
+      name "Reflector166"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 111 13.49
+      name "Reflector167"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 103 13.49
+      name "Reflector168"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 95 13.49
+      name "Reflector169"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 87 13.49
+      name "Reflector170"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 79 13.49
+      name "Reflector171"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 71 13.49
+      name "Reflector172"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 63 13.49
+      name "Reflector173"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 55 13.49
+      name "Reflector174"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 47 13.49
+      name "Reflector175"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 40.7 13.49
+      name "Reflector176"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 159 13.49
+      name "Reflector177"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 151 13.49
+      name "Reflector178"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 143 13.49
+      name "Reflector179"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 135 13.49
+      name "Reflector180"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 127 13.49
+      name "Reflector181"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 119 13.49
+      name "Reflector182"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 111 13.49
+      name "Reflector183"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 103 13.49
+      name "Reflector184"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 95 13.49
+      name "Reflector185"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 87 13.49
+      name "Reflector186"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 79 13.49
+      name "Reflector187"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 71 13.49
+      name "Reflector188"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 63 13.49
+      name "Reflector189"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 55 13.49
+      name "Reflector190"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 47 13.49
+      name "Reflector191"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 40.7 13.49
+      name "Reflector192"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 159 13.49
+      name "Reflector193"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 151 13.49
+      name "Reflector194"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 143 13.49
+      name "Reflector195"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 135 13.49
+      name "Reflector196"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 127 13.49
+      name "Reflector197"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 119 13.49
+      name "Reflector198"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 111 13.49
+      name "Reflector199"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 103 13.49
+      name "Reflector200"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 95 13.49
+      name "Reflector201"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 87 13.49
+      name "Reflector202"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 79 13.49
+      name "Reflector203"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 71 13.49
+      name "Reflector204"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 63 13.49
+      name "Reflector205"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 55 13.49
+      name "Reflector206"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 47 13.49
+      name "Reflector207"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 40.7 13.49
+      name "Reflector208"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 159 0.01
+      name "Reflector209"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 151 0.01
+      name "Reflector210"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 143 0.01
+      name "Reflector211"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 135 0.01
+      name "Reflector212"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 127 0.01
+      name "Reflector213"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 119 0.01
+      name "Reflector214"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 111 0.01
+      name "Reflector215"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 103 0.01
+      name "Reflector216"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 95 0.01
+      name "Reflector217"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 87 0.01
+      name "Reflector218"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 79 0.01
+      name "Reflector219"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 71 0.01
+      name "Reflector220"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 63 0.01
+      name "Reflector221"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 55 0.01
+      name "Reflector222"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 47 0.01
+      name "Reflector223"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.3 40.7 0.01
+      name "Reflector224"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 159 0.01
+      name "Reflector225"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 151 0.01
+      name "Reflector226"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 143 0.01
+      name "Reflector227"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 135 0.01
+      name "Reflector228"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 127 0.01
+      name "Reflector229"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 119 0.01
+      name "Reflector230"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 111 0.01
+      name "Reflector231"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 103 0.01
+      name "Reflector232"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 95 0.01
+      name "Reflector233"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 87 0.01
+      name "Reflector234"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 79 0.01
+      name "Reflector235"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 71 0.01
+      name "Reflector236"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 63 0.01
+      name "Reflector237"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 55 0.01
+      name "Reflector238"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 47 0.01
+      name "Reflector239"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 58.3 40.7 0.01
+      name "Reflector240"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 159 0.01
+      name "Reflector241"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 151 0.01
+      name "Reflector242"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 143 0.01
+      name "Reflector243"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 135 0.01
+      name "Reflector244"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 127 0.01
+      name "Reflector245"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 119 0.01
+      name "Reflector246"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 111 0.01
+      name "Reflector247"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 103 0.01
+      name "Reflector248"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 95 0.01
+      name "Reflector249"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 87 0.01
+      name "Reflector250"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 79 0.01
+      name "Reflector251"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 71 0.01
+      name "Reflector252"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 63 0.01
+      name "Reflector253"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 55 0.01
+      name "Reflector254"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 47 0.01
+      name "Reflector255"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 66.3 40.7 0.01
+      name "Reflector256"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 159 0.01
+      name "Reflector257"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 151 0.01
+      name "Reflector258"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 143 0.01
+      name "Reflector259"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 135 0.01
+      name "Reflector260"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 127 0.01
+      name "Reflector261"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 119 0.01
+      name "Reflector262"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 111 0.01
+      name "Reflector263"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 103 0.01
+      name "Reflector264"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 95 0.01
+      name "Reflector265"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 87 0.01
+      name "Reflector266"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 79 0.01
+      name "Reflector267"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 71 0.01
+      name "Reflector268"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 63 0.01
+      name "Reflector269"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 55 0.01
+      name "Reflector270"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 47 0.01
+      name "Reflector271"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 74.3 40.7 0.01
+      name "Reflector272"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 159 0.01
+      name "Reflector273"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 151 0.01
+      name "Reflector274"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 143 0.01
+      name "Reflector275"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 135 0.01
+      name "Reflector276"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 127 0.01
+      name "Reflector277"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 119 0.01
+      name "Reflector278"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 111 0.01
+      name "Reflector279"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 103 0.01
+      name "Reflector280"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 95 0.01
+      name "Reflector281"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 87 0.01
+      name "Reflector282"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 79 0.01
+      name "Reflector283"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 71 0.01
+      name "Reflector284"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 63 0.01
+      name "Reflector285"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 55 0.01
+      name "Reflector286"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 47 0.01
+      name "Reflector287"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 82.3 40.7 0.01
+      name "Reflector288"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 159 0.01
+      name "Reflector289"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 151 0.01
+      name "Reflector290"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 143 0.01
+      name "Reflector291"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 135 0.01
+      name "Reflector292"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 127 0.01
+      name "Reflector293"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 119 0.01
+      name "Reflector294"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 111 0.01
+      name "Reflector295"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 103 0.01
+      name "Reflector296"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 95 0.01
+      name "Reflector297"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 87 0.01
+      name "Reflector298"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 79 0.01
+      name "Reflector299"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 71 0.01
+      name "Reflector300"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 63 0.01
+      name "Reflector301"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 55 0.01
+      name "Reflector302"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 47 0.01
+      name "Reflector303"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 90.3 40.7 0.01
+      name "Reflector304"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 159 0.01
+      name "Reflector305"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 151 0.01
+      name "Reflector306"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 143 0.01
+      name "Reflector307"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 135 0.01
+      name "Reflector308"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 127 0.01
+      name "Reflector309"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 119 0.01
+      name "Reflector310"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 111 0.01
+      name "Reflector311"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 103 0.01
+      name "Reflector312"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 95 0.01
+      name "Reflector313"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 87 0.01
+      name "Reflector314"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 79 0.01
+      name "Reflector315"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 71 0.01
+      name "Reflector316"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 63 0.01
+      name "Reflector317"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 55 0.01
+      name "Reflector318"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 47 0.01
+      name "Reflector319"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 98.3 40.7 0.01
+      name "Reflector320"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 159 0.01
+      name "Reflector321"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 151 0.01
+      name "Reflector322"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 143 0.01
+      name "Reflector323"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 135 0.01
+      name "Reflector324"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 127 0.01
+      name "Reflector325"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 119 0.01
+      name "Reflector326"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 111 0.01
+      name "Reflector327"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 103 0.01
+      name "Reflector328"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 95 0.01
+      name "Reflector329"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 87 0.01
+      name "Reflector330"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 79 0.01
+      name "Reflector331"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 71 0.01
+      name "Reflector332"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 63 0.01
+      name "Reflector333"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 55 0.01
+      name "Reflector334"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 47 0.01
+      name "Reflector335"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 106.3 40.7 0.01
+      name "Reflector336"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 159 0.01
+      name "Reflector337"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 151 0.01
+      name "Reflector338"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 143 0.01
+      name "Reflector339"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 135 0.01
+      name "Reflector340"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 127 0.01
+      name "Reflector341"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 119 0.01
+      name "Reflector342"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 111 0.01
+      name "Reflector343"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 103 0.01
+      name "Reflector344"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 95 0.01
+      name "Reflector345"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 87 0.01
+      name "Reflector346"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 79 0.01
+      name "Reflector347"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 71 0.01
+      name "Reflector348"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 63 0.01
+      name "Reflector349"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 55 0.01
+      name "Reflector350"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 47 0.01
+      name "Reflector351"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 114.3 40.7 0.01
+      name "Reflector352"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 159 0.01
+      name "Reflector353"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 151 0.01
+      name "Reflector354"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 143 0.01
+      name "Reflector355"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 135 0.01
+      name "Reflector356"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 127 0.01
+      name "Reflector357"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 119 0.01
+      name "Reflector358"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 111 0.01
+      name "Reflector359"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 103 0.01
+      name "Reflector360"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 95 0.01
+      name "Reflector361"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 87 0.01
+      name "Reflector362"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 79 0.01
+      name "Reflector363"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 71 0.01
+      name "Reflector364"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 63 0.01
+      name "Reflector365"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 55 0.01
+      name "Reflector366"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 47 0.01
+      name "Reflector367"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 122.3 40.7 0.01
+      name "Reflector368"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 159 0.01
+      name "Reflector369"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 151 0.01
+      name "Reflector370"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 143 0.01
+      name "Reflector371"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 135 0.01
+      name "Reflector372"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 127 0.01
+      name "Reflector373"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 119 0.01
+      name "Reflector374"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 111 0.01
+      name "Reflector375"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 103 0.01
+      name "Reflector376"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 95 0.01
+      name "Reflector377"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 87 0.01
+      name "Reflector378"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 79 0.01
+      name "Reflector379"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 71 0.01
+      name "Reflector380"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 63 0.01
+      name "Reflector381"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 55 0.01
+      name "Reflector382"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 47 0.01
+      name "Reflector383"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 130.3 40.7 0.01
+      name "Reflector384"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 159 0.01
+      name "Reflector385"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 151 0.01
+      name "Reflector386"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 143 0.01
+      name "Reflector387"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 135 0.01
+      name "Reflector388"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 127 0.01
+      name "Reflector389"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 119 0.01
+      name "Reflector390"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 111 0.01
+      name "Reflector391"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 103 0.01
+      name "Reflector392"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 95 0.01
+      name "Reflector393"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 87 0.01
+      name "Reflector394"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 79 0.01
+      name "Reflector395"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 71 0.01
+      name "Reflector396"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 63 0.01
+      name "Reflector397"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 55 0.01
+      name "Reflector398"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 47 0.01
+      name "Reflector399"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 138.3 40.7 0.01
+      name "Reflector400"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 159 0.01
+      name "Reflector401"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 151 0.01
+      name "Reflector402"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 143 0.01
+      name "Reflector403"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 135 0.01
+      name "Reflector404"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 127 0.01
+      name "Reflector405"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 119 0.01
+      name "Reflector406"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 111 0.01
+      name "Reflector407"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 103 0.01
+      name "Reflector408"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 95 0.01
+      name "Reflector409"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 87 0.01
+      name "Reflector410"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 79 0.01
+      name "Reflector411"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 71 0.01
+      name "Reflector412"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 63 0.01
+      name "Reflector413"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 55 0.01
+      name "Reflector414"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 47 0.01
+      name "Reflector415"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 146.8 40.7 0.01
+      name "Reflector416"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 159 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector417"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 151 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector418"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 143 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector419"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 135 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector420"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 127 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector421"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 119 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector422"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 111 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector423"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 103 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector424"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 95 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector425"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 87 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector426"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 79 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector427"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 71 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector428"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 63 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector429"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 55 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector430"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 47 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector431"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 40.7 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector432"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 159 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector433"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 151 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector434"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 143 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector435"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 135 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector436"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 127 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector437"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 119 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector438"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 111 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector439"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 103 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector440"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 95 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector441"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 87 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector442"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 79 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector443"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 71 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector444"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 63 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector445"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 55 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector446"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 47 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector447"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 40.7 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector448"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 159 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector449"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 151 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector450"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 143 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector451"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 135 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector452"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 127 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector453"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 119 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector454"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 111 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector455"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 103 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector456"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 95 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector457"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 87 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector458"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 79 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector459"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 71 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector460"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 63 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector461"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 55 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector462"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 47 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector463"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 40.7 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector464"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 159 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector465"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 151 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector466"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 143 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector467"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 135 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector468"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 127 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector469"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 119 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector470"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 111 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector471"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 103 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector472"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 95 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector473"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 87 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector474"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 79 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector475"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 71 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector476"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 63 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector477"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 55 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector478"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 47 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector479"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 50.02 40.7 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector480"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 159 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector481"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 151 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector482"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 143 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector483"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 135 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector484"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 127 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector485"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 119 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector486"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 111 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector487"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 103 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector488"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 95 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector489"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 87 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector490"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 79 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector491"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 71 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector492"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 63 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector493"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 55 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector494"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 47 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector495"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 40.7 0.3
+      rotation 0 1 0 1.5708
+      name "Reflector496"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 159 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector497"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 151 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector498"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 143 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector499"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 135 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector500"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 127 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector501"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 119 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector502"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 111 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector503"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 103 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector504"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 95 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector505"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 87 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector506"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 79 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector507"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 71 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector508"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 63 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector509"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 55 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector510"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 47 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector511"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 40.7 4.3
+      rotation 0 1 0 1.5708
+      name "Reflector512"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 159 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector513"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 151 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector514"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 143 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector515"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 135 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector516"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 127 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector517"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 119 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector518"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 111 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector519"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 103 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector520"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 95 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector521"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 87 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector522"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 79 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector523"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 71 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector524"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 63 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector525"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 55 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector526"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 47 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector527"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 40.7 8.3
+      rotation 0 1 0 1.5708
+      name "Reflector528"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 159 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector529"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 151 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector530"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 143 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector531"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 135 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector532"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 127 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector533"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 119 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector534"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 111 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector535"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 103 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector536"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 95 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector537"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 87 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector538"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 79 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector539"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 71 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector540"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 63 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector541"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 55 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector542"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 47 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector543"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 149.98 40.7 12.3
+      rotation 0 1 0 1.5708
+      name "Reflector544"
+      size 0.2 0.5 0.01
+    }
+    Reflector {
+      translation 51.5 159.98 0.3
+      name "Reflector533"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 159.98 0.3
+      name "Reflector534"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 159.98 0.3
+      name "Reflector535"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 159.98 0.3
+      name "Reflector536"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 159.98 0.3
+      name "Reflector537"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 159.98 0.3
+      name "Reflector538"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 159.98 0.3
+      name "Reflector539"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 159.98 0.3
+      name "Reflector540"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 159.98 0.3
+      name "Reflector541"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 159.98 0.3
+      name "Reflector542"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 159.98 0.3
+      name "Reflector543"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 159.98 0.3
+      name "Reflector544"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 159.98 0.3
+      name "Reflector545"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 51.5 159.98 4.3
+      name "Reflector546"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 159.98 4.3
+      name "Reflector547"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 159.98 4.3
+      name "Reflector548"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 159.98 4.3
+      name "Reflector549"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 159.98 4.3
+      name "Reflector550"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 159.98 4.3
+      name "Reflector551"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 159.98 4.3
+      name "Reflector552"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 159.98 4.3
+      name "Reflector553"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 159.98 4.3
+      name "Reflector554"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 159.98 4.3
+      name "Reflector555"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 159.98 4.3
+      name "Reflector556"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 159.98 4.3
+      name "Reflector557"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 159.98 4.3
+      name "Reflector558"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 51.5 159.98 8.3
+      name "Reflector559"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 159.98 8.3
+      name "Reflector560"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 159.98 8.3
+      name "Reflector561"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 159.98 8.3
+      name "Reflector562"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 159.98 8.3
+      name "Reflector563"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 159.98 8.3
+      name "Reflector564"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 159.98 8.3
+      name "Reflector565"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 159.98 8.3
+      name "Reflector566"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 159.98 8.3
+      name "Reflector567"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 159.98 8.3
+      name "Reflector568"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 159.98 8.3
+      name "Reflector569"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 159.98 8.3
+      name "Reflector570"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 159.98 8.3
+      name "Reflector571"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 51.5 159.98 12.3
+      name "Reflector572"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 159.98 12.3
+      name "Reflector573"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 159.98 12.3
+      name "Reflector574"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 159.98 12.3
+      name "Reflector575"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 159.98 12.3
+      name "Reflector576"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 159.98 12.3
+      name "Reflector577"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 159.98 12.3
+      name "Reflector578"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 159.98 12.3
+      name "Reflector579"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 159.98 12.3
+      name "Reflector580"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 159.98 12.3
+      name "Reflector581"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 159.98 12.3
+      name "Reflector582"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 159.98 12.3
+      name "Reflector583"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 159.98 12.3
+      name "Reflector584"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 51.5 40.02 0.3
+      name "Reflector585"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 40.02 0.3
+      name "Reflector586"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 40.02 0.3
+      name "Reflector587"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 40.02 0.3
+      name "Reflector588"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 40.02 0.3
+      name "Reflector589"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 40.02 0.3
+      name "Reflector590"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 40.02 0.3
+      name "Reflector591"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 40.02 0.3
+      name "Reflector592"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 40.02 0.3
+      name "Reflector593"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 40.02 0.3
+      name "Reflector594"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 40.02 0.3
+      name "Reflector595"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 40.02 0.3
+      name "Reflector596"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 40.02 0.3
+      name "Reflector597"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 51.5 40.02 4.3
+      name "Reflector598"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 40.02 4.3
+      name "Reflector599"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 40.02 4.3
+      name "Reflector600"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 40.02 4.3
+      name "Reflector601"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 40.02 4.3
+      name "Reflector602"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 40.02 4.3
+      name "Reflector603"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 40.02 4.3
+      name "Reflector604"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 40.02 4.3
+      name "Reflector605"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 40.02 4.3
+      name "Reflector606"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 40.02 4.3
+      name "Reflector607"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 40.02 4.3
+      name "Reflector608"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 40.02 4.3
+      name "Reflector609"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 40.02 4.3
+      name "Reflector610"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 51.5 40.02 8.3
+      name "Reflector611"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 40.02 8.3
+      name "Reflector612"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 40.02 8.3
+      name "Reflector613"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 40.02 8.3
+      name "Reflector614"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 40.02 8.3
+      name "Reflector615"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 40.02 8.3
+      name "Reflector616"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 40.02 8.3
+      name "Reflector617"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 40.02 8.3
+      name "Reflector618"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 40.02 8.3
+      name "Reflector619"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 40.02 8.3
+      name "Reflector620"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 40.02 8.3
+      name "Reflector621"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 40.02 8.3
+      name "Reflector622"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 40.02 8.3
+      name "Reflector623"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 51.5 40.02 12.3
+      name "Reflector624"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 59.5 40.02 12.3
+      name "Reflector625"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 67.5 40.02 12.3
+      name "Reflector626"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 75.5 40.02 12.3
+      name "Reflector627"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 83.5 40.02 12.3
+      name "Reflector628"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 91.5 40.02 12.3
+      name "Reflector629"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 99.5 40.02 12.3
+      name "Reflector630"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 107.5 40.02 12.3
+      name "Reflector631"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 115.5 40.02 12.3
+      name "Reflector632"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 123.5 40.02 12.3
+      name "Reflector633"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 131.5 40.02 12.3
+      name "Reflector634"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 139.5 40.02 12.3
+      name "Reflector635"
+      size 0.5 0.01 0.2
+    }
+    Reflector {
+      translation 148 40.02 12.3
+      name "Reflector636"
+      size 0.5 0.01 0.2
+    }
+  ]
+}
+Solid {
+  translation 49.04 53.89 0
+  rotation 0 0 1 -1.5707953071795862
+  name "wall(3)"
+  model "wall"
+}
+Wall {
+  translation 100 40 0
+  rotation 0 0 1 -1.5707953071795862
+  name "wall(2)"
+  size 0.03 100 13.5
+}
+Wall {
+  translation 100 160 0
+  rotation 0 0 1 -1.5707953071795862
+  name "wall(1)"
+  size 0.03 100 13.5
+}
+Wall {
+  translation 150 100 0
+  size 0.03 120 13.5
+}
+Wall {
+  translation 50 100 0
+  name "wall(4)"
+  size 0.03 120 13.5
+}
+Floor {
+  translation 100 100 13.5
+  rotation 0 1 0 3.1415926
+  name "floor(1)"
+  size 100 120
+  tileSize 1 1
+  appearance Parquetry {
+  }
+}
+DEF RobotNode Robot {
+  translation 100 140 0.019
+  rotation 0 0 1 1.57081
+  children [
+    DEF LidarPose Pose {
+      translation 1.15 0 2
+      rotation 0 1 0 1.57
+      children [
+        Mid360 {
+          name "lidar_2"
+        }
+        Mid360 {
+          translation 0 0.57 -0.27
+          rotation 1 0 0 -1.57
+          name "lidar_3"
+        }
+        Mid360 {
+          translation 0 -0.57 -0.27
+          rotation 1 0 0 1.57
+          name "lidar_4"
+        }
+      ]
+    }
+    DEF DrivenWheel Pose {
+      translation 0 0 0.086
+      rotation 1 0 0 -1.57
+      children [
+        Pose {
+          children [
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                position -436.96470500260534
+                axis 0 0 1
+              }
+              device [
+                PositionSensor {
+                  name "BRPS"
+                }
+              ]
+              endPoint DEF R_D_SteerSolid Solid {
+                translation 0 0 -0.475
+                rotation 0 0 1 2.8582664999657115
+                children [
+                  DEF R Shape {
+                    appearance Appearance {
+                      material Material {
+                        diffuseColor 0 0 0
+                      }
+                    }
+                    geometry Cylinder {
+                      height 0.09
+                      radius 0.105
+                    }
+                  }
+                ]
+                name "solid(2)"
+                contactMaterial "B"
+                boundingObject DEF RS Cylinder {
+                  height 0.09
+                  radius 0.105
+                }
+                physics Physics {
+                  density 10
+                  centerOfMass [
+                    0 0 0
+                  ]
+                }
+              }
+            }
+          ]
+        }
+        Pose {
+          children [
+            HingeJoint {
+              jointParameters HingeJointParameters {
+                position -436.8930254650206
+                axis 0 0 1
+              }
+              device [
+                PositionSensor {
+                  name "BLPS"
+                }
+              ]
+              endPoint DEF L_D_SteerSolid Solid {
+                translation 0 0 0.475
+                rotation 0 0 1 2.9299460375504256
+                children [
+                  DEF L Shape {
+                    appearance Appearance {
+                      material Material {
+                        diffuseColor 0 0 0
+                      }
+                    }
+                    geometry Cylinder {
+                      height 0.09
+                      radius 0.105
+                    }
+                  }
+                ]
+                contactMaterial "B"
+                boundingObject DEF LS Cylinder {
+                  height 0.09
+                  radius 0.105
+                }
+                physics Physics {
+                  density 10
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF SteerWheel Pose {
+      translation 1 0 0.1
+      rotation 0 0 1 -5.551115123125783e-17
+      children [
+        Pose {
+          rotation -1 0 0 1.57
+          children [
+            HingeJoint {
+              jointParameters DEF FJJ HingeJointParameters {
+                position 239.46243797769304
+                axis 0 0 1
+              }
+              device [
+                PositionSensor {
+                  name "FLPS"
+                }
+                RotationalMotor {
+                  name "FL"
+                  maxVelocity 100
+                  maxTorque 1000
+                }
+              ]
+              endPoint DEF SteerSolid Solid {
+                translation -6.980455201698868e-05 -0.00011091240672589474 5.222393248516255e-06
+                rotation 0 0 1 0.9424388461981429
+                children [
+                  Shape {
+                    appearance Appearance {
+                      material Material {
+                        diffuseColor 0 0 0
+                      }
+                    }
+                    geometry DEF FLWheel Cylinder {
+                      height 0.094
+                      radius 0.12
+                    }
+                  }
+                ]
+                name "solid(1)"
+                contactMaterial "A"
+                boundingObject DEF S Cylinder {
+                  height 0.094
+                  radius 0.12
+                }
+                physics Physics {
+                  density 30
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF BODY Solid {
+      children [
+        Pose {
+          translation 0 0 -0.01
+          children [
+            P15-Body {
+            }
+          ]
+        }
+        Solid {
+          translation 0.68 0 0.7
+          children [
+            DEF BODYSHAPE Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0.458824 0.313726 0.482353
+                }
+              }
+              geometry Box {
+                size 0.7 0.64 0.75
+              }
+            }
+          ]
+        }
+      ]
+      name "body(1)"
+    }
+    DEF Fork Pose {
+      translation 0.06 0 0.07
+      children [
+        DEF fork SliderJoint {
+          jointParameters JointParameters {
+            minStop -0.1
+            maxStop 3
+          }
+          device [
+            Brake {
+            }
+            PositionSensor {
+              name "fork height"
+            }
+            LinearMotor {
+              name "fork height motor"
+              minPosition -0.1
+              maxPosition 3
+              maxForce 450
+            }
+          ]
+          endPoint DEF ForkZAxis Solid {
+            children [
+              DEF ForkPitch Pose {
+                translation 0 0 0.45
+                children [
+                  DEF ForkPJoint HingeJoint {
+                    jointParameters HingeJointParameters {
+                      axis 0 1 0
+                      minStop -0.1
+                      maxStop 0.5
+                    }
+                    device [
+                      Brake {
+                      }
+                      PositionSensor {
+                        name "PSensor"
+                      }
+                      RotationalMotor {
+                        name "PMotor"
+                        minPosition -0.1
+                        maxPosition 0.5
+                        maxTorque 400
+                      }
+                    ]
+                    endPoint DEF ForkPAxis Solid {
+                      translation 0 0 -0.45
+                      rotation 0 1 0 0
+                      children [
+                        DEF ForkYJoint SliderJoint {
+                          jointParameters JointParameters {
+                            axis 0 1 0
+                            minStop -0.5
+                            maxStop 0.5
+                          }
+                          device [
+                            Brake {
+                            }
+                            LinearMotor {
+                              name "YMotor"
+                              minPosition -0.5
+                              maxPosition 0.5
+                              maxForce 400
+                            }
+                            PositionSensor {
+                              name "YSensor"
+                            }
+                          ]
+                          endPoint DEF ForkYAxis Solid {
+                            children [
+                              DEF VSwitchR lightSwitch {
+                                translation -0.28 -0.21 -0.046
+                                rotation 0 1 0 -1.57
+                                boxSize 0.005 0.01 0.05
+                                name "VR"
+                                detectDistance 0.05
+                                numberOfRays 50
+                                aperture 0.4
+                              }
+                              DEF VSwitchL lightSwitch {
+                                translation -0.28 0.21 -0.046
+                                rotation 0 1 0 -1.57
+                                boxSize 0.005 0.01 0.05
+                                name "VL"
+                                detectDistance 0.05
+                                numberOfRays 50
+                                aperture 0.4
+                              }
+                              DEF HSwitchR lightSwitch {
+                                translation -0.11 -0.2 0
+                                rotation 0 0 1 3.14
+                                boxSize 0.01 0.04 0.04
+                                name "HR"
+                                detectDistance 0.3
+                                signThreshold 0.1
+                                numberOfRays 100
+                                aperture 0.4
+                              }
+                              DEF HSwitchL lightSwitch {
+                                translation -0.11 0.2 0
+                                rotation 0 0 1 3.14
+                                boxSize 0.01 0.04 0.04
+                                name "HL"
+                                detectDistance 0.3
+                                signThreshold 0.1
+                                numberOfRays 100
+                                aperture 0.4
+                              }
+                              DEF LF Pose {
+                                translation -0.86 0.27 -0.052
+                                children [
+                                  DEF B_Fork2 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0 0 0
+                                    }
+                                    geometry DEF SingleFork2 Box {
+                                      size 1.32 0.1 0.02
+                                    }
+                                  }
+                                ]
+                              }
+                              DEF LF2 Pose {
+                                translation -0.18 0.27 0.21
+                                children [
+                                  DEF B_Fork1 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0 0 0
+                                    }
+                                    geometry DEF SingleFork1 Box {
+                                      size 0.02 0.1 0.5
+                                    }
+                                  }
+                                ]
+                              }
+                              DEF RF Pose {
+                                translation -0.86 -0.27 -0.052
+                                children [
+                                  DEF B_Fork2 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0 0 0
+                                    }
+                                    geometry DEF SingleFork2 Box {
+                                      size 1.32 0.1 0.02
+                                    }
+                                  }
+                                ]
+                              }
+                              DEF RF2 Pose {
+                                translation -0.18 -0.27 0.21
+                                children [
+                                  DEF B_Fork1 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0 0 0
+                                    }
+                                    geometry DEF SingleFork1 Box {
+                                      size 0.02 0.1 0.5
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                            name "ForkY_solid"
+                            contactMaterial "clampfric"
+                            boundingObject Group {
+                              children [
+                                DEF RF2Bounding Pose {
+                                  translation -0.18 -0.27 0.21
+                                  children [
+                                    DEF SingleFork1 Box {
+                                      size 0.02 0.1 0.5
+                                    }
+                                  ]
+                                }
+                                DEF LF2Bounding Pose {
+                                  translation -0.18 0.27 0.21
+                                  children [
+                                    DEF SingleFork1 Box {
+                                      size 0.02 0.1 0.5
+                                    }
+                                  ]
+                                }
+                                DEF LF1Bounding Pose {
+                                  translation -0.86 0.27 -0.052
+                                  children [
+                                    DEF SingleFork2 Box {
+                                      size 1.32 0.1 0.02
+                                    }
+                                  ]
+                                }
+                                DEF RF1Bounding Pose {
+                                  translation -0.86 -0.27 -0.052
+                                  children [
+                                    DEF SingleFork2 Box {
+                                      size 1.32 0.1 0.02
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                            physics Physics {
+                              density -1
+                              mass 1
+                            }
+                          }
+                        }
+                      ]
+                      name "ForkP_solid"
+                      boundingObject Pose {
+                        translation 0.5 0 -0.02
+                        rotation 1 0 0 1.57
+                        children [
+                          Cylinder {
+                            height 0.1
+                            radius 0.01
+                          }
+                        ]
+                      }
+                      physics Physics {
+                        density 100
+                        mass 10
+                      }
+                    }
+                  }
+                ]
+              }
+              DEF perception_device Pose {
+                children [
+                  Mid360 {
+                    translation -0.03 -0.035 0.03
+                    rotation 0 -1 0 0.192
+                    name "lidar_1"
+                  }
+                  Mid360 {
+                    translation -0.03 0.035 0
+                    rotation 0 -1 0 2.949
+                    name "lidar_0"
+                  }
+                ]
+              }
+            ]
+            name "solid(4)"
+            boundingObject Pose {
+              translation 0 0 0.5
+              rotation 1 0 0 1.57
+              children [
+                Cylinder {
+                  height 0.1
+                  radius 0.01
+                }
+              ]
+            }
+            physics Physics {
+              density 100
+              mass 10
+            }
+          }
+        }
+      ]
+    }
+    DEF IMU Group {
+      children [
+        Gyro {
+        }
+        InertialUnit {
+        }
+        Accelerometer {
+        }
+      ]
+    }
+  ]
+  name "Robot"
+  boundingObject Pose {
+    translation 0.68 0 0.7
+    children [
+      USE BODYSHAPE
+    ]
+  }
+  physics Physics {
+    density 40
+    mass 50
+    centerOfMass [
+      0.8 0 0
+    ]
+  }
+  controller "P15_master"
+  customData "controller_list[P15_master,shadow_lidar0_and_lidar2,shadow_lidar1,shadow_lidar3_and_lidar4,P15_shadow_sensor,shadow_show_gui]"
+  supervisor TRUE
+}
+StorageArea-StaticRacking-L2500W1180H7000-US24074_R14-US {
+  translation 107.67 156.97 0.01
+}
+StorageArea-StaticRacking-L2500W1180H7000-US24074_R14-US {
+  translation 105.03 156.97 0.01
+  name "StorageArea-StaticRacking-L2500W1180H7000-US24074_R14-US(1)"
+}
+Good-WithCarrier-Common {
+  translation 105.69 157 2.27
+  rotation 0 0 1 1.5708
+  Dwen_width 0.1 0.1 0.1
+  Hole_width 0.36 0.36
+  size_x 1.24
+  goods_size 1.24 1.02 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 104.39 156.97 2.27
+  rotation 0 0 1 1.5708
+  name "Good-WithCarrier-Common(3)"
+  Dwen_width 0.1 0.1 0.1
+  Hole_width 0.36 0.36
+  size_x 1.24
+  goods_size 1.24 1.02 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 92.5 157 0
+  rotation 0 0 1 -1.57
+  name "Good-WithCarrier-Common(4)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 90 157 0
+  rotation 0 0 1 -1.6573
+  name "Good-WithCarrier-Common(5)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 86.85 156.8 0
+  rotation 0 0 1 -1.4
+  name "Good-WithCarrier-Common(6)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 96 157 0
+  rotation 0 0 1 -1.57
+  name "Good-WithCarrier-Common(7)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Group {
+  children [
+    Good-WithCarrier-Common {
+      translation 96 127.74 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(15)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 107.02 126.91 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(23)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 108.26 126.91 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(24)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 109.5 126.91 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(25)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 110.74 126.91 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(26)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 111.98 126.91 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(27)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 96 127.74 1.34
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(16)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 104 104 0
+      rotation 0 0 1 -1.57
+      name "Good-WithCarrier-Common(30)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 107.15 104.2 0
+      rotation 0 0 1 -1.4
+      name "Good-WithCarrier-Common(31)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 109.85 104.2 0
+      rotation 0 0 1 -1.7
+      name "Good-WithCarrier-Common(32)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 112.85 103.85 0
+      rotation 0 0 1 -1.4
+      name "Good-WithCarrier-Common(33)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 116.15 103.85 0
+      rotation 0 0 1 -1.7
+      name "Good-WithCarrier-Common(34)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 119 104 0
+      rotation 0 0 1 -1.57
+      name "Good-WithCarrier-Common(35)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 122 104 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(36)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 123.64 104 0
+      rotation 0 0 1 -1.57
+      name "Good-WithCarrier-Common(37)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 125.28 104 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(38)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 139.34 104 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(41)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 140.68 104 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(43)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 138 104 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(42)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 138 104 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(44)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 139.34 104 1.35
+      rotation 0 0 1 -1.57
+      name "Good-WithCarrier-Common(45)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 140.68 104 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(46)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 132 104 0
+      rotation 0 0 1 -1.57
+      name "Good-WithCarrier-Common(39)"
+      Dwen_width 0.03 0.03 0.03
+      size_x 1.016
+      goods_size 1.016 0.69 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 135 104 0
+      rotation 0 0 1 -1.57
+      name "Good-WithCarrier-Common(40)"
+      Dwen_width 1 1 1
+      size_x 0.7
+      goods_size 1.016 3.3 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 96 128.82 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(13)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 96 128.82 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(14)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 94.73 128.82 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(17)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 94.73 128.82 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(18)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 93.44 128.82 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(19)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 93.44 128.82 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(20)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 93.44 127.78 0
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(21)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+    Good-WithCarrier-Common {
+      translation 93.44 127.78 1.35
+      rotation 0 0 1 -1.5707953071795862
+      name "Good-WithCarrier-Common(22)"
+      Dwen_width 0.17 0.1 0.17
+      Hole_width 0.4 0.4
+      size_x 1.016
+      goods_size 1.016 1.24 1.2
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            ""
+          ]
+        }
+        roughness 1
+        metalness 0
+        emissiveColor 0.152941 0.117647 0.0941176
+      }
+      physics NULL
+    }
+  ]
+}
+Truck-L9600W2600H2600 {
+  translation 111.04 127.86 0
+  rotation 0 0 1 3.14159
+  openback TRUE
+}
+Good-WithCarrier-Common {
+  translation 81 157 0
+  rotation 0 0 1 -1.57
+  name "Good-WithCarrier-Common(9)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 77.63 157 0
+  rotation 0 0 1 -1.5707953071795862
+  name "Good-WithCarrier-Common(10)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 76 157 0
+  rotation 0 0 1 -1.57
+  name "Good-WithCarrier-Common(11)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 74.38 157 0
+  rotation 0 0 1 -1.5707953071795862
+  name "Good-WithCarrier-Common(12)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 71.37 157 0
+  rotation 0 0 1 -1.57
+  name "Good-WithCarrier-Common(28)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 70.32 157 0
+  rotation 0 0 1 -1.57
+  name "Good-WithCarrier-Common(29)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 84.15 156.8 0
+  rotation 0 0 1 -1.7
+  name "Good-WithCarrier-Common(8)"
+  Dwen_width 0.17 0.1 0.17
+  Hole_width 0.4 0.4
+  size_x 1.016
+  goods_size 1.016 1.24 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 107.02 157 2.27
+  rotation 0 0 1 1.5708
+  name "Good-WithCarrier-Common(1)"
+  Dwen_width 0.1 0.1 0.1
+  Hole_width 0.36 0.36
+  size_x 1.24
+  goods_size 1.24 1.02 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Good-WithCarrier-Common {
+  translation 108.1 157 2.27
+  rotation 0 0 1 1.5708
+  name "Good-WithCarrier-Common(2)"
+  Dwen_width 0.1 0.1 0.1
+  Hole_width 0.36 0.36
+  size_x 1.24
+  goods_size 1.24 1.02 1.2
+  appearance PBRAppearance {
+    baseColorMap ImageTexture {
+      url [
+        ""
+      ]
+    }
+    roughness 1
+    metalness 0
+    emissiveColor 0.152941 0.117647 0.0941176
+  }
+  physics NULL
+}
+Carrier-Cage-L820W1000H1040-24147-CN_BeiJing {
+  translation 96 104 0
+  rotation 0 0 -1 1.57
+  physics NULL
+}
+Carrier-Cage-L820W1000H1040-24147-CN_BeiJing {
+  translation 129 104 0
+  rotation 0 0 -1 1.57
+  name "Carrier-Cage-L820W1000H1040-24147-CN_BeiJing(5)"
+  physics NULL
+}
+Carrier-Cage-L820W1000H1040-24147-CN_BeiJing {
+  translation 92.85 104.2 0
+  rotation 0 0 1 -1.4
+  name "Carrier-Cage-L820W1000H1040-24147-CN_BeiJing(1)"
+  physics NULL
+}
+Carrier-Cage-L820W1000H1040-24147-CN_BeiJing {
+  translation 90.15 104.2 0
+  rotation 0 0 -1 1.7
+  name "Carrier-Cage-L820W1000H1040-24147-CN_BeiJing(2)"
+  physics NULL
+}
+Carrier-Cage-L820W1000H1040-24147-CN_BeiJing {
+  translation 87.15 103.8 0
+  rotation 0 0 -1 1.4
+  name "Carrier-Cage-L820W1000H1040-24147-CN_BeiJing(3)"
+  physics NULL
+}
+Carrier-Cage-L820W1000H1040-24147-CN_BeiJing {
+  translation 83.85 103.8 0
+  rotation 0 0 -1 1.7
+  name "Carrier-Cage-L820W1000H1040-24147-CN_BeiJing(4)"
+  physics NULL
+}
+Carrier-Cage-L820W1000H1040-24147-CN_BeiJing {
+  translation 81 104 0
+  rotation 0 0 -1 1.57
+  name "Carrier-Cage-L820W1000H1040-24147-CN_BeiJing(6)"
+  physics NULL
+}
+Carrier-Cage-L1220W1140H864-US24160-003 {
+  translation 78 104 0
+  rotation 0 0 1 3.14159
+  physics NULL
+}
+Carrier-Cage-L1220W1140H864-US24160-003 {
+  translation 76.65 104 0.84
+  name "Carrier-Cage-L1220W1140H864-US24160-003(2)"
+  physics NULL
+}
+Carrier-Cage-L1220W1140H864-US24160-003 {
+  translation 76.65 104 0
+  name "Carrier-Cage-L1220W1140H864-US24160-003(3)"
+  physics NULL
+}
+Carrier-Cage-L1220W1140H864-US24160-003 {
+  translation 75.33 104 0
+  rotation 0 0 1 3.14159
+  name "Carrier-Cage-L1220W1140H864-US24160-003(4)"
+  physics NULL
+}
+Carrier-Cage-L1220W1140H864-US24160-003 {
+  translation 75.34 104 0.84
+  rotation 0 0 1 3.14159
+  name "Carrier-Cage-L1220W1140H864-US24160-003(5)"
+  physics NULL
+}
+Carrier-Cage-L1220W1140H864-US24160-003 {
+  translation 78 104 0.84
+  rotation 0 0 1 3.14159
+  name "Carrier-Cage-L1220W1140H864-US24160-003(1)"
+  physics NULL
+}
+Carrier-Cage-L1475W2454H1340-US24156-001-blue {
+  translation 72 104 0
+  rotation 0 0 1 -1.57
+  name "Carrier-Cage-L1475W2454H1340-US24156-001-blue(1)"
+  physics NULL
+}

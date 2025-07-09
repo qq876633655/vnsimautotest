@@ -32,6 +32,7 @@ Backup_GetAll_URL = f"{BASE_URL}/api/services/sys/Backup/GetAll"
 Backup_Recovery_URL = f"{BASE_URL}/api/services/sys/Backup/Recovery"
 Backup_Import_URL = f"{BASE_URL}/api/services/sys/Backup/Import"
 Backup_Delete_URL = f"{BASE_URL}/api/services/sys/Backup/Delete"
+Backup_GetOperatingStatus_URL = f"{BASE_URL}/api/services/sys/Backup/GetOperatingStatus"
 # 所有服务获取、停止服务、启动服务
 GetAllServiceInstance_URL = f"{BASE_URL}/api/services/pm/ServiceInstance/GetAllServiceInstance"
 StopInstance_URL = f"{BASE_URL}/api/services/pm/ServiceInstance/StopInstance"
@@ -57,6 +58,9 @@ CtrlTaskStatus_URL = f"{BASE_URL}/api/services/task/Agv/CtrlTaskStatus"
 SetCtrlButton_URL = f"{BASE_URL}/api/services/task/Agv/SetCtrButton"
 # 自动回归
 AutoBackTask_CreateTask_URL = f"{BASE_URL}/api/services/task/AutoBackTask/CreateTask"
+# 当前运行状态信息（终点误差）、当前定位位姿
+CurrentAgvRunStatusInfo_URL = f"{BASE_URL}/api/services/task/Agv/CurrentAgvRunStatusInfo"
+GetCurrentPos_URL = f"{BASE_URL}/api/services/map/Agv/GetCurrentPos"
 GetVehiclePosition_URL = f"{BASE_URL}/api/services/task/Agv/GetVehiclePosition"
 
 # 可能有用的
@@ -306,7 +310,7 @@ class RobotuneOBJ:
 
     def backup_recovery(self, rb_backup_name):
         """
-        触发备份恢复，待恢复项 1 产品定义 2 测试实施 4 通用参数 8 AGV 配置文件
+        触发备份恢复，待恢复项 1 产品定义 2 测试实施 4 通用参数 8 AGV配置文件 16 3dSlam配置 32 感知配置
         universalParameterRecoveryItems 1 2 4 表示 静态参数 标定参数 其他
         :param rb_backup_name: 备份名称
         :return:
@@ -331,9 +335,12 @@ class RobotuneOBJ:
     def backup_status(self):
         """
         查询备份恢复进度是否完成，在该方法成功后必须调用一次 get_all_flow_info
+        0：空闲 1：备份中 2：恢复中
         :return:
         """
-        pass
+        response = self._get(Backup_GetOperatingStatus_URL, '获取备份状态')
+        return response['result']
+
 
     def backup_delete(self, backup_id):
         """
@@ -728,14 +735,14 @@ class RobotuneOBJ:
         """
         if suspend:
             self.ctrl_task_status(0, 0)
-            time.sleep(1)
+            time.sleep(0.1)
         self.set_ctr_button(2)
-        time.sleep(1)
+        time.sleep(0.1)
         if done:
             self.set_ctr_button(4)
-            time.sleep(1)
+            time.sleep(0.1)
         self.set_ctr_button(3)
-        time.sleep(1)
+        time.sleep(0.1)
         my_log.info(f"重置启动成功，suspend={suspend}，done={done}")
 
 
@@ -769,16 +776,29 @@ class RobotuneOBJ:
         """
         # {'x': 90.01, 'y': 153.9842, 'theta': -1.5085, 'speed': 0.0, 'confidency': 0.0,
         #  'creationTime': '2025-06-25 15:26:07:199'}
-        response = self._get(GetVehiclePosition_URL, '获取车体位姿')
+        response = self._get(GetVehiclePosition_URL, '获取车体定位位姿')
         if response['success']:
-            my_log.info("获取车体当前位姿成功")
+            my_log.info("获取车体当前定位位姿成功")
             return response['result']
         else:
-            raise Exception("获取车体当前位姿失败")
+            raise Exception("获取车体当前定位位姿失败")
 
+    def get_map_agv_pose(self):
+        response = self._get(GetCurrentPos_URL, '获取车定位体位姿')
+        if response['success']:
+            my_log.info("获取车体当前定位位姿成功")
+            return response['result']
+        else:
+            raise Exception("获取车体当前定位位姿失败")
 
-    def handle_error_code(self, error_code):
-        pass
+    def get_current_run_info(self):
+        data = {}
+        response = self._post(CurrentAgvRunStatusInfo_URL,data, '获取车体当前运行信息')
+        if response['success']:
+            my_log.info("获取车体当前运行信息成功")
+            return response['result']
+        else:
+            raise Exception("获取车体当前运行信息失败")
 
 
 
@@ -787,7 +807,13 @@ if __name__ == "__main__":
     # stop_robotune()
 
     rb_obj = RobotuneOBJ()
-    print(rb_obj.get_district_info('取放仿真测试分区'))
+    rb_obj.reset_start(done=True)
+    # print(rb_obj.backup_status())
+    # print(type(rb_obj.backup_status()))
+    # print(rb_obj.get_district_info('取放仿真测试分区'))
+    # print(rb_obj.get_agv_pose())
+    # print(rb_obj.get_map_agv_pose())
+    # print(rb_obj.get_current_run_info())
     # rb_obj.backup_import_sim_res()
     # rb_obj.backup_get_all()
     # print(len(rb_obj.backup_lst))

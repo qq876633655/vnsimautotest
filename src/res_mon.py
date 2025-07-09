@@ -4,9 +4,10 @@ import csv
 import time
 import datetime
 import multiprocessing
+from common.log import my_log
 
 class ResourceMonitor:
-    def __init__(self, interval=5):
+    def __init__(self, interval=2):
         self.interval = interval
         self.process_names = [
             "AGVPro",
@@ -20,16 +21,27 @@ class ResourceMonitor:
         self.process = None
         self.stop_event = multiprocessing.Event()
 
+
     def start(self):
-        self.process = multiprocessing.Process(target=self._monitor_loop)
+        parent_pid = os.getpid()
+        self.process = multiprocessing.Process(target=self._monitor_loop, args=(parent_pid,))
         self.process.start()
+        my_log.info(f"资源监控进程开启pid={self.process.pid}，主进程pid={parent_pid}")
 
     def stop(self):
         self.stop_event.set()
         if self.process:
             self.process.join()
+        my_log.info(f"资源监控进程关闭pid={os.getpid()}")
 
-    def _monitor_loop(self):
+    def _is_process_alive(self, pid):
+        try:
+            os.kill(pid, 0)
+        except OSError:
+            return False
+        return True
+
+    def _monitor_loop(self, parent_pid):
         timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
         log_dir = os.path.join("../logs", timestamp)
         os.makedirs(log_dir, exist_ok=True)
@@ -49,10 +61,13 @@ class ResourceMonitor:
 
         try:
             while not self.stop_event.is_set():
+                if not self._is_process_alive(parent_pid):
+                    my_log.info(f"主进程pid={parent_pid}意外关闭，资源监控进程关闭pid={self.process.pid}")
+                    break
                 now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
                 # --- 系统资源 ---
-                cpu = psutil.cpu_percent(interval=1)
+                cpu = psutil.cpu_percent()
                 mem = psutil.virtual_memory().percent
                 disk = psutil.disk_usage('/').percent
                 net_now = psutil.net_io_counters()
@@ -72,7 +87,7 @@ class ResourceMonitor:
                         continue
                     try:
                         with proc.oneshot():
-                            cpu = proc.cpu_percent(interval=1)
+                            cpu = proc.cpu_percent()
                             mem = proc.memory_info().rss / 1024 / 1024
                             io = proc.io_counters()
                             read_mb = io.read_bytes / 1024 / 1024
@@ -104,5 +119,5 @@ class ResourceMonitor:
 if __name__ == '__main__':
     rm = ResourceMonitor()
     rm.start()
-    time.sleep(60)
+    time.sleep(20)
     rm.stop()

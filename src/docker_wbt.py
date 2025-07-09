@@ -10,8 +10,7 @@ import os
 import re
 import shutil
 import time
-
-from src.webots_parser import WebotsParser
+from common.webots_parser import WebotsParser
 from common.log import my_log
 
 
@@ -21,6 +20,23 @@ class DockerWbt(WebotsParser):
         self.wbt_file = wbt_file
         self.flag_start_with_bright_eye = flag_start_with_bright_eye
         self.controller_wbt_lst = []
+
+    def replace_vehicle_node(self, vehicle_robots_path):
+        wp = WebotsParser()
+        wp.load(vehicle_robots_path)
+        src_robot = {}
+        for src_node in wp.content['root']:
+            if src_node['name'] == 'Robot' and src_node['DEF'] == 'RobotNode':
+                src_robot = src_node
+        if src_robot:
+            for idx, dst_node in enumerate(self.content['root']):
+                if dst_node['name'] == 'Robot' and dst_node['DEF'] == 'RobotNode':
+                    self.content['root'][idx] = src_robot.copy()
+                    break
+            self.save(self.wbt_file)
+            my_log.info(f"替换车型node成功：{vehicle_robots_path}")
+        else:
+            my_log.warning(f'没找到待替换车型：{vehicle_robots_path}')
 
     def get_controller_wbt_lst(self):
         for node in self.content["root"]:
@@ -95,7 +111,7 @@ class DockerWbt(WebotsParser):
             if process.returncode != 0:
                 raise BaseException("启动容器异常")
             time.sleep(2)
-            my_log.info("启动容器成功")
+            my_log.info(f"启动容器成功pid={process.pid}")
             for i, cmd in enumerate(wbt_commands):
                 docker_cmd = ["docker", "exec", "-d", "vnsim_dev", "bash", "-c", cmd]
                 subprocess.run(docker_cmd)
@@ -187,17 +203,16 @@ class DockerWbt(WebotsParser):
 
         wp.save(start_wbt_file)
 
-    @staticmethod
-    def stop_docker():
+    def stop_docker(self):
         subprocess.run(['docker', 'stop', 'vnsim_dev'])
-        subprocess.run(["docker", "rm", "vnsim_dev"])
         my_log.info("停止容器vnsim_dev")
-
-    def delete_copy_wbt(self):
         for wbt in self.controller_wbt_lst:
-            os.remove(wbt['wbt_file'])
-            os.remove(wbt['wbproj_file'])
-            my_log.info(f"File deleted successfully to {wbt['wbt_file']}，{wbt['wbproj_file']}")
+            if os.path.exists(wbt['wbt_file']):
+                os.remove(wbt['wbt_file'])
+            if os.path.exists(wbt['wbproj_file']):
+                os.remove(wbt['wbproj_file'])
+            my_log.info(f"删除wbt相关文件： {wbt['wbt_file']}，{wbt['wbproj_file']}")
+
 
 
 def stop_all_docker():
@@ -209,11 +224,15 @@ def stop_all_docker():
 
 
 if __name__ == "__main__":
-    docker_file = r"/home/visionnav/VNSim/vnsimautotest/startDockerAutoTest.sh"
-    wbt_file = r"/home/visionnav/VNSim/vn_wbt_project/auto_test/detect_put_p.wbt"
+    docker_file = r"../startDockerAutoTest.sh"
+    wbt_file = r"/home/visionnav/VNSim/vnsimautotest/test/detect_get_p.wbt"
+    vehicle_robots_path = r"../test/e_35.robots"
     dw_obj = DockerWbt(wbt_file, flag_start_with_bright_eye=False)
     dw_obj.load(dw_obj.wbt_file)
+    # dw_obj.replace_vehicle_node(vehicle_robots_path)
     dw_obj.get_controller_wbt_lst()
     dw_obj.prepare_wbt_file()
     dw_obj.start_docker(docker_file)
+    time.sleep(30)
+    dw_obj.stop_docker()
     # stop_all_docker()

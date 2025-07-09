@@ -15,25 +15,18 @@ response_data_reset = None
 response_data_status = None
 
 
-def on_connect(client, userdata, flags, rc, properties):
-    print("连接成功，订阅切换地图和重定位响应")
-    client.subscribe("agv/v1/c/auto_test/3dSlam/localization/switchMap")
-    client.subscribe("agv/v1/c/auto_test/general/mainControl/resetLocalization")
-
-
-def on_message(client, userdata, msg):
-    global response_data_map, response_data_reset
-    if msg.topic == "agv/v1/c/auto_test/3dSlam/localization/switchMap":
-        response_data_map = json.loads(msg.payload.decode())
-        response_event_map.set()  # 设置事件，表示已接收到切换地图响应
-    elif msg.topic == "agv/v1/c/auto_test/general/mainControl/resetLocalization":
-        response_data_reset = json.loads(msg.payload.decode())
-        response_event_reset.set()  # 设置事件，表示已接收到重定位响应
-
-
-# 切换地图函数
 def switch_map(map_name):
     global response_data_map
+
+    def on_connect(client, userdata, flags, rc, properties):
+        my_log.debug("mqtt订阅切换地图响应成功")
+        client.subscribe("agv/v1/c/auto_test/3dSlam/localization/switchMap")
+
+    def on_message(client, userdata, msg):
+        global response_data_map
+        response_data_map = json.loads(msg.payload.decode())
+        response_event_map.set()  # 设置事件，表示已接收到切换地图响应
+
     current_time = datetime.fromtimestamp(time.time())
     formatted_time = current_time.strftime("%Y-%m-%dT%H:%M:%S.") + str(current_time.microsecond)[:3] + "Z"
     payload = {
@@ -64,9 +57,19 @@ def switch_map(map_name):
         return {"error": "No response or timeout"}
 
 
-# 重置定位函数
 def reset_localization(map_name, rl_x, rl_y, rl_yaw):
     global response_data_reset
+
+    def on_connect(client, userdata, flags, rc, properties):
+        my_log.debug("mqtt订阅重定位响应成功")
+        client.subscribe("agv/v1/c/auto_test/3dSlam/localization/reset")
+
+    def on_message(client, userdata, msg):
+        global response_data_reset
+        response_data_reset = json.loads(msg.payload.decode())
+        # print(response_data_reset)
+        response_event_reset.set()  # 设置事件，表示已接收到重定位响应
+
     current_time = datetime.fromtimestamp(time.time())
     formatted_time = current_time.strftime("%Y-%m-%dT%H:%M:%S.") + str(current_time.microsecond)[:3] + "Z"
     payload = {
@@ -104,7 +107,8 @@ def reset_localization(map_name, rl_x, rl_y, rl_yaw):
     response_event_reset.clear()  # 清除之前的事件状态
     client.connect("localhost", 1883, 60)
     client.loop_start()
-    client.publish("agv/v1/s/general/mainControl/resetLocalization", payload=json.dumps(payload), qos=1)
+    client.publish("agv/v1/s/3dSlam/localization/reset", payload=json.dumps(payload), qos=1)
+    # print(payload)
     response_event_reset.wait(timeout=10)  # 超时 10 秒
     client.loop_stop()
     if response_data_reset:
@@ -122,7 +126,7 @@ def get_localization_status():
     global response_data_status
 
     def on_connect(client, userdata, flags, rc, properties):
-        print("连接成功，订阅 getStatus 响应")
+        my_log.debug("mqtt订阅定位状态响应成功")
         client.subscribe("agv/v1/c/general/3dSlam/localization/getStatus")
 
     def on_message(client, userdata, msg):
@@ -158,9 +162,9 @@ if __name__ == "__main__":
     # 调用切换地图函数并获取响应
     # response1 = switch_map("map_20250603174630")
     # print(response1)
-    response2 = switch_map("map_20250612163448")
-    print(response2)
-    response3 = reset_localization('map_20250612163448', 100, 140, 90)
-    print(response3)
+    # response2 = switch_map("map_20250612163448")
+    # print(response2)
+    # response3 = reset_localization('map_20250612163448', 100, 140, 90)
+    # print(response3)
     response_4 = get_localization_status()
     print(response_4)

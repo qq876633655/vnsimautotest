@@ -1,10 +1,10 @@
-import json
-import time
-from datetime import datetime
-
-import paho.mqtt.client as mqtt
-import threading
-
+# import json
+# import time
+# from datetime import datetime
+#
+# import paho.mqtt.client as mqtt
+# import threading
+#
 # latest_error_code_lst = None
 #
 #
@@ -66,9 +66,15 @@ import threading
 # error_code_listener.py
 
 import json
+import os
+
 import paho.mqtt.client as mqtt
 import threading
+from datetime import datetime
 import time
+
+from common.log import my_log
+
 
 class ErrorCodeSubscriber:
     def __init__(self, broker_host='localhost', broker_port=1883):
@@ -88,14 +94,12 @@ class ErrorCodeSubscriber:
         self.pub_thread.start()
 
     def on_connect(self, client, userdata, flags, rc, properties):
-        print("连接成功，订阅错误码 topic")
+        my_log.info(f"mqtt订阅错误码连接成功，主进程pid={os.getpid()}")
         client.subscribe("agv/v1/c/auto_test/general/diagnosis/getLastDiagnosicInfo")
 
     def on_message(self, client, userdata, msg):
         try:
-            latest_error_code_lst = json.loads(msg.payload.decode())['payload']['errorcodes']
-            # latest_error_code_lst = json.loads(msg.payload.decode())
-            self.latest_error_code = latest_error_code_lst
+            self.latest_error_code = json.loads(msg.payload.decode())['payload']['errorcodes']
         except Exception as e:
             print(f"解析错误码失败: {e}")
 
@@ -124,16 +128,18 @@ class ErrorCodeSubscriber:
 if __name__ == '__main__':
     error_listener = ErrorCodeSubscriber()
 
+
     # 测试主逻辑中实时获取错误码
-    for i in range(10):
+    for i in range(30):
+        print(i)
         error_lst = error_listener.get_latest_error()
         if error_listener.get_latest_error() is None:
             time.sleep(1)
             continue
         advanced_error_lst = [i for i in error_listener.get_latest_error() if i['level'] == 3 or i['level'] == 4]
-
-        print(advanced_error_lst)
+        # print(advanced_error_lst)
         error_code = [error['errorcode'] for error in advanced_error_lst]
         print(error_code)
         # print(f"[{i}] 当前错误码: {j}")
         time.sleep(1)
+    print(f"主进程pid={os.getgid()}")
